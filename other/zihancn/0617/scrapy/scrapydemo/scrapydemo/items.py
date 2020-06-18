@@ -13,4 +13,5 @@ class ScrapydemoItem(scrapy.Item):
     # name = scrapy.Field()
     tag = scrapy.Field()  # 属性
     cont = scrapy.Field()
+    author = scrapy.Field()
     pass
