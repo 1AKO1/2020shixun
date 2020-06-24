@@ -27,7 +27,7 @@ class AiraKaguyaSamaItem(scrapy.Item):
     progress = scrapy.Field()   # 看番进度
     review_id = scrapy.Field()  # 评论id
     likes = scrapy.Field()      # 点赞数
-
+    score = scrapy.Field()      # 评分
     # 我都不知道这字段啥意思， 啥时间啊
     mtime = scrapy.Field()
     ctime = scrapy.Field()
