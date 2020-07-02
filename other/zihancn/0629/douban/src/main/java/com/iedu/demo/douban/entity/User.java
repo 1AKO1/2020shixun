@@ -8,6 +8,7 @@ public class User {
     private String uid;
     private String pwd;
     private  String nickName;
+    private int state;
 
     public User(String uid, String pwd) {
         this.uid = uid;
