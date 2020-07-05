@@ -5,6 +5,8 @@ layui.use(['jquery', 'form', 'table'], function () {
         table = layui.table;
     table.render({
         elem: '#tblResult',
+        page: true,
+        limit: 6,
         cols: [[
             {field: 'uid', title: '用户名', align: 'center'},
             {field: 'nickName', title: '昵称', align: 'center'},
@@ -91,6 +93,9 @@ layui.use(['jquery', 'form', 'table'], function () {
                 'uid': $("#uid").val(),
                 'nickName': $('#nickName').val(),
                 'state': $('#selState').val()
+            },
+            page:{
+                curr: 1
             }
         })
     })
