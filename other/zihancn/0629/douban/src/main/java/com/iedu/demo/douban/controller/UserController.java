@@ -2,6 +2,7 @@ package com.iedu.demo.douban.controller;
 
 import com.iedu.demo.douban.entity.User;
 import com.iedu.demo.douban.service.UserService;
+import com.iedu.demo.douban.tools.Message;
 import com.iedu.demo.douban.tools.TableData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,7 @@ public class UserController {
     @RequestMapping(value = "/login")
     public String login(String uid, String pwd, String nickname) {
 
-        if(service.login(uid,pwd) != null)
+        if (service.login(uid, pwd) != null)
             return "redirect:/html/mainPage.html";
 
 //        System.out.println(uid + ',' + pwd + ',' + nickname);
@@ -38,7 +39,7 @@ public class UserController {
 
     @RequestMapping(value = "/add")
     @ResponseBody
-    public User addUser(User user){
+    public User addUser(User user) {
 
         User newUser = service.addUser(user);
 
@@ -47,16 +48,32 @@ public class UserController {
 
     @RequestMapping(value = "/search")
     @ResponseBody
-    public TableData search(User user){
+    public TableData search(User user, int page, int limit) {
 
         TableData data = new TableData();
-        List<User> result = service.search(user);
+        List<User> result = service.search(user, page, limit);
         data.setCode(0);
         data.setMsg("");
-        data.setCount(result.size());
+        data.setCount(service.searchCount(user));
         data.setData(result);
 
         return data;
+    }
+
+    @RequestMapping(value = "/pwdreset")
+    @ResponseBody
+    public Object pwdReset(int id) {
+
+        Message msg = new Message();
+
+        msg.setError(true);
+        msg.setContent("服务器错误");
+
+        if (service.resetPwd(id)) {
+            msg.setError(false);
+            msg.setContent("密码已更新");
+        }
+        return null;
     }
 
 }
