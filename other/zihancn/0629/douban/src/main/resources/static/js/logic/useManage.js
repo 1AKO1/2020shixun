@@ -81,6 +81,9 @@ layui.use(['jquery', 'form', 'table', 'layer'], function () {
         if ('info' === obj.event) {
             alert('用户详情 -uid:' + obj.data.uid + ", ID:" + obj.data.id);
         }
+        if('disable' === obj.event) {
+            alert('屏蔽用户  -  uid：' + obj.data.uid + ", ID：" + obj.data.id);
+        }
 
     });
 
