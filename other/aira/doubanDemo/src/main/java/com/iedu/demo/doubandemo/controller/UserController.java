@@ -6,8 +6,11 @@ import com.iedu.demo.doubandemo.tools.Message;
 import com.iedu.demo.doubandemo.tools.TableData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
@@ -19,17 +22,22 @@ import java.util.List;
 * */
 @Controller
 @RequestMapping("/logic/user")
+@SessionAttributes("currentUser")
 public class UserController {
 
     @Autowired
     private UserService service;
 
     @RequestMapping("/login")
-    public String login(String uid, String pwd, String nickName){
+    public String login(String uid, String pwd, String nickName, Model model){
 
-        if(service.login(uid, pwd) != null)
+        User currentUser = service.login(uid, pwd);
+        if(currentUser != null) {
+            model.addAttribute("currentUser", currentUser);
             return "redirect:/html/mainPage.html";
-        return "redirect:/html/login.html";
+        }else {
+            return "redirect:/html/login.html";
+        }
     }
 
     @RequestMapping(value = "/add")
@@ -69,5 +77,17 @@ public class UserController {
             msg.setContent("密码已更新");
         }
         return msg;
+    }
+
+    @RequestMapping("/currentUser")
+    @ResponseBody
+    public User currentUser(Model model){
+        User currentUser = (User) model.getAttribute("currentUser");
+        System.out.println(model  + "------------------------------------model");
+        if(currentUser != null){
+            return currentUser;
+        }
+
+        return currentUser;
     }
 }

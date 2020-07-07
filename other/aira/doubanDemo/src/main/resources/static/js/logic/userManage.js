@@ -1,8 +1,9 @@
-layui.use(['jquery', 'form', 'table'], function () {
+layui.use(['jquery', 'form', 'table', 'layer'], function () {
 
     var $ = layui.jquery,
         form = layui.form,
         table = layui.table;
+        layer = layui.layer;
     table.render({
         elem: '#tblResult',
         page: true,
