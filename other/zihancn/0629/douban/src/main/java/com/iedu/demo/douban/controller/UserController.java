@@ -6,8 +6,10 @@ import com.iedu.demo.douban.tools.Message;
 import com.iedu.demo.douban.tools.TableData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping; //调用类网络化
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.management.openmbean.TabularData;
 import javax.swing.text.TabableView;
@@ -21,20 +23,33 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/logic/user")
+@SessionAttributes("currentUser")
 public class UserController {
 
     @Autowired
     private UserService service;
 
     @RequestMapping(value = "/login")
-    public String login(String uid, String pwd, String nickname) {
+    public String login(String uid, String pwd, String nickname, Model model) {
 
-        if (service.login(uid, pwd) != null)
+       User currentUser = service.login(uid,pwd);
+       if (currentUser != null){
+            model.addAttribute("currentUser",currentUser);
             return "redirect:/html/mainPage.html";
+       }
 
 //        System.out.println(uid + ',' + pwd + ',' + nickname);
 
         return "redirect:/html/login.html";
+    }
+
+    @RequestMapping("/currentUser")
+    @ResponseBody
+    public User currentUser(Model model){
+        User currentUser = (User) model.getAttribute("currentUser");
+        if (currentUser != null)
+            return currentUser;
+        return null;
     }
 
     @RequestMapping(value = "/add")
