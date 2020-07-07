@@ -29,8 +29,11 @@ public class UserController {
     @ResponseBody
     public Message login(String uid, String pwd, Model model){
         System.out.println("uid: " + uid +", pwd:" + pwd);
+
         User currentUser = service.login(uid, pwd);
         Message message = new Message();
+        System.out.println(currentUser);
+
         if(currentUser != null) {
             model.addAttribute("currentUser", currentUser);
 //            return "redirect:/html/mainPage.html";

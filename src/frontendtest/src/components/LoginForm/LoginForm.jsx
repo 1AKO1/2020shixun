@@ -1,6 +1,9 @@
 import React from "react"
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, Button} from 'antd';
 import axios from 'axios'
+import Qs from 'qs'
+import {Link} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 
 const layout = {
     labelCol: { span: 8 },
@@ -10,7 +13,7 @@ const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
 };
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     const [form] = Form.useForm();
 
     const onFinish = values => {
@@ -23,16 +26,23 @@ const LoginForm = () => {
 
     const OnSubmit = () => { // 这是我自己写的提交函数
         let data = form.getFieldsValue();
-        console.log(data);
-        axios.post("http://localhost:8080/logic/user/login",JSON.stringify({
-            uid : data.uid,
-            pwd : data.pwd
-        })).then(function (response) {
-            console.log(response);
-        }).catch(function (error) {
-            console.log(error);
+        data = Qs.stringify({
+            "uid": data.uid,
+            "pwd": data.pwd
         })
+        console.log(JSON.stringify(data));
+    //     axios.post("http://localhost:8080/logic/user/login",data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}).then(function (response) {
+    //         console.log(response);
+    //     }).catch(function (error) {
+    //         console.log(error);
+    //     })
+        //假装我请求成功了
+        // BrowserRouter.push("/mainpage");
+        // const history = createBrowserHistory();
+        // history.push("/mainpage")
+        window.location.href = '#/mainpage';
     }
+
 
     return (
         <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
@@ -50,6 +60,7 @@ const LoginForm = () => {
                 <Button htmlType="button" onClick={onReset}>
                     重置
                 </Button>
+                <Link to="/register">注册</Link>
             </Form.Item>
         </Form>
     );

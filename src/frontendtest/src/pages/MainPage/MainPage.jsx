@@ -72,6 +72,7 @@ export default class MainPage extends React.Component {
                         minHeight: 280,
                     }}
                     >
+
                     </Content>
                     <Content
                         className="site-layout-background"
