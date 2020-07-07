@@ -1,5 +1,8 @@
 @import '~antd/dist/antd.css';
 
+.ant-layout{
+    height: 100%;
+}
 #components-layout-demo-custom-trigger .trigger {
     font-size: 18px;
     line-height: 64px;
@@ -12,7 +15,7 @@
     color: #1890ff;
 }
 
-#components-layout-demo-custom-trigger .logo {
+#components-layout-demo-custom-trigger{
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
@@ -25,6 +28,8 @@
     color: white;
     font-weight: bolder;
     font-size: 24px;
+    height: 75px;
+    overflow: hidden;
 }
 .trigger{
     margin-left: 16px;

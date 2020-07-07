@@ -7,10 +7,7 @@ import com.iedu.demo.doubandemo.tools.TableData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,15 +26,22 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("/login")
-    public String login(String uid, String pwd, String nickName, Model model){
-
+    @ResponseBody
+    public Message login(String uid, String pwd, Model model){
+        System.out.println("uid: " + uid +", pwd:" + pwd);
         User currentUser = service.login(uid, pwd);
+        Message message = new Message();
         if(currentUser != null) {
             model.addAttribute("currentUser", currentUser);
-            return "redirect:/html/mainPage.html";
+//            return "redirect:/html/mainPage.html";
+            message.setContent("登陆成功");
+            message.setError(false);
         }else {
-            return "redirect:/html/login.html";
+            message.setContent("登陆失败");
+            message.setError(true);
+//            return "redirect:/html/login.html";
         }
+        return message;
     }
 
     @RequestMapping(value = "/add")

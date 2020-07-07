@@ -4,8 +4,11 @@ import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
+    SyncOutlined,
+    ChromeOutlined,
+    SlackOutlined,
+    DribbbleOutlined,
+    AimOutlined
 } from '@ant-design/icons';
 import './MainPage.css'
 import Logo from '../../logo.svg'
@@ -29,26 +32,26 @@ export default class MainPage extends React.Component {
             <Layout>
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
                     <div className="logo">
-                        <img src={Logo} alt="logo" style={{width: 75, height: 75, marginRight: 20}}/>
-                        {this.state.collapsed ? null : "React"}
+                            <img src={Logo} alt="logo" style={{width: 75, height: 75, marginRight: 20}}/>
+                            {this.state.collapsed ? null : "React"}
                     </div>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                         <Menu.Item key="main" icon={<UserOutlined />}>
                             项目主页
                         </Menu.Item>
-                        <SubMenu  key="DuanZ" icon={<VideoCameraOutlined />} title="段总">
+                        <SubMenu  key="DuanZ" icon={<DribbbleOutlined spin/>} title="段总">
                             <Menu.Item key="10">数据表单</Menu.Item>
                         </SubMenu>
-                        <SubMenu  key="LiuZ" icon={<UploadOutlined />}title="刘总">
+                        <SubMenu  key="LiuZ" icon={<AimOutlined spin/>}title="刘总">
                             <Menu.Item key="20">数据表单</Menu.Item>
                         </SubMenu>
-                        <SubMenu  key="LiaoZ" icon={<UploadOutlined />} title="廖总">
+                        <SubMenu  key="LiaoZ" icon={<SlackOutlined spin/>} title="廖总">
                             <Menu.Item key="30">数据表单</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="XueZ" icon={<UploadOutlined />} title="薛总">
+                        <SubMenu key="XueZ" icon={<ChromeOutlined spin/>} title="薛总">
                             <Menu.Item key="40">数据表单</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="LDD" icon={<UploadOutlined />} title="李弟弟">
+                        <SubMenu key="LDD" icon={<SyncOutlined spin />} title="李弟弟">
                             <Menu.Item key="50">数据表单</Menu.Item>
                         </SubMenu>
                     </Menu>
@@ -68,18 +71,7 @@ export default class MainPage extends React.Component {
                         padding: 24,
                         minHeight: 280,
                     }}
-                >
-
-                </Content>
-                    <Content
-                        className="site-layout-background"
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            minHeight: 280,
-                        }}
                     >
-                        Content
                     </Content>
                     <Content
                         className="site-layout-background"
@@ -89,7 +81,15 @@ export default class MainPage extends React.Component {
                             minHeight: 280,
                         }}
                     >
-                        Content
+                    </Content>
+                    <Content
+                        className="site-layout-background"
+                        style={{
+                            margin: '24px 16px',
+                            padding: 24,
+                            minHeight: 280,
+                        }}
+                    >
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>@队友说的都队</Footer>
                 </Layout>
