@@ -12,7 +12,8 @@ import {
 } from '@ant-design/icons';
 import './MainPage.css'
 import Logo from '../../logo.svg'
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
+import Main from "../Main/Main";
 const { SubMenu } = Menu;
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -72,7 +73,8 @@ export default class MainPage extends React.Component {
                         minHeight: 280,
                     }}
                     >
-
+                        <Route path="/mainpage/main" exact component={Main} />
+                        <Route path="/mainpage/" />
                     </Content>
                     <Content
                         className="site-layout-background"
