@@ -1,5 +1,5 @@
 <template>
-    
+    <div>主</div>
 </template>
 
 <script>
