@@ -77,13 +77,16 @@
             >
                 <router-view></router-view>
             </a-layout-content>
-            <a-layout-content
-                    :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
-            >
-                Content
-            </a-layout-content>
         </a-layout>
+        <div id="components-back-top-demo-custom">
+            <a-back-top>
+                <div class="ant-back-top-inner">
+                    UP
+                </div>
+            </a-back-top>
+        </div>
     </a-layout>
+
 </template>
 
 <script>
@@ -131,5 +134,20 @@
         font-size: 24px;
         height: 75px;
         overflow: hidden;
+    }
+
+    /*back to the top*/
+    #components-back-top-demo-custom .ant-back-top {
+        bottom: 100px;
+    }
+    #components-back-top-demo-custom .ant-back-top-inner {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+        background-color: #fb7299;
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
     }
 </style>

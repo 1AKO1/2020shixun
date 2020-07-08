@@ -1,5 +1,5 @@
 <template>
-    
+    <div>右上角</div>
 </template>
 
 <script>
