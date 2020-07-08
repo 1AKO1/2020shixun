@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-form">
+    <ul>
+        <li>用户名：<input type="text" id="uid" name="uid" /></li>
+        <li>密码：<input type="password" id="pwd" name="pwd" /></li>
+        <li>重复密码：<input type="password" id="rePwd" name="rePwd" /></li>
+        <li>昵称：<input type="text" id="nickName" name="nickName" /></li>
+        <li><button id="btnSave" class="layui-tbn" lay-submit lay-filter="saveAndCommit">注册</button></li>
+    </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="/js/layui/layui.all.js"></script>
+<script type="text/javascript" src="/js/logic/addUser.js"></script>
