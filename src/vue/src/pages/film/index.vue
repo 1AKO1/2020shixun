@@ -1,10 +1,10 @@
 <template>
-    <div>woc</div>
+    <div>源哥index</div>
 </template>
 
 <script>
     export default {
-        name: "hha"
+        name: "index"
     }
 </script>
 
