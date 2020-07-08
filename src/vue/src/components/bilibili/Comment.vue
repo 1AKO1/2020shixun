@@ -32,9 +32,10 @@
             {{commonInfo.content}}
         </p>
         <a-tooltip slot="datetime" >
-            <span>{{commonInfo.time}}</span>
+            <span>{{translate(commonInfo.ctime)}} - {{commonInfo.progress}}</span>
         </a-tooltip>
     </a-comment>
+
 </template>
 <script>
     import moment from 'moment';
@@ -51,12 +52,15 @@
         },
         methods: {
             like(num) {
-                this.likes = num+1;
+                this.likes = num + 1;
                 this.action = 'liked';
             },
             dislike() {
                 this.action = 'disliked';
             },
-        },
-    };
+            translate(date) {
+                return new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+            }
+        }
+    }
 </script>

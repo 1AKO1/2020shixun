@@ -11,7 +11,7 @@ public class Comment {
     private String uname;
     private String content;
     private int likes;
-    private String time;
+    private String ctime;
     private String progress;
     private int score;
 }
