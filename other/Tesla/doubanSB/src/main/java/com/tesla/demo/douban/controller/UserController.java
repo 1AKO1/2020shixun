@@ -1,18 +1,34 @@
 package com.tesla.demo.douban.controller;
 
+import com.tesla.demo.douban.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RequestMapping("/logic/user")
 @Controller
-
+@RequestMapping("/logic/user")
 public class UserController {
 
-    @RequestMapping("/login")
+    @Autowired
+    private UserService service;
+
+    @RequestMapping(value = "/login")
     public String login(String uid, String pwd, String nickName) {
 
-        System.out.println("欢迎！" + nickName + "，您的用户ID是" + uid + "，请牢记您的密码：" + pwd);
-
-        return "mainPage";
+        if(service.login(uid, pwd) != null)
+            return "redirect:/html/mainPage.html";
+        else
+            return "redirect:/html/login.html";
     }
+
+//    @RequestMapping(value = "/add")
+//    @RequestBody
+//    public User addUser(User user) {
+//
+//        User newUser = service.addUser(user);
+//
+//        return newUser;
+//    }
 }

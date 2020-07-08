@@ -16,8 +16,9 @@ mybatis:
     cache-enabled: true
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
     map-underscore-to-camel-case: true
-  type-aliases-package: com.iedu.demo.doubandemo.entity
+  type-aliases-package: com.tesla.demo.douban.entity
+
 
 logging:
   level:
-    com.iedu.demo.doubandemo.dao: debug
+    com.tesla.demo.douban.dao: debug
