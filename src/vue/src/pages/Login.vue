@@ -118,7 +118,7 @@
                     uid: this.userName,
                     pwd: this.userPassword
                 });
-                this.$router.push("/mainpage")
+                // this.$router.push("/mainpage") 不知道哪位大神在这边加了一个跳转 BY 薛某
                 axios.post('http://localhost:8080/logic/user/login', data,
                     { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).then(response => {
@@ -144,7 +144,7 @@
     .container {
         width: 100%;
         min-height: 100%;
-        /*background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;*/
+        background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;
         background-size: 100%;
         padding: 260px 0 218px;
         position: relative;
