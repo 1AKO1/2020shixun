@@ -1,100 +1,105 @@
 <template>
-    <a-layout id="components-layout-demo-custom-trigger">
-        <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-            <div class="logo">
-                <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
+    <div>
+        <a-layout id="components-layout-demo-custom-trigger">
+            <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
+                <div class="logo">
+                    <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
 
-            </div>
-            <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
+                </div>
+                <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
 
-                <a-menu-item key="main" >
-                    <a-icon type="user" />
-                    <span>项目主页</span>
-                </a-menu-item>
+                    <a-menu-item key="main" v-on:click="directTo('main')">
+                        <a-icon type="user" />
+                        <span>项目主页</span>
+                    </a-menu-item>
 
-                <a-sub-menu key="10">
+                    <a-sub-menu key="10">
                     <span slot="title">
                         <a-icon type="dribbble" spin/>
                         <span>豆瓣电影</span>
                     </span>
-                    <a-menu-item key="film" v-on:click="directTo('film')">
-                        Option 5
-                    </a-menu-item>
-                </a-sub-menu>
+                        <a-menu-item key="film" v-on:click="directTo('film')">
+                            Option 5
+                        </a-menu-item>
+                    </a-sub-menu>
 
-                <a-sub-menu key="20">
+                    <a-sub-menu key="20">
                     <span slot="title">
                         <a-icon type="reload" spin/>
                         <span>豆瓣音乐</span>
                     </span>
-                    <a-menu-item key="music" v-on:click="directTo('music')">
-                        Option 5
-                    </a-menu-item>
-                </a-sub-menu>
+                        <a-menu-item key="music" v-on:click="directTo('music')">
+                            Option 5
+                        </a-menu-item>
+                    </a-sub-menu>
 
-                <a-sub-menu key="30">
+                    <a-sub-menu key="30">
                     <span slot="title">
                         <a-icon type="compass" spin/>
                         <span>豆瓣图书</span>
                     </span>
-                    <a-menu-item key="book" v-on:click="directTo('book')">
-                        Option 5
-                    </a-menu-item>
-                </a-sub-menu>
+                        <a-menu-item key="book" v-on:click="directTo('book')">
+                            Option 5
+                        </a-menu-item>
+                    </a-sub-menu>
 
-                <a-sub-menu key="40">
+                    <a-sub-menu key="40">
                     <span slot="title">
                         <a-icon type="chrome" spin/>
                         <span>当当图书</span>
                     </span>
-                    <a-menu-item key="dang" v-on:click="directTo('dang')">
-                        Option 5
-                    </a-menu-item>
-                </a-sub-menu>
+                        <a-menu-item key="dang" v-on:click="directTo('dang')">
+                            Option 5
+                        </a-menu-item>
+                    </a-sub-menu>
 
-                <a-sub-menu key="50">
+                    <a-sub-menu key="50">
                     <span slot="title">
                         <a-icon type="sync" spin />
                         <span>bilibili评论</span>
                     </span>
-                    <a-menu-item key="bilibili" v-on:click="directTo('bilibili')">
-                        Option 5
-                    </a-menu-item>
-                </a-sub-menu>
+                        <a-menu-item key="bilibili" v-on:click="directTo('bilibili')">
+                            评论数据
+                        </a-menu-item>
+                    </a-sub-menu>
 
-            </a-menu>
-        </a-layout-sider>
-        <a-layout>
-            <a-layout-header style="background: #fff; padding: 0">
-                <a-icon
-                        class="trigger"
-                        :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-                        @click="() => (collapsed = !collapsed)"
-                />
-            </a-layout-header>
-            <a-layout-content
-                    :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
-            >
-                <router-view></router-view>
-            </a-layout-content>
+                </a-menu>
+            </a-layout-sider>
+            <a-layout>
+                <a-layout-header style="background: #fff; padding: 0">
+                    <a-icon
+                            class="trigger"
+                            :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+                            @click="() => (collapsed = !collapsed)"
+                    />
+                    <UserInfo class="user-info"/>
+                </a-layout-header>
+                <a-layout-content
+                        :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
+                >
+                    <router-view></router-view>
+                </a-layout-content>
+            </a-layout>
+            <div id="components-back-top-demo-custom">
+                <a-back-top>
+                    <div class="ant-back-top-inner">
+                        UP
+                    </div>
+                </a-back-top>
+            </div>
         </a-layout>
-        <div id="components-back-top-demo-custom">
-            <a-back-top>
-                <div class="ant-back-top-inner">
-                    UP
-                </div>
-            </a-back-top>
-        </div>
-    </a-layout>
+    </div>
+
 
 </template>
 
 <script>
     import router from "../router";
+    import UserInfo from "../components/UserInfo";
 
     export default {
         name: "MainPage",
-
+        components: {UserInfo},
         data() {
             return {
                 collapsed: false,
@@ -149,5 +154,8 @@
         color: #fff;
         text-align: center;
         font-size: 20px;
+    }
+    .user-info{
+        position: absolute;
     }
 </style>
