@@ -1,5 +1,6 @@
 package com.tgu.team04.analysis.controller;
 
+import com.tgu.team04.analysis.entity.LogMessage;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +16,9 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("/login")
-    public User login(String uid, String pwd){
-        User user =service.login(uid, pwd);
-        if (user != null){
-            user.setMessage("登录成功");
-        }
-        else{
-            user.setMessage("登陆失败");
-        }
-
-        return user;
+    public LogMessage login(String uid, String pwd){
+        LogMessage logMessage =service.login(uid, pwd);
+        return logMessage;
     }
 
     @RequestMapping(value = "/add")
