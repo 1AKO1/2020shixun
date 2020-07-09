@@ -6,6 +6,7 @@ import com.iedu.demo.doubandemo.tools.TestUtility;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 public class test2 {
     /**
@@ -18,6 +19,7 @@ public class test2 {
         System.out.println("=======" +CORPUS_FOLDER);
         IClassifier classifier = new NaiveBayesClassifier(); // 创建分类器，更高级的功能请参考IClassifier的接口定义
         classifier.train(CORPUS_FOLDER);                     // 训练后的模型支持持久化，下次就不必训练了
+
         predict(classifier, "太垃圾了");
         predict(classifier, "这部番我吹爆，四宫辉夜天下第一");
         predict(classifier, "剧情一般，人设一般");

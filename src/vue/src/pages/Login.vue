@@ -62,6 +62,10 @@
 
                     >登录
                     </a-button>
+                    没有账号？
+                    <a href="">
+                        立即注册！
+                    </a>
                 </a-form-item>
 
                 <!--                <div class="user-login-other">-->
@@ -122,8 +126,13 @@
                 axios.post('http://localhost:8080/logic/user/login', data,
                     { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).then(response => {
-                    data = response.data.data;
-                    console.log(data);
+                    data = response.data;
+                    if (1000 === data.code){
+                        this.$router.push("/mainpage")
+                    }
+                    else {
+                        alert("账号或密码错误")
+                    }
                 }).catch( error => {
                     console.log(error)
                 })
@@ -143,7 +152,7 @@
 <style lang="less" scoped>
     .container {
         width: 100%;
-        min-height: 100%;
+        height: 100%;
         background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;
         background-size: 100%;
         padding: 260px 0 218px;
