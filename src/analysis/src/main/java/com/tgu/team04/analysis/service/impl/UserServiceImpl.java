@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService {
         if (user != null && user.getState()==1){
             logMessage.setCode(1000);
             logMessage.setMes("登录成功");
+            return logMessage;
         }
 
         logMessage.setCode(2000);
