@@ -58,9 +58,11 @@
                     <a-button
                             size="large"
                             type="primary"
+                            :loading="iconLoading"
                             htmlType="submit"
                             class="login-button"
                             @click="login"
+
 
                     >登录
                     </a-button>
@@ -108,15 +110,16 @@
             return {
                 form: this.$form.createForm(this),
                 isLoginError: false,
-                // loginAccount: null,
                 userName: null,
-                userPassword: null
-                // userPassword: null,
-
+                userPassword: null,
+                iconLoading: false
             }
         },
         methods: {
+
+
             login: function () {
+                this.iconLoading = { delay: 10 };
                 let data = qs.stringify({
                     uid: this.userName,
                     pwd: this.userPassword
