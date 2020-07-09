@@ -13,6 +13,7 @@ import java.util.List;
 public interface FilmMapper {
     @Select("select *" +
             "from bdcy_douban_movie " +
+            "order by score " +
             "limit #{start}, #{limit};")
     List<FilmComment> selectCommentList(@Param("start") int start, @Param("limit") int limit);
 }
