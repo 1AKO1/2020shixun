@@ -142,14 +142,6 @@
                 }).catch(error => {
                     console.log(error);
                 })
-                //     .then(function (dat) {
-                //     if (dat.data === "0")
-                //         alert("用户不存在或密码错误")
-                //     else if (dat.data === "2")
-                //         router.$router.push("/mainpage")
-                // }).catch(function () {
-                //     console.log("传输失败")
-                // })
             }
         }
     }
