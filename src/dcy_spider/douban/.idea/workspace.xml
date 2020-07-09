@@ -1,126 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7239864-69ed-4539-950f-46f8c6aef888" name="Default Changelist" comment="" />
+    <list default="true" id="c7239864-69ed-4539-950f-46f8c6aef888" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/ScrapyPro/FirstScr/.idea/FirstScr.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/ScrapyPro/FirstScr/qsbk/.idea/qsbk.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/ScrapyPro/Practice/.idea/Practice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/font/iconfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/rate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/transfer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/layui/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/logic/addUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/js/logic/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/java/com/tesla/demo/douban/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/java/com/tesla/demo/douban/dao/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/java/com/tesla/demo/douban/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/java/com/tesla/demo/douban/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/html/addUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../other/Tesla/doubanSB/src/main/resources/static/html/addUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1071688203">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="66" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="66" />
-        </counts>
-      </usages-collector>
-    </session>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/items.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-              <folding>
-                <marker date="1538981374115" expanded="true" signature="183:184" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="107" column="21" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spiders/movie.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/items.py" />
-        <option value="$PROJECT_DIR$/spiders/movie.py" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="100" />
-    <option name="y" value="23" />
-    <option name="width" value="1421" />
-    <option name="height" value="877" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="douban" type="b2602c69:ProjectViewProjectNode" />
-              <item name="douban" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="douban" type="b2602c69:ProjectViewProjectNode" />
-              <item name="douban" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
+  <component name="ProjectId" id="1eRQH4g61aUMTaqfyvixErio21j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../spt/douban" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
@@ -147,66 +164,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538981085549</updated>
+      <workItem from="1594281837080" duration="259000" />
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="100" y="23" width="1421" height="877" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="SciView" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding>
-            <marker date="1538981374115" expanded="true" signature="183:184" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="107" column="21" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spiders/movie.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
