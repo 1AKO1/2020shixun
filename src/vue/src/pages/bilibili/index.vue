@@ -43,15 +43,13 @@
                 data = response.data.data;
                 this.commentList = data;
                 console.log(data)
+
             }).catch((error) => {
                 console.log(error)
             })
         },
         methods: {
             IwantMore:function(page, limit){
-                console.log(this);
-                console.log("kaitou");
-                var _this = this;
                 let data = qs.stringify({
                     page: page,
                     limit: limit
@@ -59,9 +57,9 @@
                 axios.post("http://localhost:8080/bilibili/commentlist", data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
                     .then( response => {
                         data = response.data.data;
-                        console.log(_this);
+                        console.log(this);
                         console.log(data);
-                        _this.commentList = _this.commentList.concat(data);
+                        this.commentList = this.commentList.concat(data);
 
                     }).catch( error => {
                     console.log(error)

@@ -7,7 +7,7 @@
             </div>
             <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
 
-                <a-menu-item key="main" >
+                <a-menu-item key="main" v-on:click="directTo('main')">
                     <a-icon type="user" />
                     <span>项目主页</span>
                 </a-menu-item>
@@ -58,7 +58,7 @@
                         <span>bilibili评论</span>
                     </span>
                     <a-menu-item key="bilibili" v-on:click="directTo('bilibili')">
-                        Option 5
+                        评论数据
                     </a-menu-item>
                 </a-sub-menu>
 
