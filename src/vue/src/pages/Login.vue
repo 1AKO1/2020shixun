@@ -52,6 +52,8 @@
                         <a-icon slot="prefix" type="lock" :style="{color: 'rgb(24,144,255)'}"/>
                     </a-input>
                 </a-form-item>
+
+                <a href="/#/register">👴🏼👴👴🏿👴🏾👴🏽👴🏼要注册</a>
                 <a-form-item style="margin-top: 24px;">
                     <a-button
                             size="large"
@@ -98,6 +100,7 @@
     import axios from 'axios'
     // import router from "../router";
     import qs from 'qs';
+    // import router from "../router";
 
     export default {
         name: 'login',
@@ -106,8 +109,8 @@
                 form: this.$form.createForm(this),
                 isLoginError: false,
                 // loginAccount: null,
-                userName:null,
-                userPassword:null
+                userName: null,
+                userPassword: null
                 // userPassword: null,
 
             }
@@ -120,18 +123,25 @@
                 });
                 // this.$router.push("/mainpage") 不知道哪位大神在这边加了一个跳转 BY 薛某
                 axios.post('http://localhost:8080/logic/user/login', data,
-                    { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).then(response => {
-                    data = response.data.data;
+                    {
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).then(response => {
+                    data = response.data;
                     console.log(data);
-                }).catch( error => {
-                    console.log(error)
+                    // console.log(typeof (data.code));
+                    if (data.code === 1000) {
+                        console.log("登录成功");
+                        this.$router.push("/mainpage");
+                    } else if (data.code === 2000)
+                        alert("用户不存在或密码错误");
+                }).catch(error => {
+                    console.log(error);
                 })
                 //     .then(function (dat) {
                 //     if (dat.data === "0")
                 //         alert("用户不存在或密码错误")
                 //     else if (dat.data === "2")
-                //         router.push("/mainpage")
+                //         router.$router.push("/mainpage")
                 // }).catch(function () {
                 //     console.log("传输失败")
                 // })
