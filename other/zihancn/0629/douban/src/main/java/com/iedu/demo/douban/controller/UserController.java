@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping; //调用类网络化
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.management.openmbean.TabularData;
@@ -31,16 +32,18 @@ public class UserController {
 
     @RequestMapping(value = "/login")
     public String login(String uid, String pwd, String nickname, Model model) {
-
+//        System.out.println("uid"+uid+"pwd"+pwd);
        User currentUser = service.login(uid,pwd);
        if (currentUser != null){
             model.addAttribute("currentUser",currentUser);
-            return "redirect:/html/mainPage.html";
+//            return "redirect:/html/mainPage.html";
+           return "2";
        }
 
 //        System.out.println(uid + ',' + pwd + ',' + nickname);
 
-        return "redirect:/html/login.html";
+//        return "redirect:/html/login.html";
+        return "0";
     }
 
     @RequestMapping("/currentUser")

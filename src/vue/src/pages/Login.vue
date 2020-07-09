@@ -52,13 +52,17 @@
                         <a-icon slot="prefix" type="lock" :style="{color: 'rgb(24,144,255)'}"/>
                     </a-input>
                 </a-form-item>
+
+                <a href="/#/register">👴🏼👴👴🏿👴🏾👴🏽👴🏼要注册</a>
                 <a-form-item style="margin-top: 24px;">
                     <a-button
                             size="large"
                             type="primary"
+                            :loading="iconLoading"
                             htmlType="submit"
                             class="login-button"
                             @click="login"
+
 
                     >登录
                     </a-button>
@@ -98,6 +102,7 @@
     import axios from 'axios'
     // import router from "../router";
     import qs from 'qs';
+    // import router from "../router";
 
     export default {
         name: 'login',
@@ -105,33 +110,41 @@
             return {
                 form: this.$form.createForm(this),
                 isLoginError: false,
-                // loginAccount: null,
-                userName:null,
-                userPassword:null
-                // userPassword: null,
-
+                userName: null,
+                userPassword: null,
+                iconLoading: false
             }
         },
         methods: {
+
+
             login: function () {
+                this.iconLoading = { delay: 10 };
                 let data = qs.stringify({
                     uid: this.userName,
                     pwd: this.userPassword
                 });
-                this.$router.push("/mainpage")
+                // this.$router.push("/mainpage") 不知道哪位大神在这边加了一个跳转 BY 薛某
                 axios.post('http://localhost:8080/logic/user/login', data,
-                    { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).then(response => {
-                    data = response.data.data;
+                    {
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).then(response => {
+                    data = response.data;
                     console.log(data);
-                }).catch( error => {
-                    console.log(error)
+                    // console.log(typeof (data.code));
+                    if (data.code === 1000) {
+                        console.log("登录成功");
+                        this.$router.push("/mainpage");
+                    } else if (data.code === 2000)
+                        alert("用户不存在或密码错误");
+                }).catch(error => {
+                    console.log(error);
                 })
                 //     .then(function (dat) {
                 //     if (dat.data === "0")
                 //         alert("用户不存在或密码错误")
                 //     else if (dat.data === "2")
-                //         router.push("/mainpage")
+                //         router.$router.push("/mainpage")
                 // }).catch(function () {
                 //     console.log("传输失败")
                 // })
@@ -144,7 +157,7 @@
     .container {
         width: 100%;
         min-height: 100%;
-        /*background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;*/
+        background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;
         background-size: 100%;
         padding: 260px 0 218px;
         position: relative;
