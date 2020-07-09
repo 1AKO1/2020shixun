@@ -119,7 +119,7 @@
 
 
             login: function () {
-                this.iconLoading = { delay: 10 };
+                this.iconLoading = {delay: 10};
                 let data = qs.stringify({
                     uid: this.userName,
                     pwd: this.userPassword
@@ -135,8 +135,10 @@
                     if (data.code === 1000) {
                         console.log("登录成功");
                         this.$router.push("/mainpage");
-                    } else if (data.code === 2000)
+                    } else if (data.code === 2000) {
                         alert("用户不存在或密码错误");
+                        window.location.reload();
+                    }
                 }).catch(error => {
                     console.log(error);
                 })
