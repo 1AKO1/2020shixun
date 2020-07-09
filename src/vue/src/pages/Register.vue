@@ -128,7 +128,7 @@
                     <a-input
                             size="large"
                             type="text"
-                            v-model="nickName"
+                            v-model="userAge"
                             placeholder="请输入年龄"
                             v-decorator="[
                                 'userAge',
@@ -186,9 +186,8 @@
                 userGender:null,
                 userEmail:null,
                 userAddress:null,
-                userAge:null
+                userAge:null,
                 // userPassword: null,
-
             }
         },
         methods: {
@@ -204,9 +203,10 @@
                     address: this.userAddress,
                     sex: this.userGender,
                     age: this.userAge
+
                 });
                 // this.$router.push("/mainpage") 不知道哪位大神在这边加了一个跳转 BY 薛某
-                axios.post('http://localhost:8080/logic/user/register', data,
+                axios.post('http://localhost:8080/logic/user/add', data,
                     { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                     }).then(response => {
                     data = response.data;
