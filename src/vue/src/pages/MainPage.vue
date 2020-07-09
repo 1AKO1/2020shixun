@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a-layout id="components-layout-demo-custom-trigger">
+        <a-layout id="components-layout-demo-custom-trigger" :style="contentStyleObj">
             <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
                 <div class="logo">
                     <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
@@ -65,6 +65,8 @@
 
                 </a-menu>
             </a-layout-sider>
+
+
             <a-layout>
                 <a-layout-header style="background: #fff; padding: 0">
                     <a-icon
@@ -72,14 +74,18 @@
                             :type="collapsed ? 'menu-unfold' : 'menu-fold'"
                             @click="() => (collapsed = !collapsed)"
                     />
-                    <UserInfo class="user-info"/>
+                    <div style="position: absolute; top: 0; right: 20px">
+                        <UserInfo class="user-info"/>
+                    </div>
                 </a-layout-header>
+
                 <a-layout-content
                         :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
                 >
                     <router-view></router-view>
                 </a-layout-content>
             </a-layout>
+
             <div id="components-back-top-demo-custom">
                 <a-back-top>
                     <div class="ant-back-top-inner">
@@ -103,13 +109,28 @@
         data() {
             return {
                 collapsed: false,
+                contentStyleObj:{
+                    minHeight:''
+                }
             };
         },
         methods: {
             directTo(target){ // 页面跳转
                 console.log(target);
                 router.push("/mainpage/"+target)
+            },
+            getHeight(){
+                this.contentStyleObj.minHeight=window.innerHeight+'px';
             }
+        },
+
+        created(){
+            window.addEventListener('resize', this.getHeight);
+            this.getHeight()
+        },
+
+        destroyed(){
+            window.removeEventListener('resize', this.getHeight)
         }
     }
 </script>
@@ -156,6 +177,6 @@
         font-size: 20px;
     }
     .user-info{
-        position: absolute;
+        right: 10px;
     }
 </style>

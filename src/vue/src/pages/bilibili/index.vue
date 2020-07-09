@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-bottom: 10px">
         <a-page-header
                 style="border-bottom: 1px solid rgb(235, 237, 240)"
                 title="评论数据"
