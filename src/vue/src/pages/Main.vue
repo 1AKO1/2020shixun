@@ -1,10 +1,16 @@
 <template>
-    <div>项目主页</div>
+    <div>
+        <Echarts />
+    </div>
 </template>
 
 <script>
+    import Echarts from "../components/Echarts"
     export default {
-        name: "Main"
+        name: "Main",
+        components:{
+            Echarts
+        }
     }
 </script>
 
