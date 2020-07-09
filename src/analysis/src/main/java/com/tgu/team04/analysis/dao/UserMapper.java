@@ -1,14 +1,12 @@
 package com.tgu.team04.analysis.dao;
 
 import com.tgu.team04.analysis.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
+@Mapper
 public interface UserMapper {
 
     @Select("select * from user where uid = #{uid} and pwd = #{pwd}")
