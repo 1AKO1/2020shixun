@@ -4,7 +4,6 @@ import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,12 +15,16 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("/login")
-    public String login(String uid, String pwd){
+    public User login(String uid, String pwd){
+        User user =service.login(uid, pwd);
+        if (user != null){
+            user.setMessage("登录成功");
+        }
+        else{
+            user.setMessage("登陆失败");
+        }
 
-        if (service.login(uid, pwd) != null)
-            return "redirect:/html/index.html";
-
-        return "redirect:/html/login.html";
+        return user;
     }
 
     @RequestMapping(value = "/add")

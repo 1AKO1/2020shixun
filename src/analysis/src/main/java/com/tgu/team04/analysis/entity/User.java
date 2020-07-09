@@ -13,15 +13,7 @@ public class User {
     private String address;
     private String sex;
     private int age;
+    private int state;
+    private String message;
 
-    public User(String pwd2, String uid, String pwd, String nickName, String email, String address, String sex, int age) {
-        this.uid = uid;
-        this.pwd = pwd;
-        this.nickName = nickName;
-        this.email = email;
-        this.address = address;
-        this.sex = sex;
-        this.age = age;
-        this.pwd2 = pwd2;
-    }
 }

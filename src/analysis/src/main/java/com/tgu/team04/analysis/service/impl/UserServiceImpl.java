@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     public User login(String uid, String pwd) {
 
         User user = mapper.login(uid,pwd);
-        if (user != null)
+        if (user != null && user.getState()==1)
             return user;
         return null;
     }
@@ -29,17 +29,20 @@ public class UserServiceImpl implements UserService {
     public User register(User user) {
 
         if (mapper.selectByUid(user.getUid()) != null){
-            user.setId(-40);
+            user.setMessage("用户名重复");
+            user.setState(0);
             return user;
         }
 
         if (!user.getPwd().equals(user.getPwd2())){
-            user.setId(-30);
+            user.setMessage("两次密码输入不一致");
+            user.setState(0);
             return user;
         }
 
         if (user.getAge() <= 10 || user.getAge() >= 70){
-            user.setId(-10);
+            user.setMessage("年龄错误");
+            user.setState(0);
             return user;
         }
 
@@ -49,13 +52,15 @@ public class UserServiceImpl implements UserService {
         pattern = Pattern.compile(rule);
         matcher = pattern.matcher(user.getEmail());
         if (user.getEmail()!=null && !matcher.matches()){
-            user.setId(-20);
+            user.setMessage("邮箱格式错误");
+            user.setState(0);
             return user;
         }
 
 
-
+        user.setState(1);
         mapper.register(user);
+        user.setMessage("注册成功");
         return user;
 
     }
