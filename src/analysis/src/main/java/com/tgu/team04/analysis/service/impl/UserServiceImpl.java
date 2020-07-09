@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     public User login(String uid, String pwd) {
 
         User user = mapper.login(uid,pwd);
-        if (user != null)
+        if (user != null && user.getState()==1)
             return user;
         return null;
     }
@@ -58,9 +58,8 @@ public class UserServiceImpl implements UserService {
         }
 
 
-
-        mapper.register(user);
         user.setState(1);
+        mapper.register(user);
         user.setMessage("注册成功");
         return user;
 
