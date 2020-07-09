@@ -52,20 +52,20 @@
                         <a-icon slot="prefix" type="lock" :style="{color: 'rgb(24,144,255)'}"/>
                     </a-input>
                 </a-form-item>
+
+                <a href="/#/register">👴🏼👴👴🏿👴🏾👴🏽👴🏼要注册</a>
                 <a-form-item style="margin-top: 24px;">
                     <a-button
                             size="large"
                             type="primary"
+                            :loading="iconLoading"
                             htmlType="submit"
                             class="login-button"
                             @click="login"
 
+
                     >登录
                     </a-button>
-                    没有账号？
-                    <a href="">
-                        立即注册！
-                    </a>
                 </a-form-item>
 
                 <!--                <div class="user-login-other">-->
@@ -102,6 +102,7 @@
     import axios from 'axios'
     // import router from "../router";
     import qs from 'qs';
+    // import router from "../router";
 
     export default {
         name: 'login',
@@ -109,15 +110,16 @@
             return {
                 form: this.$form.createForm(this),
                 isLoginError: false,
-                // loginAccount: null,
-                userName:null,
-                userPassword:null
-                // userPassword: null,
-
+                userName: null,
+                userPassword: null,
+                iconLoading: false
             }
         },
         methods: {
+
+
             login: function () {
+                this.iconLoading = {delay: 10};
                 let data = qs.stringify({
                     uid: this.userName,
                     pwd: this.userPassword
@@ -127,23 +129,18 @@
                     { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).then(response => {
                     data = response.data;
-                    if (1000 === data.code){
-                        this.$router.push("/mainpage")
+                    console.log(data);
+                    // console.log(typeof (data.code));
+                    if (data.code === 1000) {
+                        console.log("登录成功");
+                        this.$router.push("/mainpage");
+                    } else if (data.code === 2000) {
+                        alert("用户不存在或密码错误");
+                        window.location.reload();
                     }
-                    else {
-                        alert("账号或密码错误")
-                    }
-                }).catch( error => {
-                    console.log(error)
+                }).catch(error => {
+                    console.log(error);
                 })
-                //     .then(function (dat) {
-                //     if (dat.data === "0")
-                //         alert("用户不存在或密码错误")
-                //     else if (dat.data === "2")
-                //         router.push("/mainpage")
-                // }).catch(function () {
-                //     console.log("传输失败")
-                // })
             }
         }
     }

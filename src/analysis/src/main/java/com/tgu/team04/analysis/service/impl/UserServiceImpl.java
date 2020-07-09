@@ -1,15 +1,11 @@
 package com.tgu.team04.analysis.service.impl;
 
 import com.tgu.team04.analysis.dao.UserMapper;
-import com.tgu.team04.analysis.entity.LogMessage;
+import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,47 +14,56 @@ public class UserServiceImpl implements UserService {
     private UserMapper mapper;
 
     @Override
-    public LogMessage login(String uid, String pwd) {
+    public TableData login(String uid, String pwd) {
+
         User user = mapper.login(uid,pwd);
-        LogMessage logMessage = new LogMessage();
+        TableData data = new TableData();
         if (user != null && user.getState()==1){
-            logMessage.setCode(1000);
-            logMessage.setMes("登录成功");
-            return logMessage;
+            data.setCode(1000);
+            data.setMsg("登录成功");
+            data.setData(null);
+            return data;
         }
 
-        logMessage.setCode(2000);
-        logMessage.setMes("登陆失败");
-        return logMessage;
+        data.setCode(2000);
+        data.setMsg("登录失败");
+        data.setData(null);
+        return data;
     }
 
     @Override
-    public User register(User user) {
+    public TableData register(User user) {
 
+            TableData data = new TableData();
         if (mapper.selectByUid(user.getUid()) != null){
-            user.setState(0);
-            return user;
+            data.setCode(2000);
+            data.setData(null);
+            data.setMsg("用户名已存在");
+            return data;
         }
 
-        if (user.getAge() <= 10 || user.getAge() >= 70){
-            user.setState(0);
-            return user;
-        }
-
-        String rule = "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?";
-        Pattern pattern;
-        Matcher matcher;
-        pattern = Pattern.compile(rule);
-        matcher = pattern.matcher(user.getEmail());
-        if (user.getEmail()!=null && !matcher.matches()){
-            user.setState(0);
-            return user;
-        }
+//        if (user.getAge() <= 10 || user.getAge() >= 70){
+//            user.setState(0);
+//            return user;
+//        }
+//
+//        String rule = "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?";
+//        Pattern pattern;
+//        Matcher matcher;
+//        pattern = Pattern.compile(rule);
+//        matcher = pattern.matcher(user.getEmail());
+//        if (user.getEmail()!=null && !matcher.matches()){
+//            user.setState(0);
+//            return user;
+//        }
 
 
         user.setState(1);
         mapper.register(user);
-        return user;
+        data.setMsg("注册成功");
+        data.setCode(1000);
+        data.setData(null);
+        return data;
 
     }
 }

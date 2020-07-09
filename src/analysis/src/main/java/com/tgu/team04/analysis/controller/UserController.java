@@ -1,6 +1,6 @@
 package com.tgu.team04.analysis.controller;
 
-import com.tgu.team04.analysis.entity.LogMessage;
+import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +17,16 @@ public class UserController {
 
     @RequestMapping("/login")
     @ResponseBody
-    public LogMessage login(String uid, String pwd){
-        LogMessage logMessage =service.login(uid, pwd);
-        return logMessage;
+    public TableData login(String uid, String pwd){
+        TableData data =service.login(uid, pwd);
+        return data;
     }
 
     @RequestMapping(value = "/add")
     @ResponseBody
-    public User register(User user){
-        User newUser = service.register(user);
-        return newUser;
+    public TableData register(User user){
+        TableData data = service.register(user);
+        return data;
     }
 }
 
