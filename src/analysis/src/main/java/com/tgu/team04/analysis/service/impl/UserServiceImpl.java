@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LogMessage login(String uid, String pwd) {
-
         User user = mapper.login(uid,pwd);
         LogMessage logMessage = new LogMessage();
         if (user != null && user.getState()==1){

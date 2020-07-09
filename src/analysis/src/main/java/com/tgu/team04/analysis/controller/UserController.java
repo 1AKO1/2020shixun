@@ -16,6 +16,7 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("/login")
+    @ResponseBody
     public LogMessage login(String uid, String pwd){
         LogMessage logMessage =service.login(uid, pwd);
         return logMessage;
