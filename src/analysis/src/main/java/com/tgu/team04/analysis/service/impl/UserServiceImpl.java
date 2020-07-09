@@ -21,11 +21,13 @@ public class UserServiceImpl implements UserService {
         if (user != null && user.getState()==1){
             data.setCode(1000);
             data.setMsg("登录成功");
+            data.setData(null);
             return data;
         }
 
         data.setCode(2000);
         data.setMsg("登录失败");
+        data.setData(null);
         return data;
     }
 
@@ -35,6 +37,7 @@ public class UserServiceImpl implements UserService {
             TableData data = new TableData();
         if (mapper.selectByUid(user.getUid()) != null){
             data.setCode(2000);
+            data.setData(null);
             data.setMsg("用户名已存在");
             return data;
         }
@@ -59,6 +62,7 @@ public class UserServiceImpl implements UserService {
         mapper.register(user);
         data.setMsg("注册成功");
         data.setCode(1000);
+        data.setData(null);
         return data;
 
     }
