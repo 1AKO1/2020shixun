@@ -224,7 +224,6 @@
                     let data = response.data.data;
                     for (var index in data){
                         let comment = data[index]
-                        console.log(comment)
                         array = array.concat({
                             key: comment.id,
                             uname: comment.uname,
@@ -242,7 +241,7 @@
 
             },
             nextPage(pagination){
-                this.current = pagination.current;
+                this.page = pagination.current;
                 // 和上面的函数一样
                 const data = qs.stringify({
                     uname: this.uname,
@@ -258,7 +257,6 @@
                         let data = response.data.data;
                         for (var index in data){
                             let comment = data[index]
-                            console.log(comment)
                             array = array.concat({
                                 key: comment.id,
                                 uname: comment.uname,
@@ -274,6 +272,7 @@
                     console.log(error)
                 })
             },
+
             translate(date) { // 时间戳转日期
                 return new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
             }
