@@ -73,7 +73,7 @@
                     <a-select-option value="看到PV">
                         看到PV
                     </a-select-option>
-                    <a-select-option value="看到角色印象PV" >
+                    <a-select-option value="看到角色歌印象PV" >
                         看到角色印象PV
                     </a-select-option>
                     <a-select-option value="看到第1话" >

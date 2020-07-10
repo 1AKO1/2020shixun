@@ -1,6 +1,7 @@
 package com.tgu.team04.analysis.controller;
 
 import com.tgu.team04.analysis.entity.AiraComment;
+import com.tgu.team04.analysis.entity.AiraSimpleData;
 import com.tgu.team04.analysis.entity.OneData;
 import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.service.AiraService;
@@ -65,11 +66,34 @@ public class AiraController {
         System.out.println("page: " + page + ", limit: " + limit);
         TableData data = new TableData();
         List<AiraComment> result = service.searchByOption(comment, page, limit);
-        if (result != null){
+        if (result != null && result.size() != 0){
             data.setCode(1000);
             data.setMsg("查询成功");
             data.setCount(service.searchCount(comment));
             data.setData(result);
+        }else {
+            data.setCode(2000);
+            data.setMsg("查询失败");
+            data.setCount(0);
+            data.setData(null);
+        }
+        return data;
+    }
+
+    @RequestMapping("/simpleAnalysis")
+    @ResponseBody
+    public TableData simpleAnalysis(String type){
+        TableData data = new TableData();
+        List<AiraSimpleData> result = service.simpleAnalysis(type);
+
+        if (result != null){
+            data.setCode(1000);
+            data.setMsg("查询成功");
+            data.setData(result);
+        }else {
+            data.setCode(2000);
+            data.setMsg("查询失败");
+            data.setData(null);
         }
         return data;
     }
