@@ -8,4 +8,11 @@ import java.util.List;
 
 public interface FilmService {
     List<FilmComment> search(int page, int limit);
+
+    int totalNumber();
+
+    int movieLength();
+
+    int peopleNumber();
+
 }
