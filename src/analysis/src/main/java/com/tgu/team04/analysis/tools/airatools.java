@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class test2 {
+public class airatools {
     /**
      * 中文情感挖掘语料-ChnSentiCorp 谭松波
      */

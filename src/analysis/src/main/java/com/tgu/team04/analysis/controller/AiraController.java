@@ -5,6 +5,7 @@ import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.service.AiraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,4 +38,5 @@ public class AiraController {
         }
         return data;
     }
+
 }
