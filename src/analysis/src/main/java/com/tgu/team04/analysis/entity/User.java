@@ -11,6 +11,6 @@ public class User {
     private String email;
     private String address;
     private String sex;
-    private int age;
+    private Integer age;
     private int state;
 }
