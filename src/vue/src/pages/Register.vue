@@ -247,10 +247,16 @@
         background: #f0f2f5 url(../assets/login.svg) no-repeat ;
         background-size: 100%;
         padding: 30px 0 218px;
+        top:50%;
+        transform:translateY(-50%);
+        /*position: relative;*/
         position: absolute;
+
+
 
         .top {
             text-align: center;
+
 
             .header {
                 height: 44px;
@@ -287,6 +293,8 @@
             min-width: 260px;
             width: 368px;
             margin: 0 auto;
+
+
 
             .user-layout-login {
                 label {
