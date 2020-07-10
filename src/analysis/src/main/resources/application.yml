@@ -20,4 +20,4 @@ mybatis:
 
 logging:
   level:
-    com.iedu.demo.doubandemo.dao: debug
+    com.tgu.team04.analysis.dao: debug

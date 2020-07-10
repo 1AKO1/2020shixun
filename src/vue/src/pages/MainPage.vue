@@ -79,7 +79,7 @@
                             评论查询
                         </a-menu-item>
                         <a-menu-item key="bilibiliAnalysis" v-on:click="directTo('bilibiliAnalysis')">
-                            数据分析
+                            评论分析
                         </a-menu-item>
                     </a-sub-menu>
 

@@ -3,6 +3,7 @@ package com.tgu.team04.analysis.service.impl;
 
 import com.tgu.team04.analysis.dao.AiraMapper;
 import com.tgu.team04.analysis.entity.AiraComment;
+import com.tgu.team04.analysis.entity.AiraSimpleData;
 import com.tgu.team04.analysis.service.AiraService;
 import com.tgu.team04.analysis.tools.AiraTools;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,21 @@ public class AiraServiceImpl implements AiraService {
     @Override
     public int searchCount(AiraComment comment) {
         return mapper.countSelectByWhere(comment);
+    }
+
+    @Override
+    public List<AiraSimpleData> simpleAnalysis(String type) {
+        if (type == null)  return null;
+        switch (type){
+            case "vipStatus":
+                return mapper.simpleAnalysisVipStatus();
+            case "progress":
+                return mapper.simpleAnalysisProgress();
+            case "score":
+                return mapper.simpleAnalysisScore();
+        }
+
+        return null;
     }
 
 
