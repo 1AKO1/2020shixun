@@ -33,4 +33,26 @@ public class FilmController {
         }
         return data;
     }
+
+    @RequestMapping("/totalnumber")
+    @ResponseBody
+    public int totalNumber(){
+        int countTotal = filmservice.totalNumber();
+        return countTotal;
+    }
+
+    @RequestMapping("/movielength")
+    @ResponseBody
+    public int movieLength(){
+        int movielength = filmservice.movieLength();
+        return movielength;
+    }
+
+    @RequestMapping("/peoplenumber")
+    @ResponseBody
+    public int peopleNumber(){
+        int peoplenumber = filmservice.peopleNumber();
+        return peoplenumber;
+    }
+
 }
