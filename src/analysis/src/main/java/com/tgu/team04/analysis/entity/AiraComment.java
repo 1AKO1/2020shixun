@@ -12,4 +12,5 @@ public class AiraComment {
     private String ctime;
     private String progress;
     private int score;
+    private int vipStatus;
 }

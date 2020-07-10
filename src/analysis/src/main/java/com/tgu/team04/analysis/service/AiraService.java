@@ -8,4 +8,8 @@ public interface AiraService {
     List<AiraComment> search(int page, int limit);
 
     int getScore(String comment);
+
+    List<AiraComment> searchByOption(AiraComment comment, int page, int limit);
+
+    int searchCount(AiraComment comment);
 }
