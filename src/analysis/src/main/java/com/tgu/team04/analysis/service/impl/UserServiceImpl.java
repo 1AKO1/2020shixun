@@ -7,6 +7,8 @@ import com.tgu.team04.analysis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -65,6 +67,35 @@ public class UserServiceImpl implements UserService {
         data.setData(null);
         return data;
 
+    }
+
+    @Override
+    public List<User> search(User user, int page, int limit) {
+
+        if (user!=null && !"".equals(user.getUid().trim()))
+            user.setUid("%"+user.getUid()+"%");
+
+        if (user!=null && !"".equals(user.getNickName().trim()))
+            user.setNickName("%"+user.getNickName()+"%");
+        if (page>0 && limit>0)
+            return mapper.selectByWhere(user, (page-1)*limit, limit);
+
+        return mapper.selectByWhere(user, null, null);
+    }
+
+    @Override
+    public boolean pwdReset(int id) {
+
+        String defaultPwd="0000";
+        if (mapper.updatePwd(id,defaultPwd)==1)
+            return true;
+
+        return false;
+    }
+
+    @Override
+    public int searchCount(User user) {
+        return mapper.countSeletcByWhere(user);
     }
 }
 
