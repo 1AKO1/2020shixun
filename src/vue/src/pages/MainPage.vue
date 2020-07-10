@@ -1,6 +1,8 @@
 <template>
     <div>
+<!--        组件-->
         <a-layout id="components-layout-demo-custom-trigger" :style="contentStyleObj">
+
             <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
                 <div class="logo">
                     <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
@@ -19,7 +21,10 @@
                         <span>豆瓣电影</span>
                     </span>
                         <a-menu-item key="film" v-on:click="directTo('film')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="filmAnalysis" v-on:click="directTo('filmAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -29,7 +34,10 @@
                         <span>豆瓣音乐</span>
                     </span>
                         <a-menu-item key="music" v-on:click="directTo('music')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="musicAnalysis" v-on:click="directTo('musicAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -39,7 +47,10 @@
                         <span>豆瓣图书</span>
                     </span>
                         <a-menu-item key="book" v-on:click="directTo('book')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="bookAnalysis" v-on:click="directTo('bookAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -49,7 +60,10 @@
                         <span>当当图书</span>
                     </span>
                         <a-menu-item key="dang" v-on:click="directTo('dang')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="dangAnalysis" v-on:click="directTo('dangAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -60,6 +74,12 @@
                     </span>
                         <a-menu-item key="bilibili" v-on:click="directTo('bilibili')">
                             评论数据
+                        </a-menu-item>
+                        <a-menu-item key="bilibiliSearch" v-on:click="directTo('bilibiliSearch')">
+                            评论查询
+                        </a-menu-item>
+                        <a-menu-item key="bilibiliAnalysis" v-on:click="directTo('bilibiliAnalysis')">
+                            数据分析
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -86,6 +106,7 @@
                 </a-layout-content>
             </a-layout>
 
+<!--            组件-->
             <div id="components-back-top-demo-custom">
                 <a-back-top>
                     <div class="ant-back-top-inner">

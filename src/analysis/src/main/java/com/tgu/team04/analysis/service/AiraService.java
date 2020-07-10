@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface AiraService {
     List<AiraComment> search(int page, int limit);
+
+    int getScore(String comment);
 }

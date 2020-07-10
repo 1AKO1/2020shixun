@@ -37,10 +37,12 @@
     </a-comment>
 
 </template>
+
 <script>
     import moment from 'moment';
     export default {
         name: 'Comment',
+
         props: ["commonInfo"],
         data() {
             return {
@@ -64,3 +66,4 @@
         }
     }
 </script>
+

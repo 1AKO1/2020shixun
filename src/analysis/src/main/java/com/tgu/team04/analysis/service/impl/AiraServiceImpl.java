@@ -4,6 +4,7 @@ package com.tgu.team04.analysis.service.impl;
 import com.tgu.team04.analysis.dao.AiraMapper;
 import com.tgu.team04.analysis.entity.AiraComment;
 import com.tgu.team04.analysis.service.AiraService;
+import com.tgu.team04.analysis.tools.AiraTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +25,18 @@ public class AiraServiceImpl implements AiraService {
         }
         return null;
     }
+
+    @Override
+    public int getScore(String comment) {
+        AiraTools airaTools = new AiraTools();
+        int score = 0;
+        try {
+            score = airaTools.MyClassifier(comment);
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+        return score;
+    }
+
+
 }
