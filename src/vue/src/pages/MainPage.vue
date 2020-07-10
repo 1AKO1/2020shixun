@@ -1,6 +1,8 @@
 <template>
     <div>
+<!--        组件-->
         <a-layout id="components-layout-demo-custom-trigger" :style="contentStyleObj">
+
             <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
                 <div class="logo">
                     <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
@@ -86,6 +88,7 @@
                 </a-layout-content>
             </a-layout>
 
+<!--            组件-->
             <div id="components-back-top-demo-custom">
                 <a-back-top>
                     <div class="ant-back-top-inner">
