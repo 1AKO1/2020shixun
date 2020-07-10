@@ -23,7 +23,9 @@ public class AiraController {
     public TableData commentList(Integer page, Integer limit){
         TableData data = new TableData();
         System.out.println("page: " + page + ", limit: " + limit);
+
         List<AiraComment> result = service.search((int)page, (int)limit);
+
         if (result != null){
             data.setCode(1000);
             data.setMsg("查询成功");
