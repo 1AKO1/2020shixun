@@ -38,5 +38,24 @@ public class AiraServiceImpl implements AiraService {
         return score;
     }
 
+    @Override
+    public List<AiraComment> searchByOption(AiraComment comment, int page, int limit) {
+        if (comment.getUname() != null && !"".equals(comment.getUname().trim())){
+            comment.setUname("%" + comment.getUname() + "%");
+        }
+        if(comment.getContent() != null && !"".equals(comment.getContent().trim())){
+            comment.setContent("%" + comment.getContent() + "%");
+        }
+        if (page > 0 && limit > 0){
+            return mapper.selectByWhere(comment, (page - 1)*limit, limit);
+        }
+        return mapper.selectByWhere(comment, null, null);
+    }
+
+    @Override
+    public int searchCount(AiraComment comment) {
+        return mapper.countSelectByWhere(comment);
+    }
+
 
 }

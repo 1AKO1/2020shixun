@@ -53,4 +53,25 @@ public class AiraController {
         return oneData;
     }
 
+    @RequestMapping("/search")
+    @ResponseBody
+    public TableData search(String uname, String content, int vipStatus, String progress, int page, int limit){
+        AiraComment comment = new AiraComment();
+        comment.setUname(uname.length() == 0 ? null : uname);
+        comment.setContent(content.length() == 0 ? null : content);
+        comment.setVipStatus(vipStatus);
+        comment.setProgress(progress);
+        System.out.println(comment);
+        System.out.println("page: " + page + ", limit: " + limit);
+        TableData data = new TableData();
+        List<AiraComment> result = service.searchByOption(comment, page, limit);
+        if (result != null){
+            data.setCode(1000);
+            data.setMsg("查询成功");
+            data.setCount(service.searchCount(comment));
+            data.setData(result);
+        }
+        return data;
+    }
+
 }

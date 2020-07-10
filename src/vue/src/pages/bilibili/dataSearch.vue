@@ -31,7 +31,7 @@
                     :wrapper-col="formItemLayout.wrapperCol"
             >
 
-                <a-select default-value="-1" style="width: 120px" @change="vipChange">
+                <a-select default-value="全部查询" style="width: 120px" @change="vipChange">
                     <a-select-option value="-1">
                         全部查询
                     </a-select-option>
@@ -54,8 +54,8 @@
                     :wrapper-col="formItemLayout.wrapperCol"
             >
 
-                <a-select default-value="-1" style="width: 120px" @change="progressChange">
-                    <a-select-option value="-1">
+                <a-select default-value="全部查询" style="width: 120px" @change="progressChange">
+                    <a-select-option value="'all'">
                         全部查询
                     </a-select-option>
                     <a-select-option value="没看">
@@ -115,12 +115,12 @@
         </a-form>
 
 <!--        数据列表-->
-        <a-table :columns="columns" :data-source="data" :loading="loading" v-on:change="getPage">
+        <a-table :columns="columns" :data-source="data" :loading="loading" v-on:change="nextPage" :pagination = "pagination">
             <a slot="name" slot-scope="text">{{ text }}</a>
             <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
             <span slot="tags" slot-scope="tags">
                 <a-tag
-                    color="pink"
+                    :color=" tags === '普通用户'? '#00a1d6' : tags === '大会员' ? '#fb7299' : '#ff5c7c'"
                 >
                     {{ tags }}
                 </a-tag>
@@ -130,6 +130,9 @@
 </template>
 
 <script>
+    import qs from "qs";
+    import axios from "axios"
+
     const columns = [
         {
             title: '用户名',
@@ -152,151 +155,11 @@
             dataIndex: 'progress',
             key: 'progress',
         },
-    ];
-
-    const data = [
         {
-            key: '1',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
+            title: '评论日期',
+            dataIndex: 'date',
+            key: 'date',
         },
-        {
-            key: '2',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '3',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '4',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '5',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '6',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '7',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '8',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '9',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '10',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '11',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '12',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '13',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '14',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '15',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '16',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '17',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '18',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '19',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-        {
-            key: '20',
-            uname: 'B站网友',
-            content: "恶心人！看番体验极差！每周都得熬夜看，看的时候还跟个蛆似的扭来扭去，嘴角一直不明原因抽搐，看完嘴都发酸！半个小时都静不下来！严重影响我的睡眠！大家千万不要跟节奏看！这番极易诱发糖尿病，失眠，甚至面瘫！",
-            tags: "大会员",
-            progress: '看到PV'
-        },
-
-
     ];
 
 
@@ -307,14 +170,17 @@
                 // 查询数据
                 uname: null,
                 content: null,
-                progress: -1,   // 起初保存默认值
+                progress: 'all',   // 起初保存默认值
                 vipStatus: -1,  // 都是全部查询
                 // 表格数据
-                data,
+                data: [],
                 columns,
                 loading: false,
-                current: 1,
-                pageSize: 10
+                page: 1,
+                limit: 10,
+                pagination:{
+                    total: 0,
+                }
             }
         },
         computed:{
@@ -344,17 +210,72 @@
                 this.progress = e;
             },
             handleSubmit(){
-                const data = {
+                const data = qs.stringify({
                     uname: this.uname,
                     content: this.content,
                     vipStatus: this.vipStatus,
-                    progress: this.progress
-                }
-                console.log(data)
+                    progress: this.progress,
+                    page: this.page,
+                    limit: this.limit
+                })
+                let array = []; // 保存处理后的查询结果
+                axios.post("http://localhost:8080/bilibili/search", data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                .then(response => {
+                    let data = response.data.data;
+                    for (var index in data){
+                        let comment = data[index]
+                        console.log(comment)
+                        array = array.concat({
+                            key: comment.id,
+                            uname: comment.uname,
+                            content: comment.content,
+                            tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
+                            progress: comment.progress,
+                            date: this.translate(comment.ctime)
+                        })
+                    }
+                    this.pagination.total = response.data.count
+                    this.data = array
+                }).catch(error => {
+                    console.log(error)
+                })
+
             },
-            getPage(pagination){
+            nextPage(pagination){
                 this.current = pagination.current;
-                console.log(this.current)
+                // 和上面的函数一样
+                const data = qs.stringify({
+                    uname: this.uname,
+                    content: this.content,
+                    vipStatus: this.vipStatus,
+                    progress: this.progress,
+                    page: this.page,
+                    limit: this.limit
+                })
+                let array = []; // 保存处理后的查询结果
+                axios.post("http://localhost:8080/bilibili/search", data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                    .then(response => {
+                        let data = response.data.data;
+                        for (var index in data){
+                            let comment = data[index]
+                            console.log(comment)
+                            array = array.concat({
+                                key: comment.id,
+                                uname: comment.uname,
+                                content: comment.content,
+                                tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
+                                progress: comment.progress,
+                                date: this.translate(comment.ctime)
+                            })
+                        }
+                        this.pagination.total = response.data.count
+                        this.data = array
+                    }).catch(error => {
+                    console.log(error)
+                })
+            },
+            translate(date) { // 时间戳转日期
+                return new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
             }
         }
     }
