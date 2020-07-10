@@ -8,11 +8,7 @@
         />
 
         <MyButton  />
-        <hr/>
-            <a-button block v-for="item in list" v-bind:key="item.id"  v-on:click="test(item.msg)">
-                {{ item.msg }}
-            </a-button>
-        <hr/>
+
         <a-button block>
             加载更多
         </a-button>
@@ -22,7 +18,7 @@
 
 <!--一些属性和方法-->
 <script>
-    import MyButton from '../../components/button'
+    import MyButton from '../../components/MyButton'
     export default {
         name: "index",
         components:{
