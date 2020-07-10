@@ -63,26 +63,26 @@ public class UserController {
 
     @RequestMapping(value="/search")
     @ResponseBody
-    public TableData search(User user, int page, int limit){
+    public TableData search(String uid,String nickName,int state , int page, int limit){
         TableData data = new TableData();
-        List<User> res =service.search(user, page, limit);
+        List<User> res =service.search(uid, nickName, state, page, limit);
         data.setCode(1000);
         data.setMsg("");
         data.setData(res);
-
+        data.setCount(service.searchCount(uid, nickName, state));
         return data;
     }
 
     @RequestMapping(value = "pwdreset")
     @ResponseBody
-    public OneData pwdReset(int id){
+    public OneData pwdReset(int id, String newPwd){
         OneData data = new OneData();
 
             data.setCode(2000);
             data.setMsg("修改失败");
             data.setData(null);
 
-            if (service.pwdReset(id)==true){
+            if (service.pwdReset(id,newPwd)==true){
                 data.setCode(1000);
                 data.setMsg("修改成功");
             }

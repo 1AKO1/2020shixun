@@ -10,10 +10,9 @@ public interface UserService {
 
     TableData register(User user);
 
-    List<User> search(User user, int page, int limit);
+    List<User> search(String uid, String nickName,int state, int page, int limit);
 
-    boolean pwdReset(int id);
+    boolean pwdReset(int id, String newPwd);
 
-    int searchCount(User user);
-
+    int searchCount(String uid, String nickName, int state);
 }
