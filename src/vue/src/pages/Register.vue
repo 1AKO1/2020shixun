@@ -236,13 +236,18 @@
 
 </script>
 <style lang="less" scoped>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
     .container {
         width: 100%;
         height: 100%;
-        background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;
+        background: #f0f2f5 url(../assets/login.svg) no-repeat ;
         background-size: 100%;
-        padding: 260px 0 218px;
-        position: relative;
+        padding: 30px 0 218px;
+        position: absolute;
 
         .top {
             text-align: center;
