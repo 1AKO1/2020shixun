@@ -6,7 +6,7 @@ import com.tgu.team04.analysis.entity.User;
 import java.util.List;
 
 public interface UserService {
-    TableData login(String uid, String pwd);
+    User login(String uid, String pwd);
 
     TableData register(User user);
 

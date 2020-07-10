@@ -16,21 +16,13 @@ public class UserServiceImpl implements UserService {
     private UserMapper mapper;
 
     @Override
-    public TableData login(String uid, String pwd) {
+    public User login(String uid, String pwd) {
 
         User user = mapper.login(uid,pwd);
-        TableData data = new TableData();
-        if (user != null && user.getState()==1){
-            data.setCode(1000);
-            data.setMsg("登录成功");
-            data.setData(null);
-            return data;
-        }
+        if (user == null || user.getState()==0)
+            user=null;
 
-        data.setCode(2000);
-        data.setMsg("登录失败");
-        data.setData(null);
-        return data;
+        return user;
     }
 
     @Override

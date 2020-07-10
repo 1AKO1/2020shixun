@@ -60,6 +60,6 @@ public interface UserMapper {
             "   </if>"+
             "</where>" +
             "</script>")
-    int countSeletcByWhere(@Param("user") User user);
+    public int countSeletcByWhere(@Param("user") User user);
 }
 
