@@ -234,7 +234,7 @@
                             key: music.id,
                             name: music.name,
                             singer: music.singer,
-                            time: this.translate(music.time),
+                            time: music.time,
                             tag: music.tag,
                             kind: music.kind,
                             rate: music.rate,
@@ -250,9 +250,9 @@
                     this.loading = false
                 })
             },
-            translate(date) { // 时间戳转日期函数
-                return new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
-            }
+            // translate(date) { // 时间戳转日期函数
+            //     return new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+            // }
         }
     }
 </script>
