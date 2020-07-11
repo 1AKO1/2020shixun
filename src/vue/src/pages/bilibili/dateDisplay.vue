@@ -7,8 +7,11 @@
         />
 <!--        第一层-->
         <div class="easyBox">
-            <div class="easyBox">
+            <div class="easyItem">
                 <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px">
+            </div>
+            <div class="easyItem">
+                <ScorePredict />
             </div>
         </div>
 <!--        第二层-->
@@ -40,6 +43,8 @@
 </template>
 
 <script>
+    import ScorePredict from "../../components/bilibili/ScorePredict";
+
     import EchartsScore from "../../components/bilibili/EchartsScore";
     import EchartsProgress from "../../components/bilibili/EchartsProgress";
     import EchartsVip from "../../components/bilibili/EchartsVip";
@@ -53,7 +58,8 @@
             EchartsProgress,
             EchartsVip,
             EchartsCommentRise,
-            EchartsWordFrequency
+            EchartsWordFrequency,
+            ScorePredict
         }
     }
 </script>
