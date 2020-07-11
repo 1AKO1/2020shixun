@@ -20,13 +20,13 @@ public class MusicController {
 
     @RequestMapping("/search")
     @ResponseBody
-    public TableData search(String name,String singere,String time , String tag,String kind, int page, int limit){
+    public TableData search(String name,String singer,String time , String tag,String kind, int page, int limit){
         TableData data = new TableData();
-        List<Music> res =service.search(name, singere, time, tag, kind, page, limit);
+        List<Music> res =service.search(name, singer, time, tag, kind, page, limit);
         data.setCode(1000);
         data.setMsg("");
         data.setData(res);
-        data.setCount(service.searchCount(name, singere, time, tag, kind));
+        data.setCount(service.searchCount(name, singer, time, tag, kind));
         return data;
     }
 }
