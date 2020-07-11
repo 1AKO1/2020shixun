@@ -75,4 +75,7 @@ public interface AiraMapper {
     @Select("SELECT ctime as type, COUNT(1) as count FROM commentRise GROUP BY ctime;")
     List<AiraSimpleData> simpleAnalysisCommentRise();
 
+    @Select("SELECT word AS `type`, frequency AS `count` FROM word_frequency LIMIT 20;")
+    List<AiraSimpleData> simpleAnalysisWordFrequency();
+
 }

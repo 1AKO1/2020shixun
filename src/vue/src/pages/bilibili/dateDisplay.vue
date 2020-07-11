@@ -5,6 +5,13 @@
                 title="评论分析"
                 sub-title="かぐや様は告らせたい〜天才たちの恋愛頭脳戦〜"
         />
+<!--        第一层-->
+        <div class="easyBox">
+            <div class="easyBox">
+                <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px">
+            </div>
+        </div>
+<!--        第二层-->
         <div class="easyBox">
             <div class="easyItem">
                 <EchartsScore />
@@ -16,9 +23,16 @@
                 <EchartsVip />
             </div>
         </div>
+<!--        第三层-->
         <div class="easyBox">
             <div style="width: 100%">
                 <EchartsCommentRise />
+            </div>
+        </div>
+<!--        第四层-->
+        <div class="easyBox">
+            <div style="width: 100%">
+                <EchartsWordFrequency />
             </div>
         </div>
 
@@ -31,13 +45,15 @@
     import EchartsVip from "../../components/bilibili/EchartsVip";
 
     import EchartsCommentRise from "../../components/bilibili/EchartsCommentRise";
+    import EchartsWordFrequency from "../../components/bilibili/EchartsWordFrequency";
     export default {
         name: "dateDisplay",
         components:{
             EchartsScore,
             EchartsProgress,
             EchartsVip,
-            EchartsCommentRise
+            EchartsCommentRise,
+            EchartsWordFrequency
         }
     }
 </script>
