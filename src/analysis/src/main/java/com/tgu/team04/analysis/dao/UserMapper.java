@@ -29,37 +29,37 @@ public interface UserMapper {
             "select id,uid,nick_name,state" +
             "from user" +
             "<where>" +
-            "   <if test='user.uid !=null and user.uid.length > 0'>" +
-            "       and uid like #{user.uid}" +
+            "   <if test='uid !=null and uid.length > 0'>" +
+            "       and uid like #{uid}" +
             "   </if>"+
-            "   <if test='user.nickName !=null and user.nickName.length > 0'>" +
-            "       and nick_name like #{user.nickName}" +
+            "   <if test='nickName !=null and nickName.length > 0'>" +
+            "       and nick_name like #{nickName}" +
             "   </if>"+
-            "   <if test='user.state !=null and user.state != -1'>" +
-            "       and state = #{user.state}" +
+            "   <if test='state !=null and state != -1'>" +
+            "       and state = #{state}" +
             "   </if>"+
             "</where>" +
             "<if test='start != null and limit != null'>" +
             "limit #{start}, #{limit}" +
             "</if>"+
             "</script>")
-    public List<User> selectByWhere(@Param("user") User user,@Param("start") Integer start,@Param("limit") Integer limit);
+    public List<User> selectByWhere(@Param("uid") String uid,@Param("nickName") String nickName,@Param("state") Integer state,@Param("start") Integer start,@Param("limit") Integer limit);
 
     @Select("<script>" +
             "select count(1)" +
             "from user" +
             "<where>" +
-            "   <if test='user.uid !=null and user.uid.length > 0'>" +
-            "       and uid like #{user.uid}" +
+            "   <if test='uid !=null and uid.length > 0'>" +
+            "       and uid like #{uid}" +
             "   </if>"+
-            "   <if test='user.nickName !=null and user.nickName.length > 0'>" +
-            "       and nick_name like #{user.nickName}" +
+            "   <if test='nickName !=null and nickName.length > 0'>" +
+            "       and nick_name like #{nickName}" +
             "   </if>"+
-            "   <if test='user.state !=null and user.state != -1'>" +
-            "       and state = #{user.state}" +
+            "   <if test='state !=null and state != -1'>" +
+            "       and state = #{state}" +
             "   </if>"+
             "</where>" +
             "</script>")
-    int countSeletcByWhere(@Param("user") User user);
+    public int countSeletcByWhere(@Param("uid") String uid,@Param("nickName") String nickName,@Param("state") Integer state);
 }
 

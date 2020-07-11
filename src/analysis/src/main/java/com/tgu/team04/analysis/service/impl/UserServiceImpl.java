@@ -16,21 +16,13 @@ public class UserServiceImpl implements UserService {
     private UserMapper mapper;
 
     @Override
-    public TableData login(String uid, String pwd) {
+    public User login(String uid, String pwd) {
 
         User user = mapper.login(uid,pwd);
-        TableData data = new TableData();
-        if (user != null && user.getState()==1){
-            data.setCode(1000);
-            data.setMsg("登录成功");
-            data.setData(null);
-            return data;
-        }
+        if (user == null || user.getState()==0)
+            user=null;
 
-        data.setCode(2000);
-        data.setMsg("登录失败");
-        data.setData(null);
-        return data;
+        return user;
     }
 
     @Override
@@ -70,32 +62,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> search(User user, int page, int limit) {
+    public List<User> search(String uid, String nickName,int state, int page, int limit) {
 
-        if (user!=null && !"".equals(user.getUid().trim()))
-            user.setUid("%"+user.getUid()+"%");
+        if (uid!=null && !"".equals(uid.trim()))
+            uid = "%"+uid+"%";
 
-        if (user!=null && !"".equals(user.getNickName().trim()))
-            user.setNickName("%"+user.getNickName()+"%");
+        if (nickName!=null && !"".equals(nickName.trim()))
+            nickName = "%"+nickName+"%";
+
         if (page>0 && limit>0)
-            return mapper.selectByWhere(user, (page-1)*limit, limit);
+            return mapper.selectByWhere(uid, nickName, state, (page-1)*limit, limit);
 
-        return mapper.selectByWhere(user, null, null);
+        return mapper.selectByWhere(uid ,nickName ,state, null, null);
     }
 
     @Override
-    public boolean pwdReset(int id) {
+    public boolean pwdReset(int id,String newPwd) {
 
-        String defaultPwd="0000";
-        if (mapper.updatePwd(id,defaultPwd)==1)
+        if (mapper.updatePwd(id,newPwd)==1)
             return true;
 
         return false;
     }
 
     @Override
-    public int searchCount(User user) {
-        return mapper.countSeletcByWhere(user);
+    public int searchCount(String uid, String nickName, int state) {
+        return mapper.countSeletcByWhere(uid, nickName, state);
     }
+
 }
 
