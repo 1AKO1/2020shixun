@@ -223,15 +223,30 @@
                         label: '小说',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '社会',
+                                label: '社会',
                             },
+                            {
+                                value: '世界名著',
+                                label: '世界名著',
+                            },
+                            {
+                                value: '外国小说',
+                                label: '外国小说',
+                            },
+                            {
+                                value: '科幻',
+                                label: '科幻',
+                            },
+                            {
+                                value: '官场',
+                                label: '官场',
+                            },
+                            {
+                                value: '乡土',
+                                label: '乡土',
+                            },
+
                         ],
                     },
                     {
@@ -239,15 +254,31 @@
                         label: '文学',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '中国现当代随笔',
+                                label: '中国现当代随笔',
                             },
+                            {
+                                value: '外国随笔',
+                                label: '外国随笔',
+                            },
+                            {
+                                value: '中国古诗词',
+                                label: '中国古诗词',
+                            },
+                            {
+                                value: '名家作品',
+                                label: '名家作品',
+                            },
+                            {
+                                value: '文集',
+                                label: '文集',
+                            },
+                            {
+                                value: '中国古代随笔',
+                                label: '中国古代随笔',
+                            },
+
+
                         ],
                     },
                     {
@@ -255,14 +286,28 @@
                         label: '成功/励志',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '成功/激励',
+                                label: '成功/激励',
+                            },
+                            {
+                                value: '人生哲学',
+                                label: '人生哲学',
+                            },
+                            {
+                                value: '人际交往',
+                                label: '人际交往',
+                            },
+                            {
+                                value: '心灵与修养',
+                                label: '心灵与修养',
+                            },
+                            {
+                                value: '智商/智谋',
+                                label: '智商/智谋',
+                            },
+                            {
+                                value: '性格与习惯',
+                                label: '性格与习惯',
                             },
                         ],
                     },
@@ -271,14 +316,28 @@
                         label: '历史',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '中国史',
+                                label: '中国史',
+                            },
+                            {
+                                value: '历史普及读物',
+                                label: '历史普及读物',
+                            },
+                            {
+                                value: '世界史',
+                                label: '世界史',
+                            },
+                            {
+                                value: '历史随笔',
+                                label: '历史随笔',
+                            },
+                            {
+                                value: '史家名著',
+                                label: '史家名著',
+                            },
+                            {
+                                value: '文物考古',
+                                label: '文物考古',
                             },
                         ],
                     },
@@ -287,14 +346,28 @@
                         label: '外语',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '英语考试',
+                                label: '英语考试',
+                            },
+                            {
+                                value: '英语读物',
+                                label: '英语读物',
+                            },
+                            {
+                                value: '英语综合教程',
+                                label: '英语综合教程',
+                            },
+                            {
+                                value: '日语',
+                                label: '日语',
+                            },
+                            {
+                                value: '韩语',
+                                label: '韩语',
+                            },
+                            {
+                                value: '法语',
+                                label: '法语',
                             },
                         ],
                     },
@@ -303,14 +376,34 @@
                         label: '亲子/家教',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '家教方法',
+                                label: '家教方法',
+
+                            },
+                            {
+                                value: '家教理论',
+                                label: '家教理论',
+
+                            },
+                            {
+                                value: '培育男孩',
+                                label: '培育男孩',
+
+                            },
+                            {
+                                value: '亲子关系',
+                                label: '亲子关系',
+
+                            },
+                            {
+                                value: '培育女孩',
+                                label: '培育女孩',
+
+                            },
+                            {
+                                value: '成功案例',
+                                label: '成功案例',
+
                             },
                         ],
                     },
@@ -319,14 +412,28 @@
                         label: '考试',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '考研',
+                                label: '考研',
+                            },
+                            {
+                                value: '建筑工程类职称考试',
+                                label: '建筑工程类职称考试',
+                            },
+                            {
+                                value: '其他公职类考试',
+                                label: '其他公职类考试',
+                            },
+                            {
+                                value: '司法考试',
+                                label: '司法考试',
+                            },
+                            {
+                                value: '自学考试',
+                                label: '自学考试',
+                            },
+                            {
+                                value: '计算机考试',
+                                label: '计算机考试',
                             },
                         ],
                     },
@@ -335,14 +442,34 @@
                         label: '艺术',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '绘画',
+                                label: '绘画',
+
+                            },
+                            {
+                                value: '书法/篆刻',
+                                label: '书法/篆刻',
+
+                            },
+                            {
+                                value: '音乐',
+                                label: '音乐',
+
+                            },
+                            {
+                                value: '设计',
+                                label: '设计',
+
+                            },
+                            {
+                                value: '摄影',
+                                label: '摄影',
+
+                            },
+                            {
+                                value: '雕塑',
+                                label: '雕塑',
+
                             },
                         ],
                     },
@@ -351,30 +478,12 @@
                         label: '哲学/宗教',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '哲学',
+                                label: '哲学',
                             },
-                        ],
-                    },
-                    {
-                        value: '管理',
-                        label: '管理',
-                        children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '宗教',
+                                label: '宗教',
                             },
                         ],
                     },
@@ -383,14 +492,59 @@
                         label: '青春文学',
                         children: [
                             {
-                                value: 'nanjing',
-                                label: 'Nanjing',
-                                children: [
-                                    {
-                                        value: 'zhonghuamen',
-                                        label: 'Zhong Hua Men',
-                                    },
-                                ],
+                                value: '校园',
+                                label: '校园',
+
+                            },
+                            {
+                                value: '大陆原创',
+                                label: '大陆原创',
+
+                            },
+                            {
+                                value: '轻小说',
+                                label: '轻小说',
+
+                            },
+                            {
+                                value: '其他国外青春文学',
+                                label: '其他国外青春文学',
+
+                            },
+                            {
+                                value: '古代言情',
+                                label: '古代言情',
+
+                            },
+                        ],
+                    },
+                    {
+                        value: '管理',
+                        label: '管理',
+                        children: [
+                            {
+                                value: '一般管理学',
+                                label: '一般管理学',
+                            },
+                            {
+                                value: '会计',
+                                label: '会计',
+                            },
+                            {
+                                value: '电子商务',
+                                label: '电子商务',
+                            },
+                            {
+                                value: '战略管理',
+                                label: '战略管理',
+                            },
+                            {
+                                value: '商业史传',
+                                label: '商业史传',
+                            },
+                            {
+                                value: '管理信息系统',
+                                label: '管理信息系统',
                             },
                         ],
                     },
