@@ -37,7 +37,7 @@ public class UserController {
         User currentUser =service.login(uid, pwd);
         TableData data =new TableData();
         if (currentUser != null){
-            //model.addAttribute("currentUser", currentUser);
+//            model.addAttribute("currentUser", currentUser);
             data.setData(null);
             data.setCode(1000);
             data.setMsg("登录成功");
