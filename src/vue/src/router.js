@@ -19,7 +19,7 @@ import MusicAnalysis from "./pages/music/dataDisplay"
 import BookIndex from "./pages/book/index"
 import BookAnalysis from "./pages/book/dataDisplay"
 //dang 薛佬页面
-import DangIndex from "./pages/dang/index"
+import DangIndex from "./pages/dang/dangSearch"
 import DangAnalysis from "./pages/dang/dataDisplay"
 //bilibili 李弟弟页面
 import BiLiBiLi from "./pages/bilibili/index"
