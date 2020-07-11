@@ -18,7 +18,7 @@
                 <!--
                     v-model里 是和 data 绑定的变量名
                 -->
-                <a-input placeholder="请输入图书的关键词" style="width: 150px" v-model="content"/>
+                <a-input placeholder="请输入图书的关键词" style="width: 150px" v-model="bookname"/>
             </a-form-item>
 
             <a-form-item
@@ -26,7 +26,7 @@
                     :label-col="formItemLayout.labelCol"
                     :wrapper-col="formItemLayout.wrapperCol"
             >
-                <a-input placeholder="请输入作者姓名" style="width: 130px" v-model="uname"/>
+                <a-input placeholder="请输入作者姓名" style="width: 130px" v-model="author"/>
             </a-form-item>
 
             <a-form-item
@@ -34,7 +34,7 @@
                     :label-col="formItemLayout.labelCol"
                     :wrapper-col="formItemLayout.wrapperCol"
             >
-                <a-input placeholder="请输入出版社名称" style="width: 130px" v-model="uname"/>
+                <a-input placeholder="请输入出版社名称" style="width: 130px" v-model="presshouse"/>
             </a-form-item>
 
             <a-form-item
@@ -47,8 +47,12 @@
                                     如果我记得没错 会获得 每个选项的 value 和 内容
                                     例如：
                                         {key： -1, content: 全部查询}
-                -->
-                <a-cascader  :options="options" change-on-select style="width: 120px" @change="onChange" />
+              -->
+                <a-cascader :options="options"
+                            change-on-select
+                            style="width: 120px"
+                            placeholder="请选择"
+                            @change="onChangeFenlei"/>
 
             </a-form-item>
             <!--            和上面那个一样-->
@@ -59,11 +63,12 @@
                     :label-col="formItemLayout.labelCol"
                     :wrapper-col="formItemLayout.wrapperCol"
             >
-                  <a-slider
-                      v-decorator = "['slider']"
-                      :marks = "{0:'0%',20:'20%',40: '40%',60: '60%', 80: '80%'}"
-                      style="width: 250px"
-                      />
+                <a-slider
+                        v-decorator="['slider']"
+                        :marks="{0:'0%',20:'20%',40: '40%',60: '60%', 80: '80%'}"
+                        style="width: 250px"
+                        @change="onChangeDiscount"
+                />
             </a-form-item>
 
             <a-form-item
@@ -72,13 +77,14 @@
                     :wrapper-col="formItemLayout.wrapperCol"
             >
                 <a-slider
-                     range
-                     :marks="marks"
-                     style="width: 250px"
-                     :min="3"
-                     :max="1000"
-                     step="10"
-                     :default-value="[3, 990]"
+                        range
+                        :marks="marks"
+                        style="width: 250px"
+                        :min="3"
+                        :max="1000"
+                        step="10"
+                        :default-value="[3, 990]"
+                        @change="onChangeBetween"
                 />
 
             </a-form-item>
@@ -98,9 +104,10 @@
                     第一行 我绑定了一个change事件， 这个是antdv自己写的，原生vue应该没有这个事件，翻页时触发， 可以获得当前页数
                            :pagination 是为当前组件的属性设置值（动态！） 和data的变量 pagination绑定
         -->
-        <a-table :columns="columns" :data-source="data" :loading="loading" v-on:change="nextPage" :pagination = "pagination">
+        <a-table :columns="columns" :data-source="data" :loading="loading" v-on:change="nextPage"
+                 :pagination="pagination">
             <a slot="name" slot-scope="text">{{ text }}</a>
-            <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
+            <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
             <span slot="tags" slot-scope="tags">
                 <a-tag :color=" tags === '普通用户'? '#00a1d6' : tags === '大会员' ? '#fb7299' : '#ff5c7c'">
 <!--                    也就在这里和根据标签不同赋予了不同的颜色，别的地方没动-->
@@ -119,8 +126,8 @@
     const columns = [
         {
             title: '书名',
-            dataIndex: 'uname',
-            key: 'uname',
+            dataIndex: 'bookname',
+            key: 'bookname',
         },
         {
             title: '作者',
@@ -128,12 +135,6 @@
             key: 'author',
         },
 
-        // {
-        //     title: '会员状态',
-        //     key: 'tags',
-        //     dataIndex: 'tags',
-        //     scopedSlots: { customRender: 'tags' },
-        // },
         {
             title: '推荐指数',
             dataIndex: 'progress',
@@ -151,13 +152,18 @@
         },
     ];
 
+
     export default {
         name: "dataSearch",
         // 组件的状态（属性）（变量）
-        data(){
-            return{
+        data() {
+            return {
                 //line 193~226 级联选择
                 options: [
+                    {
+                        value: '全部',
+                        label: '全部',
+                    },
                     {
                         value: '童书',
                         label: '童书',
@@ -167,19 +173,24 @@
                                 label: '中国儿童文学',
                             },
 
-                            {  value: '绘本/图画书',
+                            {
+                                value: '绘本/图画书',
                                 label: '绘本/图画书',
                             },
-                            {  value: '外国儿童文学',
+                            {
+                                value: '外国儿童文学',
                                 label: '外国儿童文学',
                             },
-                            {  value: '科普/百科',
+                            {
+                                value: '科普/百科',
                                 label: '科普/百科',
                             },
-                            {  value: '动漫/卡通',
+                            {
+                                value: '动漫/卡通',
                                 label: '动漫/卡通',
                             },
-                            {  value: '幼儿启蒙',
+                            {
+                                value: '幼儿启蒙',
                                 label: '幼儿启蒙',
                             },
 
@@ -556,54 +567,56 @@
                     150: '150￥',
                     400: '400￥',
                     800: '800￥',
-                 },
+                },
 
                 // 查询数据 我就查四个 前两个和input绑定（双向绑定） 后两个和select绑定（通过回调函数进行修改）
-                uname: null,
-                content: null,
-                progress: 'all',   // 起初保存默认值
-                vipStatus: -1,  // 都是全部查询
+                bookname: null,
+                author: null,
+                presshouse: null,
+                fenlei: 'all',
+                discount: null,
+                pricebetween:null,
                 // 表格数据
                 data: [],  // 请求结果我会放进去
                 columns,   // 刚才说到的 表的字段
                 loading: false, // 是否显示加载中图标， 不用管。
                 page: 1,    // 当前页数
                 limit: 10,  // 每页多少条
-                pagination:{    // 分页的设置参数
+                pagination: {    // 分页的设置参数
                     total: 0,   // 把count 传给 total！
                 }
             }
         },
-        computed:{ //  computed是组件的计算属性 这里面不用管 antd写好了的，我们也不需要动
+        computed: { //  computed是组件的计算属性 这里面不用管 antd写好了的，我们也不需要动
             formItemLayout() {
-                const { formLayout } = this;
+                const {formLayout} = this;
                 return formLayout === 'horizontal'
                     ? {
-                        labelCol: { span: 4 },
-                        wrapperCol: { span: 14 },
+                        labelCol: {span: 4},
+                        wrapperCol: {span: 14},
                     }
                     : {};
             },
             buttonItemLayout() {
-                const { formLayout } = this;
+                const {formLayout} = this;
                 return formLayout === 'horizontal'
                     ? {
-                        wrapperCol: { span: 14, offset: 4 },
+                        wrapperCol: {span: 14, offset: 4},
                     }
                     : {};
             }
         },
-        methods:{
-            onChange(value) {
-                console.log(value);
+        methods: {
+            onChangeFenlei(e) {  // 分类类型改变时 修改data
+                this.fenlei = e;
             },
-            vipChange(e) { // vip类型改变时 修改data
-                this.vipStatus = e;
+            onChangeDiscount(e) { //折扣类型改变时 修改data
+                this.discount = e;
             },
-            progressChange(e){ // progress类型改变时 修改data
-                this.progress = e;
+            onChangeBetween(e){
+                this.pricebetween = e;
             },
-            handleSubmit(){ // 点击立即查询后触发
+            handleSubmit() { // 点击立即查询后触发
                 this.loading = true; // 和loading有关的可以先忽略
 
                 // 数据格式处理，必须做，不用问为什么
@@ -626,11 +639,11 @@
                 *
                 * */
                 let array = []; // 保存处理后的查询结果
-                axios.post("http://localhost:8080/bilibili/search", data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                axios.post("http://localhost:8080/bilibili/search", data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                     .then(response => {
                         // 下面是处理过程
                         let data = response.data.data; //我想要的评论数据在这里面
-                        for (var index in data){        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
+                        for (var index in data) {        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
                             let comment = data[index]   // 然后 通过index获取每一条评论
                             array = array.concat({      // 将每一条处理后的结果追加到 array数组中
                                 key: comment.id,        // 这里面是我需要的数据格式 ！！！！！！！！！！ 自己也搞明白自己需要的！！！ very impotent！
@@ -651,7 +664,7 @@
                 })
 
             },
-            nextPage(pagination){
+            nextPage(pagination) {
                 this.page = pagination.current; // 获取当前页码并进行更新
                 // 和上面的函数一样（没一点不一样）
                 this.loading = true;
@@ -664,10 +677,10 @@
                     limit: this.limit
                 })
                 let array = []; // 保存处理后的查询结果
-                axios.post("http://localhost:8080/bilibili/search", data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                axios.post("http://localhost:8080/bilibili/search", data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                     .then(response => {
                         let data = response.data.data;
-                        for (var index in data){
+                        for (var index in data) {
                             let comment = data[index]
                             array = array.concat({
                                 key: comment.id,
