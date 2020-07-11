@@ -1,6 +1,8 @@
 <template>
     <div>
-        <a-layout id="components-layout-demo-custom-trigger">
+<!--        组件-->
+        <a-layout id="components-layout-demo-custom-trigger" :style="contentStyleObj">
+
             <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
                 <div class="logo">
                     <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
@@ -19,7 +21,10 @@
                         <span>豆瓣电影</span>
                     </span>
                         <a-menu-item key="film" v-on:click="directTo('film')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="filmAnalysis" v-on:click="directTo('filmAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -29,7 +34,10 @@
                         <span>豆瓣音乐</span>
                     </span>
                         <a-menu-item key="music" v-on:click="directTo('music')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="musicAnalysis" v-on:click="directTo('musicAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -39,7 +47,10 @@
                         <span>豆瓣图书</span>
                     </span>
                         <a-menu-item key="book" v-on:click="directTo('book')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="bookAnalysis" v-on:click="directTo('bookAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -49,7 +60,10 @@
                         <span>当当图书</span>
                     </span>
                         <a-menu-item key="dang" v-on:click="directTo('dang')">
-                            Option 5
+                            数据查询
+                        </a-menu-item>
+                        <a-menu-item key="dangAnalysis" v-on:click="directTo('dangAnalysis')">
+                            数据展示
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -61,10 +75,18 @@
                         <a-menu-item key="bilibili" v-on:click="directTo('bilibili')">
                             评论数据
                         </a-menu-item>
+                        <a-menu-item key="bilibiliSearch" v-on:click="directTo('bilibiliSearch')">
+                            评论查询
+                        </a-menu-item>
+                        <a-menu-item key="bilibiliAnalysis" v-on:click="directTo('bilibiliAnalysis')">
+                            评论分析
+                        </a-menu-item>
                     </a-sub-menu>
 
                 </a-menu>
             </a-layout-sider>
+
+
             <a-layout>
                 <a-layout-header style="background: #fff; padding: 0">
                     <a-icon
@@ -72,14 +94,19 @@
                             :type="collapsed ? 'menu-unfold' : 'menu-fold'"
                             @click="() => (collapsed = !collapsed)"
                     />
-                    <UserInfo class="user-info"/>
+                    <div style="position: absolute; top: 0; right: 20px">
+                        <UserInfo class="user-info"/>
+                    </div>
                 </a-layout-header>
+
                 <a-layout-content
                         :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
                 >
                     <router-view></router-view>
                 </a-layout-content>
             </a-layout>
+
+<!--            组件-->
             <div id="components-back-top-demo-custom">
                 <a-back-top>
                     <div class="ant-back-top-inner">
@@ -103,13 +130,28 @@
         data() {
             return {
                 collapsed: false,
+                contentStyleObj:{
+                    minHeight:''
+                }
             };
         },
         methods: {
             directTo(target){ // 页面跳转
                 console.log(target);
                 router.push("/mainpage/"+target)
+            },
+            getHeight(){
+                this.contentStyleObj.minHeight=window.innerHeight+'px';
             }
+        },
+
+        created(){
+            window.addEventListener('resize', this.getHeight);
+            this.getHeight()
+        },
+
+        destroyed(){
+            window.removeEventListener('resize', this.getHeight)
         }
     }
 </script>
@@ -156,6 +198,6 @@
         font-size: 20px;
     }
     .user-info{
-        position: absolute;
+        right: 10px;
     }
 </style>

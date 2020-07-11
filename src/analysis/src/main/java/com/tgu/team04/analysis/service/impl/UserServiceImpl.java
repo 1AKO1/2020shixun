@@ -7,6 +7,8 @@ import com.tgu.team04.analysis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -14,21 +16,13 @@ public class UserServiceImpl implements UserService {
     private UserMapper mapper;
 
     @Override
-    public TableData login(String uid, String pwd) {
+    public User login(String uid, String pwd) {
 
         User user = mapper.login(uid,pwd);
-        TableData data = new TableData();
-        if (user != null && user.getState()==1){
-            data.setCode(1000);
-            data.setMsg("登录成功");
-            data.setData(null);
-            return data;
-        }
+        if (user == null || user.getState()==0)
+            user=null;
 
-        data.setCode(2000);
-        data.setMsg("登录失败");
-        data.setData(null);
-        return data;
+        return user;
     }
 
     @Override
@@ -66,5 +60,35 @@ public class UserServiceImpl implements UserService {
         return data;
 
     }
+
+    @Override
+    public List<User> search(String uid, String nickName,int state, int page, int limit) {
+
+        if (uid!=null && !"".equals(uid.trim()))
+            uid = "%"+uid+"%";
+
+        if (nickName!=null && !"".equals(nickName.trim()))
+            nickName = "%"+nickName+"%";
+
+        if (page>0 && limit>0)
+            return mapper.selectByWhere(uid, nickName, state, (page-1)*limit, limit);
+
+        return mapper.selectByWhere(uid ,nickName ,state, null, null);
+    }
+
+    @Override
+    public boolean pwdReset(int id,String newPwd) {
+
+        if (mapper.updatePwd(id,newPwd)==1)
+            return true;
+
+        return false;
+    }
+
+    @Override
+    public int searchCount(String uid, String nickName, int state) {
+        return mapper.countSeletcByWhere(uid, nickName, state);
+    }
+
 }
 

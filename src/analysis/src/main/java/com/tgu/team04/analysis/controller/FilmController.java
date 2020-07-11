@@ -14,14 +14,14 @@ import java.util.List;
 @RequestMapping("/douban")
 public class FilmController {
     @Autowired
-    private FilmService service;
+    private FilmService filmservice;
 
     @RequestMapping("/filmlist")
     @ResponseBody
     public TableData filmList(Integer page, Integer limit){
         TableData data = new TableData();
         System.out.println("page: " + page + ", limit: " + limit);
-        List<FilmComment> result = service.search((int)page, (int)limit);
+        List<FilmComment> result = filmservice.search((int)page, (int)limit);
         if (result != null){
             data.setCode(1000);
             data.setMsg("查询成功");
@@ -33,4 +33,26 @@ public class FilmController {
         }
         return data;
     }
+
+    @RequestMapping("/totalnumber")
+    @ResponseBody
+    public int totalNumber(){
+        int countTotal = filmservice.totalNumber();
+        return countTotal;
+    }
+
+    @RequestMapping("/movielength")
+    @ResponseBody
+    public int movieLength(){
+        int movielength = filmservice.movieLength();
+        return movielength;
+    }
+
+    @RequestMapping("/peoplenumber")
+    @ResponseBody
+    public int peopleNumber(){
+        int peoplenumber = filmservice.peopleNumber();
+        return peoplenumber;
+    }
+
 }

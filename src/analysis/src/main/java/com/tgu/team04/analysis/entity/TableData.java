@@ -9,5 +9,6 @@ public class TableData {
 
     private int code;
     private String msg;
+    private int count;
     private List<? extends Object> data;
 }

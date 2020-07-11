@@ -22,4 +22,25 @@ public class FilmServiceImpl implements FilmService {
         }
         return null;
     }
+
+    @Override
+    public int totalNumber() {
+        int countTotal=mapper.getTotalNumber();
+
+        return countTotal;
+    }
+
+    @Override
+    public int movieLength() {
+        int movielength=mapper.getMovieLength();
+
+        return movielength;
+    }
+
+    @Override
+    public int peopleNumber() {
+        int peoplenumber=mapper.getPeopleNumber();
+
+        return peoplenumber;
+    }
 }

@@ -126,9 +126,8 @@
                 });
                 // this.$router.push("/mainpage") 不知道哪位大神在这边加了一个跳转 BY 薛某
                 axios.post('http://localhost:8080/logic/user/login', data,
-                    {
-                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                    }).then(response => {
+                    { headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).then(response => {
                     data = response.data;
                     console.log(data);
                     // console.log(typeof (data.code));
@@ -148,13 +147,17 @@
 
 </script>
 <style lang="less" scoped>
+    *{
+        margin: 0;
+        padding: 0;
+    }
     .container {
         width: 100%;
-        min-height: 100%;
-        background: #f0f2f5 url(../assets/login.svg) no-repeat 50%;
+        height: 100%;
+        background: #f0f2f5 url(../assets/login.svg) no-repeat;
         background-size: 100%;
         padding: 260px 0 218px;
-        position: relative;
+        position: absolute;
 
         .top {
             text-align: center;
