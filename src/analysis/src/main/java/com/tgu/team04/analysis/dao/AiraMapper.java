@@ -72,4 +72,7 @@ public interface AiraMapper {
     @Select("SELECT score as type, COUNT(1) as count FROM aira_kaguya_sama GROUP BY score;")
     List<AiraSimpleData> simpleAnalysisScore();
 
+    @Select("SELECT ctime as type, COUNT(1) as count FROM commentRise GROUP BY ctime;")
+    List<AiraSimpleData> simpleAnalysisCommentRise();
+
 }

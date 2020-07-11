@@ -16,6 +16,11 @@
                 <EchartsVip />
             </div>
         </div>
+        <div class="easyBox">
+            <div style="width: 100%">
+                <EchartsCommentRise />
+            </div>
+        </div>
 
     </div>
 </template>
@@ -24,24 +29,29 @@
     import EchartsScore from "../../components/bilibili/EchartsScore";
     import EchartsProgress from "../../components/bilibili/EchartsProgress";
     import EchartsVip from "../../components/bilibili/EchartsVip";
+
+    import EchartsCommentRise from "../../components/bilibili/EchartsCommentRise";
     export default {
         name: "dateDisplay",
         components:{
             EchartsScore,
             EchartsProgress,
-            EchartsVip
+            EchartsVip,
+            EchartsCommentRise
         }
     }
 </script>
 
 <style scoped>
     .easyBox{
-        min-width: 1200px;
         margin: 10px 0;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
     }
     .easyItem{
         border: 1px solid #001529;
+        margin: 5px;
     }
 </style>
