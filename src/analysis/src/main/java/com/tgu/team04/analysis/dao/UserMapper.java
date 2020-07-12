@@ -26,7 +26,7 @@ public interface UserMapper {
     int updatePwd(@Param("uid") String uid, @Param("nwePwd") String newPwd);
 
     @Select("<script>" +
-            "select id,uid,nick_name,state" +
+            "select * " +
             "from user" +
             "<where>" +
             "   <if test='uid !=null and uid.length > 0'>" +

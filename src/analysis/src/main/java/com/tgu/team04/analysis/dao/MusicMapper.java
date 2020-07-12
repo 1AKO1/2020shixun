@@ -61,4 +61,6 @@ public interface MusicMapper {
             "</where>" +
             "</script>")
     public int countSeletcByWhere(String name, String singer, String time, String tag, String kind);
+
+
 }

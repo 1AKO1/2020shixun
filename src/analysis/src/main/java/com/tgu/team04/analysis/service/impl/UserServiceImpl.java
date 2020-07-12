@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> search(String uid, String nickName,int state, int page, int limit) {
+    public List<User> search(String uid, String nickName,Integer state, Integer page, Integer limit) {
 
         if (uid!=null && !"".equals(uid.trim()))
             uid = "%"+uid+"%";
