@@ -2,7 +2,9 @@ package com.tgu.team04.analysis.controller;
 
 import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.entity.dangdangBook;
+import com.tgu.team04.analysis.entity.dangdangData;
 import com.tgu.team04.analysis.service.DangService;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,6 +56,24 @@ public class DangdangController {
             dangdangdata.setData(null);
         }
         return dangdangdata;
+    }
+
+    @RequestMapping("/dangAnalysis")
+    @ResponseBody
+    public TableData dangAnalysis(String type){
+        TableData data = new TableData();
+        List<dangdangData> result = service.dangAnalysis(type);
+
+        if (result != null){
+            data.setCode(1000);
+            data.setMsg("查询成功");
+            data.setData(result);
+        }else {
+            data.setCode(2000);
+            data.setMsg("查询失败");
+            data.setData(null);
+        }
+        return data;
     }
 
 }
