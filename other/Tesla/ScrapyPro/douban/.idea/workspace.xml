@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f6aa0eb-5eb7-460b-a9b4-f890c9bc74d4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Practice/.idea/dictionaries/17674.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/douban.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/items.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/pipelines.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/proxy_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/spiders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/spiders/douban_demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/douban/user_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scrapy.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/.idea/dictionaries/17674.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/proxy_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book1_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book2_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book3_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book4_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book5_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book6_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/user_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/aira_kaguya_sama/aira_kaguya_sama/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/aira_kaguya_sama/aira_kaguya_sama/.idea/aira_kaguya_sama.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/aira_kaguya_sama/aira_kaguya_sama/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/aira_kaguya_sama/aira_kaguya_sama/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/aira_kaguya_sama/aira_kaguya_sama/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../src/aira_kaguya_sama/aira_kaguya_sama/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/middlewares.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/pipelines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../src/Tesla/douban/douban/spiders/book_spider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../src/Tesla/douban/scrapy.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../src/Tesla/douban/scrapy.cfg" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1eS3MxyvEMP8s1sg4VJ4LuTq3aO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f6aa0eb-5eb7-460b-a9b4-f890c9bc74d4" name="Default Changelist" comment="" />
+      <created>1594301122411</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594301122411</updated>
+      <workItem from="1594301123503" duration="11558000" />
+      <workItem from="1594397358770" duration="13000" />
+      <workItem from="1594402618878" duration="4375000" />
+      <workItem from="1594414520304" duration="457000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
