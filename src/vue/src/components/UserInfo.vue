@@ -9,12 +9,22 @@
 </template>
 
 <script>
+    import axios from "axios"
+    import qs from "qs"
     export default {
         name: "UserInfo",
         data(){
             return{
                 username: '还没登陆'
             }
+        },
+        mounted() {
+            axios.post('http://localhost:8080/logic/user/currentUser', qs.stringify({}), {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+            .then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log(error)
+            })
         }
     }
 </script>

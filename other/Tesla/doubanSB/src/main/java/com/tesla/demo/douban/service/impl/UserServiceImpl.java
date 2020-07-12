@@ -18,13 +18,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(String uid, String pwd) {
 
-        List result = mapper.selectAll();
-
-        System.out.println(result!=null?result.size():"-1");
-
-        if("admin".equals(uid) && "admin".equals(pwd))
-            return new User(uid, pwd);
+        User user = mapper.login(uid, pwd);
+        if (user != null)
+            return user;
         else
             return null;
     }
+
+//    @Override
+//    public User addUser(User user) {
+//
+//        if(mapper.selectByUid(user.getUid())==null) {
+//            mapper.addUser(user);
+//            return user;
+//        }
+//        else
+//            return null;
+//    }
 }
