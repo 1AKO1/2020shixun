@@ -99,7 +99,7 @@
                             @click="() => (collapsed = !collapsed)"
                     />
                     <div style="position: absolute; top: 0; right: 20px">
-                        <UserInfo class="user-info"/>
+                        <UserInfo class="user-info" :uid="this.$route.params.uid"/>
                     </div>
                 </a-layout-header>
 
@@ -152,11 +152,6 @@
         created(){
             window.addEventListener('resize', this.getHeight);
             this.getHeight()
-        },
-        mounted() {
-            const uid = this.$route.query.uid;
-            console.log(uid);
-            console.log(this.$route)
         },
         destroyed(){
             window.removeEventListener('resize', this.getHeight)

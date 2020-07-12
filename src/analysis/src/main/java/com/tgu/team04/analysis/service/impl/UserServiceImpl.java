@@ -107,5 +107,17 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    @Override
+    public User getCurrentUser(String uid) {
+
+        User currentUser = mapper.selectByUid(uid);
+
+        if (currentUser != null){
+            return currentUser;
+        }
+
+        return null;
+    }
+
 }
 

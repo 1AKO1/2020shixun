@@ -19,4 +19,6 @@ public interface UserService {
     boolean stateReset(String uid, Integer state);
 
     boolean deleteUser(String uid);
+
+    User getCurrentUser(String uid);
 }

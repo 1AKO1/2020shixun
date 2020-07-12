@@ -4,6 +4,7 @@ import com.tgu.team04.analysis.entity.OneData;
 import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.UserService;
+import org.apache.ibatis.annotations.One;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +31,22 @@ public class UserController {
 //
 //        return null;
 //    }
+    @RequestMapping("/currentUser")
+    @ResponseBody
+    public OneData currentUser(String uid){
+        OneData data = new OneData();
+        data.setCode(2000);
+        data.setMsg("登录状态异常");
+
+        User result = service.getCurrentUser(uid);
+        if (result != null){
+            data.setData(result);
+            data.setCode(1000);
+            data.setMsg("登陆状态成功");
+        }
+
+        return data;
+    }
 
     @RequestMapping("/login")
     @ResponseBody

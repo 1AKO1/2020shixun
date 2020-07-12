@@ -134,8 +134,8 @@
                     if (data.code === 1000) {
                         console.log("登录成功");
                         this.$router.push({
-                            path: "/mainpage",
-                            query: {
+                            name: "MainPage",
+                            params: {
                                 uid: this.userName
                             }
                         });
