@@ -34,10 +34,10 @@
                         <span>豆瓣音乐</span>
                     </span>
                         <a-menu-item key="music" v-on:click="directTo('music')">
-                            数据查询
+                            数据分析
                         </a-menu-item>
                         <a-menu-item key="musicAnalysis" v-on:click="directTo('musicAnalysis')">
-                            数据展示
+                            数据查询
                         </a-menu-item>
                     </a-sub-menu>
 
