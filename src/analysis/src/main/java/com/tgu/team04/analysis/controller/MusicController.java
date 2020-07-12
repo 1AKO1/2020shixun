@@ -2,6 +2,7 @@ package com.tgu.team04.analysis.controller;
 
 import com.tgu.team04.analysis.entity.Music;
 import com.tgu.team04.analysis.entity.TableData;
+import com.tgu.team04.analysis.entity.TwoData;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,14 @@ public class MusicController {
         data.setMsg("");
         data.setData(res);
         data.setCount(service.searchCount(name, singer, time, tag, kind));
+        return data;
+    }
+
+    @RequestMapping("/analysis")
+    @ResponseBody
+    public TwoData analysis(String type){
+        TwoData data = new TwoData();
+        data = service.analysis(type);
         return data;
     }
 }

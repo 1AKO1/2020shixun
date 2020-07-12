@@ -1,6 +1,7 @@
 package com.tgu.team04.analysis.dao;
 
 import com.tgu.team04.analysis.entity.Music;
+import com.tgu.team04.analysis.entity.MusicData;
 import com.tgu.team04.analysis.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -62,5 +63,21 @@ public interface MusicMapper {
             "</script>")
     public int countSeletcByWhere(String name, String singer, String time, String tag, String kind);
 
+    @Select("select music_kind as type, count(*) as count from spt_music where music_rating+0 > 5 group by music_kind")
+    public List<MusicData> compare1();
 
+    @Select("select music_kind as type, count(*) as count from spt_music where music_rating+0 <= 5 group by music_kind")
+    public List<MusicData> compare2();
+
+    @Select("select music_publisher as type, count(*) as count from spt_music  group by music_publisher order by count desc limit 0,20")
+    public List<MusicData> publisher();
+
+    @Select("select music_singer as type, sum(music_votes) as count from spt_music  group by music_singer order by count desc limit 0,20")
+    public List<MusicData> singer();
+
+    @Select("select music_medium as type, count(*) as count from spt_music  group by music_medium order by count desc limit 0,20")
+    public List<MusicData> medium();
+
+    @Select("select music_kind as type, sum(music_rating+0)/count(*) as count from spt_music  group by music_kind order by count desc")
+    public List<MusicData> kind();
 }
