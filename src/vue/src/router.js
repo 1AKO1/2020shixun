@@ -8,6 +8,7 @@ import Register from './pages/Register'
 // eslint-disable-next-line no-unused-vars
 import MainPage from "./pages/MainPage";
 import Main from "./pages/Main";
+import UserManage from "./pages/UserManage";
 
 //film 源哥页面
 import FilmIndex from "./pages/film/index"
@@ -105,6 +106,10 @@ const routes = [
                 path: "bilibiliAnalysis",
                 name: 'bilibiliAnalysis',
                 component: BiLiBiLiAnalysis
+            },{
+                path: "usermanage",
+                name: "usermanage",
+                component: UserManage
             }
         ]
     }
