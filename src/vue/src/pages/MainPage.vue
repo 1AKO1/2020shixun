@@ -153,7 +153,11 @@
             window.addEventListener('resize', this.getHeight);
             this.getHeight()
         },
-
+        mounted() {
+            const uid = this.$route.query.uid;
+            console.log(uid);
+            console.log(this.$route)
+        },
         destroyed(){
             window.removeEventListener('resize', this.getHeight)
         }
