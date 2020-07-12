@@ -9,25 +9,34 @@
 </template>
 
 <script>
-    // import axios from "axios"
-    // import qs from "qs"
+    import axios from "axios"
+    import qs from "qs"
     import router from "../router"
     export default {
         name: "UserInfo",
         props: ['uid'],
         data(){
             return{
-                username: '还没登陆'
+                username: 'userName'
             }
         },
         mounted() {
-            console.log(this.props.uid)
-            // axios.post('http://localhost:8080/logic/user/currentUser', qs.stringify({}), {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
-            // .then(response => {
-            //     console.log(response)
-            // }).catch(error => {
-            //     console.log(error)
-            // })
+            console.log(this.uid)
+            axios.post('http://localhost:8080/logic/user/currentUser', qs.stringify({
+                uid: this.uid
+            }), {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+            .then(response => {
+                console.log(response)
+                const data = response.data;
+                if (data.code === 1000){
+                    this.username = data.data.nickName
+                }else {
+                    this.$message.error("当前未登录，请重新登录")
+                    this.$router.push("/")
+                }
+            }).catch(error => {
+                console.log(error)
+            })
         },
         methods:{
             directTo(target){
