@@ -22,8 +22,8 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true,keyProperty = "id")
     public int register(@Param("user") User user);
 
-    @Update("update user set pwd = #{newPwd} where id=#{id}")
-    int updatePwd(@Param("id") int id, @Param("nwePwd") String newPwd);
+    @Update("update user set pwd = #{newPwd} where uid = #{uid}")
+    int updatePwd(@Param("uid") String uid, @Param("nwePwd") String newPwd);
 
     @Select("<script>" +
             "select id,uid,nick_name,state" +
@@ -61,5 +61,8 @@ public interface UserMapper {
             "</where>" +
             "</script>")
     public int countSeletcByWhere(@Param("uid") String uid,@Param("nickName") String nickName,@Param("state") Integer state);
+
+    @Update("update user set state = #{state} where uid = #{uid}")
+    int stateReset(@Param("uid") String uid, @Param("state") Integer state);
 }
 
