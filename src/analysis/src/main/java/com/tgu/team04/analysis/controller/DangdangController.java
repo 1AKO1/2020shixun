@@ -15,13 +15,17 @@ import java.util.List;
 @RequestMapping("/dangdang")
 public class DangdangController {
 
+    public static float min =0;
+    public static float max = 1000;
+
     @Autowired
     private DangService service;
+
 
     @RequestMapping("/search")
     @ResponseBody
     public TableData search(String bookName, String author, String presshouse,String smalllei,
-                            float discount,int page, int limit ){
+                            float discount,float min,float max,int page, int limit ){
         dangdangBook Book = new dangdangBook();
         Book.setName(bookName.length() == 0 ? null : bookName);
         Book.setAuthor(author.length() == 0 ? null : author);
@@ -29,7 +33,8 @@ public class DangdangController {
         Book.setSamlllei(smalllei);
         Book.setPs(discount);
 
-
+        this.min=min;
+        this.max=max;
 
         System.out.println(Book);
         System.out.println("page: " + page + ", limit: " + limit);

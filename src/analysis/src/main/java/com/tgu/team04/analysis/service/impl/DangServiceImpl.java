@@ -1,5 +1,6 @@
 package com.tgu.team04.analysis.service.impl;
 
+import com.tgu.team04.analysis.controller.DangdangController;
 import com.tgu.team04.analysis.dao.DangMapper;
 import com.tgu.team04.analysis.entity.dangdangBook;
 import com.tgu.team04.analysis.service.DangService;
@@ -22,10 +23,13 @@ public class DangServiceImpl implements DangService {
         if(Book.getAuthor() != null && !"".equals(Book.getAuthor().trim())){
             Book.setAuthor("%" + Book.getAuthor() + "%");
         }
+        float min = DangdangController.min;
+        float max = DangdangController.max;
+        System.out.println(min);
         if (page > 0 && limit > 0){
-            return mapper.selectByWhere(Book, (page - 1)*limit, limit);
+            return mapper.selectByWhere(Book, (page - 1)*limit, limit,min,max);
         }
-        return mapper.selectByWhere(Book, null, null);
+        return mapper.selectByWhere(Book, null, null,min,max);
     }
 
 
