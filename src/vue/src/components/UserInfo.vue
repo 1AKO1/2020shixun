@@ -14,12 +14,14 @@
     import router from "../router"
     export default {
         name: "UserInfo",
+        props: ['uid'],
         data(){
             return{
                 username: '还没登陆'
             }
         },
         mounted() {
+            console.log(this.props.uid)
             // axios.post('http://localhost:8080/logic/user/currentUser', qs.stringify({}), {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
             // .then(response => {
             //     console.log(response)

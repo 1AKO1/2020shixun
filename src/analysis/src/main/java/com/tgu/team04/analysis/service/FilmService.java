@@ -15,4 +15,6 @@ public interface FilmService {
 
     int peopleNumber();
 
+    List<Float> maxScore();
+
 }

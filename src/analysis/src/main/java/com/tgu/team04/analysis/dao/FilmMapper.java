@@ -5,13 +5,14 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.List;
 
 @Repository
 @Mapper
 public interface FilmMapper {
-    @Select("select *" +
+    @Select("movie_name, score, movie_type, movie_director, movie_script, movie_role, movie_country, movie_language, movie_start_time, movie_length," +
             "from bdcy_douban_movie " +
             "order by score " +
             "limit #{start}, #{limit};")
@@ -29,12 +30,21 @@ public interface FilmMapper {
             "from bdcy_douban_movie")
     int getPeopleNumber();
 
-    @Select("select max(score)" +
-            "from bdcy_douban_movie")
-    float getMaxScore();
+//    @Select("select max(score)" +
+//            "from bdcy_douban_movie")
+//    float getMaxScore();
+//
+//    @Select("select min(score)" +
+//            "from bdcy_douban_movie")
+//    float getMinScore();
 
-    @Select("select min(score)" +
+    @Select("select max(score),min(score)" +
             "from bdcy_douban_movie")
-    float getMinScore();
+    List<Float> getMaxScore();
+
+    @Select("select count(movie_type)" +
+            "from bdcy_douban_movie" +
+            "where movie_type=#{type}")
+    List<FilmComment> getTypeSort(@Param("type") List<String> type);
 }
 //id, movie_name, score, people_count, five_star, four_star, three_star, two_star, one_star, short_review_count, review_count, movie_type, movie_director, movie_script, movie_role, movie_country, movie_language, movie_start_time, movie_length, movie_url
