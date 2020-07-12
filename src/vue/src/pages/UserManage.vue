@@ -49,7 +49,7 @@
                         正常
                     </a-select-option>
                     <a-select-option value="2">
-                        屏蔽
+                        已屏蔽
                     </a-select-option>
                 </a-select>
 
@@ -74,18 +74,40 @@
             <a slot="name" slot-scope="text">{{ text }}</a>
             <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
             <span slot="tags" slot-scope="tags">
-                <a-tag :color=" tags === 0? '#00a1d6' : tags === 1 ? '#fb7299' : '#ff5c7c'">
+                <a-tag :color=" tags === '未激活'? 'grey' : tags === '正常' ? 'green' : 'red'">
 <!--                    也就在这里和根据标签不同赋予了不同的颜色，别的地方没动-->
                     {{ tags }}
                 </a-tag>
             </span>
 <!--        recode 保存每一行的所有信息-->
             <span slot="action"  slot-scope="text, record">
-                <a>修改密码{{record.uid}}</a>
+
+                <a @click="showChangePwd(record.uid)">修改密码</a>
+                <a-modal v-model="visiblepwd" title="修改密码" @ok="changePwdOk" v-on:cancel="clearAll" >
+                    <a-input placeholder="请输入要修改的密码" v-model="newPwd"/>
+                </a-modal>
+
                 <a-divider type="vertical" />
-                <a>修改状态</a>
+                <a @click="showChangeState(record.uid)">修改状态</a>
+                <a-modal v-model="visiblestate" title="修改状态" @ok="changeStateOk" @cancel="clearAll">
+                    <a-select default-value="1" style="width: 120px" @change="userstateChange">
+                        <a-select-option value="1">
+                          正常
+                        </a-select-option>
+                        <a-select-option value="0">
+                          未激活
+                        </a-select-option>
+                        <a-select-option value="2">
+                          已屏蔽
+                        </a-select-option>
+                    </a-select>
+                </a-modal>
+
                 <a-divider type="vertical" />
-                <a>注销用户</a>
+                <a @click="showDelete(record.uid)">删除用户</a>
+                <a-modal v-model="visibledelete" title="删除用户" @ok="deleteOk" @cancel="clearAll">
+                    警告：删除操作不可逆，请慎重选择！
+                </a-modal>
             </span>
         </a-table>
     </div>
@@ -129,7 +151,7 @@
             dataIndex: 'tags',
             scopedSlots: { customRender: 'tags' },
         },{
-            title: 'Action',
+            title: '操作',
             key: 'action',
             scopedSlots: { customRender: 'action' },
         }
@@ -164,7 +186,16 @@
                 limit: 10,  // 每页多少条
                 pagination:{    // 分页的设置参数
                     total: 0,   // 把count 传给 total！
-                }
+                },
+
+                // action
+                userUid: null,
+                visiblepwd: false,
+                visiblestate: false,
+                visibledelete: false,
+
+                newPwd: null,
+                userstate: 1
             }
         },
         computed:{ //  computed是组件的计算属性 这里面不用管 antd写好了的，我们也不需要动
@@ -190,8 +221,77 @@
             stateChange(e) { // vip类型改变时 修改data
                 this.state = e;
             },
+            userstateChange(e){
+                this.userstate = e;
+            },
+            showChangePwd(value){
+                this.visiblepwd = true;
+                this.userUid = value;
+            },
+            showChangeState(value){
+                this.visiblestate = true;
+                this.userUid = value;
+            },
+            showDelete(value){
+                this.visibledelete = true;
+                this.userUid = value;
+            },
+            clearAll(){
+                this.newPwd = null;
+                this.userstate = 1;
+            },
+            changePwdOk(){
+                this.visiblepwd = false;
+                if (this.newPwd === null){
+                    this.$message.warning('请输入更新的密码');
+                    return;
+                }
+                axios.post("http://localhost:8080/logic/user/pwdreset", qs.stringify({
+                    uid: this.userUid,
+                    newPwd: this.newPwd
+                })).then(response => {
+                    console.log(response);
+                    this.$message.success("修改成功");
+                }).catch(error => {
+                    console.log(error)
+                    this.$message.error("出现错误，请重试")
+                });
+                this.clearAll();
+            },
+            changeStateOk(){
+                this.visiblestate = false;
+                // console.log(this.userUid);
+                // console.log(this.userstate);
+                axios.post("http://localhost:8080/logic/user/staterest", qs.stringify({
+                    uid: this.userUid,
+                    state: this.userstate
+                })).then(response => {
+                    console.log(response);
+                    this.$message.success("修改成功");
+                    this.handleSubmit();
+                }).catch(error => {
+                    console.log(error)
+                    this.$message.error("出现错误，请重试")
+                });
+                this.clearAll();
+            },
+            deleteOk(){
+                this.visibledelete = false;
+                // console.log(this.userUid);
+                axios.post("http://localhost:8080/logic/user/deleteuser", qs.stringify({
+                    uid: this.userUid,
+                })).then(response => {
+                    console.log(response);
+                    this.$message.success("删除成功");
+                    this.handleSubmit();
+                }).catch(error => {
+                    console.log(error)
+                    this.$message.error("出现错误，请重试")
+                });
+                this.clearAll();
+            },
             handleSubmit(){ // 点击立即查询后触发
-                // this.loading = true; // 和loading有关的可以先忽略
+                this.loading = true; // 和loading有关的可以先忽略
 
                 // 数据格式处理，必须做，不用问为什么
                 // 记得在里面传入后端需要的参数
@@ -213,18 +313,29 @@
                 * table需要的 数据格式请先用`死数据`做测试，充分了解需要的数据格式之后再进行代码编写
                 *
                 * */
-                // let array = []; // 保存处理后的查询结果
+                let array = []; // 保存处理后的查询结果
                 axios.post("http://localhost:8080/logic/user/search", data, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
                     .then(response => {
                         console.log(response)
                         // 下面是处理过程
-                        // let data = response.data.data; //我想要的评论数据在这里面
-                        // for (var index in data){        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
-                        //     let comment = data[index]   // 然后 通过index获取每一条评论
-                        // }
+                        let data = response.data.data; //我想要的评论数据在这里
+                        for (var index in data){        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
+                            let user = data[index]   // 然后 通过index获取每一条评论
+                            console.log(user)
+                            array = array.concat({
+                                key: user.id,
+                                uid: user.uid,
+                                nickname: user.nickName,
+                                email: user.email,
+                                address: user.address,
+                                age: user.age,
+                                gender: user.sex,
+                                tags: user.state === 0 ? "未激活" : user.state === 1 ? "正常" : "已屏蔽"
+                            })
+                        }
                         // 总条数和每条评论不在一起， 在 response.data.count里面， 而且也不需要循环， 我们赋给total
                         this.pagination.total = response.data.count
-                        // this.data = array // 把处理结果赋值给 data （这才是和表格绑定的数据！）
+                        this.data = array // 把处理结果赋值给 data （这才是和表格绑定的数据！）
                         this.loading = false
                     }).catch(error => {
                     console.log(error)

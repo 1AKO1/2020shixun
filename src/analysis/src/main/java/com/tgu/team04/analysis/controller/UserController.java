@@ -73,7 +73,7 @@ public class UserController {
         return data;
     }
 
-    @RequestMapping(value = "pwdreset")
+    @RequestMapping(value = "/pwdreset")
     @ResponseBody
     public OneData pwdReset(String uid, String newPwd){
         OneData data = new OneData();
@@ -89,7 +89,7 @@ public class UserController {
         return data;
     }
 
-    @RequestMapping(value = "staterest")
+    @RequestMapping(value = "/staterest")
     @ResponseBody
     public OneData stateReset(String uid, Integer state){
         OneData data = new OneData();
@@ -101,6 +101,22 @@ public class UserController {
         if (service.stateReset(uid, state) == true){
             data.setCode(1000);
             data.setMsg("修改成功");
+        }
+        return data;
+    }
+
+    @RequestMapping(value = "/deleteuser")
+    @ResponseBody
+    public OneData deleteUser(String uid){
+        OneData data = new OneData();
+
+        data.setCode(2000);
+        data.setMsg("删除失败");
+        data.setData(null);
+
+        if (service.deleteUser(uid)){
+            data.setCode(1000);
+            data.setMsg("删除成功");
         }
         return data;
     }

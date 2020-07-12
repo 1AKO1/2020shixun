@@ -133,7 +133,12 @@
                     // console.log(typeof (data.code));
                     if (data.code === 1000) {
                         console.log("登录成功");
-                        this.$router.push("/mainpage");
+                        this.$router.push({
+                            path: "/mainpage",
+                            query: {
+                                uid: this.userName
+                            }
+                        });
                     } else if (data.code === 2000) {
                         alert("用户不存在或密码错误");
                         window.location.reload();

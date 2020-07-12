@@ -51,7 +51,7 @@
                 <a-cascader :options="options"
                             change-on-select
                             style="width: 120px"
-                            placeholder="请选择"
+                            :default-value="['all']"
                             @change="onChangeFenlei"/>
 
             </a-form-item>
@@ -59,14 +59,17 @@
         </a-form>
         <a-form layout="inline">
             <a-form-item
-                    label="折扣查询:≥"
+                    label="折扣查询:≤"
                     :label-col="formItemLayout.labelCol"
                     :wrapper-col="formItemLayout.wrapperCol"
             >
                 <a-slider
                         v-decorator="['slider']"
-                        :marks="{0:'0%',20:'20%',40: '40%',60: '60%', 80: '80%'}"
+                        :marks="{0:'0折',2:'2折',4: '4折',6: '6折', 8: '8折'}"
                         style="width: 250px"
+                        :default-value="9.8"
+                        :max="10"
+                        :step="0.5"
                         @change="onChangeDiscount"
                 />
             </a-form-item>
@@ -82,7 +85,7 @@
                         style="width: 250px"
                         :min="3"
                         :max="1000"
-                        step="10"
+                        :step="10"
                         :default-value="[3, 990]"
                         @change="onChangeBetween"
                 />
@@ -109,7 +112,7 @@
             <a slot="name" slot-scope="text">{{ text }}</a>
             <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
             <span slot="tags" slot-scope="tags">
-                <a-tag :color=" tags === '普通用户'? '#00a1d6' : tags === '大会员' ? '#fb7299' : '#ff5c7c'">
+                <a-tag :color=" tags <= '-30&#37;' ? '#00a1d6' : tags <= '-53&#37;' ? '#fb7299' :tags <= '-72&#37;'?'#ff5c7c':'#DC143C'">
 <!--                    也就在这里和根据标签不同赋予了不同的颜色，别的地方没动-->
                     {{ tags }}
                 </a-tag>
@@ -146,6 +149,12 @@
             key: 'price',
         },
         {
+          title: '折扣',
+          dataIndex: 'discount',
+          key: 'discount',
+            scopedSlots: { customRender: 'tags' },
+        },
+        {
             title: '出版日期',
             dataIndex: 'date',
             key: 'date',
@@ -156,12 +165,11 @@
         {
             bookname: 'John Brown',
             author: 'baababab',
-            progress: 'New York No. 1 Lake Park',
+            progress: 0,
             price: 6,
             date: '2000-10-10',
         },
     ];
-
     export default {
         name: "dataSearch",
         // 组件的状态（属性）（变量）
@@ -170,7 +178,7 @@
                 //line 193~226 级联选择
                 options: [
                     {
-                        value: '全部',
+                        value: 'all',
                         label: '全部',
                     },
                     {
@@ -583,8 +591,11 @@
                 author: null,
                 presshouse: null,
                 fenlei: 'all',
-                discount: null,
+                discount: 80,
                 pricebetween:null,
+
+
+
                 // 表格数据
                 data: [],  // 请求结果我会放进去
                 data0,
@@ -616,6 +627,7 @@
                     : {};
             }
         },
+
         methods: {
             onChangeFenlei(e) {  // 分类类型改变时 修改data
                 this.fenlei = e;
@@ -629,7 +641,8 @@
             },
             handleSubmit() { // 点击立即查询后触发
                 this.loading = true; // 和loading有关的可以先忽略
-
+                console.log(this.fenlei);
+                console.log(this.fenlei[1]);
                 // 数据格式处理，必须做，不用问为什么
                 // 记得在里面传入后端需要的参数
                 const data = qs.stringify({
@@ -638,8 +651,8 @@
                     presshouse: this.presshouse,
                     smalllei: this.fenlei[1],
                     discount: this.discount,
-                    min: this.pricebetween[0],
-                    max: this.pricebetween[1],
+                    // min: this.pricebetween[0],
+                    // max: this.pricebetween[1],
                     page: this.page,
                     limit: this.limit
                 })
@@ -657,17 +670,21 @@
                     .then(response => {
                         // 下面是处理过程
                         let data = response.data.data; //我想要的评论数据在这里面
+
                         for (var index in data) {        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
                             let Book = data[index] ;  // 然后 通过index获取每一条评论
                             console.log(Book);
                             array = array.concat({      // 将每一条处理后的结果追加到 array数组中
                                 key: Book.id,        // 这里面是我需要的数据格式 ！！！！！！！！！！ 自己也搞明白自己需要的！！！ very impotent！
-                                bookname: Book.uname,
-                                author: Book.content,
+                                bookname: Book.name,
+                                author: Book.author,
                                 // tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
-                                progress: Book.progress,
-                                price: Book.price,
-                                date: Book.ctime
+
+                                progress: Book.tuijian,
+                                samlllei: Book.samlllei,
+                                discount: '-' + (100-Book.ps*10) + "%",
+                                price: Book.pn + "￥",
+                                date: Book.ptimes,
                             })
                         }
                         // 总条数和每条评论不在一起， 在 response.data.count里面， 而且也不需要循环， 我们赋给total
@@ -682,6 +699,7 @@
             },
             nextPage(pagination) {
                 this.page = pagination.current; // 获取当前页码并进行更新
+
                 // 和上面的函数一样（没一点不一样）
                 this.loading = true;
                 const data = qs.stringify({
@@ -690,8 +708,8 @@
                     presshouse: this.presshouse,
                     smalllei: this.fenlei[1],
                     discount: this.discount,
-                    min: this.pricebetween[0],
-                    max: this.pricebetween[1],
+                    // min: this.pricebetween[0],
+                    // max: this.pricebetween[1],
                     page: this.page,
                     limit: this.limit
                 })
@@ -704,12 +722,14 @@
                             console.log(Book);
                             array = array.concat({      // 将每一条处理后的结果追加到 array数组中
                                 key: Book.id,        // 这里面是我需要的数据格式 ！！！！！！！！！！ 自己也搞明白自己需要的！！！ very impotent！
-                                bookname: Book.uname,
-                                author: Book.content,
+                                bookname: Book.name,
+                                author: Book.author,
                                 // tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
-                                progress: Book.progress,
-                                price: Book.price,
-                                date: Book.ctime
+                                progress: Book.tuijian,
+                                samlllei: Book.samlllei,
+                                discount: '-' + (100-Book.ps*10) + "%",
+                                price: Book.pn + "￥",
+                                date: Book.ptimes,
                             })
                         }
                         this.pagination.total = response.data.count
