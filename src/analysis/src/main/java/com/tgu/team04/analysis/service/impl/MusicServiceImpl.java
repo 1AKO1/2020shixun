@@ -2,6 +2,8 @@ package com.tgu.team04.analysis.service.impl;
 
 import com.tgu.team04.analysis.dao.MusicMapper;
 import com.tgu.team04.analysis.entity.Music;
+import com.tgu.team04.analysis.entity.MusicData;
+import com.tgu.team04.analysis.entity.TwoData;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -180,5 +182,33 @@ public class MusicServiceImpl implements MusicService {
             }
         }
         return mapper.countSeletcByWhere(name, singer, time, tag, kind);
+    }
+
+    @Override
+    public TwoData analysis(String type) {
+        TwoData data = new TwoData();
+        switch (type){
+            case "compare":
+                data.setData1(mapper.compare1());
+                data.setData2(mapper.compare2());
+                break;
+            case "publisher":
+                data.setData1(mapper.publisher());
+                break;
+            case "singer":
+                data.setData1(mapper.singer());
+                break;
+            case "medium":
+                data.setData1(mapper.medium());
+                break;
+            case "kind":
+                data.setData1(mapper.kind1());
+                data.setData2(mapper.kind2());
+                break;
+        }
+
+        data.setMsg(null);
+        data.setCode(1000);
+        return data;
     }
 }

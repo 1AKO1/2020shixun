@@ -112,7 +112,7 @@
             <a slot="name" slot-scope="text">{{ text }}</a>
             <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
             <span slot="tags" slot-scope="tags">
-                <a-tag :color=" tags <= '-30&#37;' ? '#00a1d6' : tags <= '-70&#37;' ? '#fb7299' :'#ff5c7c'">
+                <a-tag :color=" tags <= '-30&#37;' ? '#00a1d6' : tags <= '-53&#37;' ? '#fb7299' :tags <= '-72&#37;'?'#ff5c7c':'#DC143C'">
 <!--                    也就在这里和根据标签不同赋予了不同的颜色，别的地方没动-->
                     {{ tags }}
                 </a-tag>

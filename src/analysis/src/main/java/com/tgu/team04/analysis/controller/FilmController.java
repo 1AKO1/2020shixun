@@ -55,4 +55,22 @@ public class FilmController {
         return peoplenumber;
     }
 
+    @RequestMapping("/maxscore")
+    @ResponseBody
+    public TableData maxScore(){
+        TableData data = new TableData();
+        System.out.println(data);
+        List<Float> result = filmservice.maxScore();
+        System.out.println(result);
+        if (result != null){
+            data.setCode(1000);
+            data.setMsg("查询成功");
+            data.setData(result);
+        }else {
+            data.setCode(2000);
+            data.setMsg("查询失败");
+            data.setData(null);
+        }
+        return data;
+    }
 }

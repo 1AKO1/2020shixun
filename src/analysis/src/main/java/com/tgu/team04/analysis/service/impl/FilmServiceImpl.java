@@ -6,6 +6,7 @@ import com.tgu.team04.analysis.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,5 +43,17 @@ public class FilmServiceImpl implements FilmService {
         int peoplenumber=mapper.getPeopleNumber();
 
         return peoplenumber;
+    }
+
+    @Override
+    public List<Float> maxScore() {
+        List<Float> maxmin = mapper.getMaxScore();
+//        List<Float> list = new ArrayList<>();
+//        int maxscore=mapper.getPeopleNumber();
+//        int minscore=mapper.getTotalNumber();
+//        list.add(1,maxscore);
+//        list.add(2,minscore);
+//        Float maxscore = mapper.
+        return maxmin;
     }
 }
