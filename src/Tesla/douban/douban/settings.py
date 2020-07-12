@@ -21,7 +21,7 @@ MYSQL_USER = 'team04'
 MYSQL_PWD = 'team04'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (WindowsNT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -50,7 +50,7 @@ DOWNLOAD_DELAY = 2
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-COOKIES_ENABLED = False
+# COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
