@@ -51,7 +51,7 @@
                 <a-cascader :options="options"
                             change-on-select
                             style="width: 120px"
-                            :default-value="['全部']"
+                            :default-value="['all']"
                             @change="onChangeFenlei"/>
 
             </a-form-item>
@@ -169,7 +169,7 @@
                 //line 193~226 级联选择
                 options: [
                     {
-                        value: '全部',
+                        value: 'all',
                         label: '全部',
                     },
                     {
@@ -670,7 +670,7 @@
 
                                 progress: Book.tuijian,
                                 samlllei: Book.samlllei,
-                                price: Book.pn,
+                                price: Book.pn + "￥",
                                 date: Book.ptimes,
                             })
                         }
