@@ -20,12 +20,15 @@ public class DangdangController {
 
     @RequestMapping("/search")
     @ResponseBody
-    public TableData search(String bookName, String author, float tuijian , float price ,int page, int limit){
+    public TableData search(String bookName, String author, String presshouse,String smalllei,float min,float max, float discount,int page, int limit){
         dangdangBook Book = new dangdangBook();
         Book.setName(bookName.length() == 0 ? null : bookName);
         Book.setAuthor(author.length() == 0 ? null : author);
-        Book.setTuijian(tuijian);
-        Book.setPn(price);
+        Book.setPhouse(presshouse);
+        Book.setSamlllei(smalllei);
+        Book.setPs(discount);
+        Book.setMax(max);
+        Book.setMin(min);
         System.out.println(Book);
         System.out.println("page: " + page + ", limit: " + limit);
 

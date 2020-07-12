@@ -15,4 +15,8 @@ public class dangdangBook {
     private float pe;
     private int timehot;
     private String samlllei;
+
+    private float min;
+    private float max;
+
 }
