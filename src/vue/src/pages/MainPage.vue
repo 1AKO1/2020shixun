@@ -24,7 +24,7 @@
                             数据查询
                         </a-menu-item>
                         <a-menu-item key="filmAnalysis" v-on:click="directTo('filmAnalysis')">
-                            数据展示
+                            数据分析
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -34,10 +34,10 @@
                         <span>豆瓣音乐</span>
                     </span>
                         <a-menu-item key="music" v-on:click="directTo('music')">
-                            数据分析
+                            数据查询
                         </a-menu-item>
                         <a-menu-item key="musicAnalysis" v-on:click="directTo('musicAnalysis')">
-                            数据查询
+                            数据分析
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -50,7 +50,7 @@
                             数据查询
                         </a-menu-item>
                         <a-menu-item key="bookAnalysis" v-on:click="directTo('bookAnalysis')">
-                            数据展示
+                            数据分析
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -63,7 +63,7 @@
                             数据查询
                         </a-menu-item>
                         <a-menu-item key="dangAnalysis" v-on:click="directTo('dangAnalysis')">
-                            数据展示
+                            数据分析
                         </a-menu-item>
                     </a-sub-menu>
 
@@ -73,13 +73,13 @@
                         <span>bilibili评论</span>
                     </span>
                         <a-menu-item key="bilibili" v-on:click="directTo('bilibili')">
-                            评论数据
+                            评论列表
                         </a-menu-item>
                         <a-menu-item key="bilibiliSearch" v-on:click="directTo('bilibiliSearch')">
-                            评论查询
+                            数据查询
                         </a-menu-item>
                         <a-menu-item key="bilibiliAnalysis" v-on:click="directTo('bilibiliAnalysis')">
-                            评论分析
+                            数据分析
                         </a-menu-item>
                     </a-sub-menu>
 

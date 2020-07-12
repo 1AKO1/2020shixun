@@ -11,16 +11,16 @@ import Main from "./pages/Main";
 import UserManage from "./pages/UserManage";
 
 //film 源哥页面
-import FilmIndex from "./pages/film/index"
+import FilmIndex from "./pages/film/dataSearch"
 import FilmAnalysis from "./pages/film/dataDisplay"
 //music 刘博页面
-import MusicIndex from "./pages/music/index"
+import MusicIndex from "./pages/music/dataSearch"
 import MusicAnalysis from "./pages/music/dataDisplay"
 //book 廖总页面
-import BookIndex from "./pages/book/index"
+import BookIndex from "./pages/book/dataSearch"
 import BookAnalysis from "./pages/book/dataDisplay"
 //dang 薛佬页面
-import DangIndex from "./pages/dang/dangSearch"
+import DangIndex from "./pages/dang/dataSearch"
 import DangAnalysis from "./pages/dang/dataDisplay"
 //bilibili 李弟弟页面
 import BiLiBiLi from "./pages/bilibili/index"
