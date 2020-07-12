@@ -83,6 +83,10 @@
                         </a-menu-item>
                     </a-sub-menu>
 
+                    <a-menu-item key="usermange" v-on:click="directTo('usermanage')">
+                        <a-icon type="team" />
+                        <span>用户管理</span>
+                    </a-menu-item>
                 </a-menu>
             </a-layout-sider>
 
