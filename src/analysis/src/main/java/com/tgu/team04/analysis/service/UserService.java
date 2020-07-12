@@ -17,4 +17,6 @@ public interface UserService {
     int searchCount(String uid, String nickName, int state);
 
     boolean stateReset(String uid, Integer state);
+
+    boolean deleteUser(String uid);
 }

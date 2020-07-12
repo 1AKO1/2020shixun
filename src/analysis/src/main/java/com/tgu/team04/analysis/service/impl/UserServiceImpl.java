@@ -4,6 +4,7 @@ import com.tgu.team04.analysis.dao.UserMapper;
 import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.entity.User;
 import com.tgu.team04.analysis.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,6 +95,15 @@ public class UserServiceImpl implements UserService {
     public boolean stateReset(String uid, Integer state) {
         if (mapper.stateReset(uid, state) == 1)
             return true;
+        return false;
+    }
+
+    @Override
+    public boolean deleteUser(String uid) {
+        if (mapper.deleteUser(uid) == 1){
+            return true;
+        }
+
         return false;
     }
 

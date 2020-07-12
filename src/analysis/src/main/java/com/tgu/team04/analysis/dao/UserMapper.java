@@ -23,7 +23,7 @@ public interface UserMapper {
     public int register(@Param("user") User user);
 
     @Update("update user set pwd = #{newPwd} where uid = #{uid}")
-    int updatePwd(@Param("uid") String uid, @Param("nwePwd") String newPwd);
+    int updatePwd(@Param("uid") String uid, @Param("newPwd") String newPwd);
 
     @Select("<script>" +
             "select * " +
@@ -64,5 +64,8 @@ public interface UserMapper {
 
     @Update("update user set state = #{state} where uid = #{uid}")
     int stateReset(@Param("uid") String uid, @Param("state") Integer state);
+
+    @Delete("delete from user where uid = #{uid}")
+    int deleteUser(@Param("uid") String uid);
 }
 
