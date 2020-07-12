@@ -1,6 +1,7 @@
 package com.tgu.team04.analysis.dao;
 
 import com.tgu.team04.analysis.entity.dangdangBook;
+import com.tgu.team04.analysis.entity.dangdangData;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -59,5 +60,8 @@ public interface DangMapper {
             "</where>" +
             "</script>")
     int countSelectByWhere(@Param("Book") dangdangBook Book);
+
+    @Select("select biglei as type, count(*) as count from zhihan_dang  group by biglei order by count desc limit 0,40")
+    List<dangdangData> classes();
 
 }
