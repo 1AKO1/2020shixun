@@ -78,7 +78,7 @@ public interface MusicMapper {
     @Select("select music_medium as type, count(*) as count from spt_music  group by music_medium order by count desc limit 0,20")
     public List<MusicData> medium();
 
-    @Select("select music_kind as type, sum(music_rating+0) as count from spt_music  group by music_kind order by music_kind")
+    @Select("select music_kind as type, sum(music_rating+0)/count(*) as count from spt_music  group by music_kind order by music_kind")
     public List<MusicData> kind1();
 
     @Select("select music_kind as type, sum(music_votes) as count from spt_music  group by music_kind order by music_kind")
