@@ -2,6 +2,8 @@ package com.tgu.team04.analysis.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class dangdangBook {
     private int id ;
@@ -15,8 +17,8 @@ public class dangdangBook {
     private float pe;
     private int timehot;
     private String samlllei;
+    private String ptimes;
 
-    private float min;
-    private float max;
+
 
 }
