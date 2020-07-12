@@ -77,9 +77,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean pwdReset(int id,String newPwd) {
+    public boolean pwdReset(String uid,String newPwd) {
 
-        if (mapper.updatePwd(id,newPwd)==1)
+        if (mapper.updatePwd(uid,newPwd)==1)
             return true;
 
         return false;
@@ -88,6 +88,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public int searchCount(String uid, String nickName, int state) {
         return mapper.countSeletcByWhere(uid, nickName, state);
+    }
+
+    @Override
+    public boolean stateReset(String uid, Integer state) {
+        if (mapper.stateReset(uid, state) == 1)
+            return true;
+        return false;
     }
 
 }

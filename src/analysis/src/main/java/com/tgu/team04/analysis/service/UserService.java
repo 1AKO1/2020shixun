@@ -12,7 +12,9 @@ public interface UserService {
 
     List<User> search(String uid, String nickName,int state, int page, int limit);
 
-    boolean pwdReset(int id, String newPwd);
+    boolean pwdReset(String uid, String newPwd);
 
     int searchCount(String uid, String nickName, int state);
+
+    boolean stateReset(String uid, Integer state);
 }

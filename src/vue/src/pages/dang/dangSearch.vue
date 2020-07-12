@@ -152,6 +152,15 @@
         },
     ];
 
+    const data0 = [
+        {
+            bookname: 'John Brown',
+            author: 'baababab',
+            progress: 'New York No. 1 Lake Park',
+            price: 6,
+            date: '2000-10-10',
+        },
+    ];
 
     export default {
         name: "dataSearch",
@@ -578,6 +587,7 @@
                 pricebetween:null,
                 // 表格数据
                 data: [],  // 请求结果我会放进去
+                data0,
                 columns,   // 刚才说到的 表的字段
                 loading: false, // 是否显示加载中图标， 不用管。
                 page: 1,    // 当前页数
@@ -615,6 +625,7 @@
             },
             onChangeBetween(e){
                 this.pricebetween = e;
+                console.log(e[0]);
             },
             handleSubmit() { // 点击立即查询后触发
                 this.loading = true; // 和loading有关的可以先忽略
@@ -622,10 +633,13 @@
                 // 数据格式处理，必须做，不用问为什么
                 // 记得在里面传入后端需要的参数
                 const data = qs.stringify({
-                    uname: this.uname,
-                    content: this.content,
-                    vipStatus: this.vipStatus,
-                    progress: this.progress,
+                    bookName: this.bookname,
+                    author: this.author,
+                    presshouse: this.presshouse,
+                    smalllei: this.fenlei[1],
+                    discount: this.discount,
+                    min: this.pricebetween[0],
+                    max: this.pricebetween[1],
                     page: this.page,
                     limit: this.limit
                 })
@@ -639,19 +653,21 @@
                 *
                 * */
                 let array = []; // 保存处理后的查询结果
-                axios.post("http://localhost:8080/bilibili/search", data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+                axios.post("http://localhost:8080/dangdang/search", data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                     .then(response => {
                         // 下面是处理过程
                         let data = response.data.data; //我想要的评论数据在这里面
                         for (var index in data) {        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
-                            let comment = data[index]   // 然后 通过index获取每一条评论
+                            let Book = data[index] ;  // 然后 通过index获取每一条评论
+                            console.log(Book);
                             array = array.concat({      // 将每一条处理后的结果追加到 array数组中
-                                key: comment.id,        // 这里面是我需要的数据格式 ！！！！！！！！！！ 自己也搞明白自己需要的！！！ very impotent！
-                                uname: comment.uname,
-                                content: comment.content,
-                                tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
-                                progress: comment.progress,
-                                date: this.translate(comment.ctime)
+                                key: Book.id,        // 这里面是我需要的数据格式 ！！！！！！！！！！ 自己也搞明白自己需要的！！！ very impotent！
+                                bookname: Book.uname,
+                                author: Book.content,
+                                // tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
+                                progress: Book.progress,
+                                price: Book.price,
+                                date: Book.ctime
                             })
                         }
                         // 总条数和每条评论不在一起， 在 response.data.count里面， 而且也不需要循环， 我们赋给total
@@ -669,26 +685,31 @@
                 // 和上面的函数一样（没一点不一样）
                 this.loading = true;
                 const data = qs.stringify({
-                    uname: this.uname,
-                    content: this.content,
-                    vipStatus: this.vipStatus,
-                    progress: this.progress,
+                    bookName: this.bookname,
+                    author: this.author,
+                    presshouse: this.presshouse,
+                    smalllei: this.fenlei[1],
+                    discount: this.discount,
+                    min: this.pricebetween[0],
+                    max: this.pricebetween[1],
                     page: this.page,
                     limit: this.limit
                 })
                 let array = []; // 保存处理后的查询结果
-                axios.post("http://localhost:8080/bilibili/search", data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+                axios.post("http://localhost:8080/dangdang/search", data, {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                     .then(response => {
                         let data = response.data.data;
-                        for (var index in data) {
-                            let comment = data[index]
-                            array = array.concat({
-                                key: comment.id,
-                                uname: comment.uname,
-                                content: comment.content,
-                                tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
-                                progress: comment.progress,
-                                date: this.translate(comment.ctime)
+                        for (var index in data) {        // 因为是对象类型，所以我遍历它的索引index（想知道数据长啥样，自己console.log）
+                            let Book = data[index] ;  // 然后 通过index获取每一条评论
+                            console.log(Book);
+                            array = array.concat({      // 将每一条处理后的结果追加到 array数组中
+                                key: Book.id,        // 这里面是我需要的数据格式 ！！！！！！！！！！ 自己也搞明白自己需要的！！！ very impotent！
+                                bookname: Book.uname,
+                                author: Book.content,
+                                // tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
+                                progress: Book.progress,
+                                price: Book.price,
+                                date: Book.ctime
                             })
                         }
                         this.pagination.total = response.data.count
@@ -700,9 +721,6 @@
                 })
             },
 
-            translate(date) { // 时间戳转日期函数
-                return new Date(parseInt(date) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
-            }
         }
     }
 </script>

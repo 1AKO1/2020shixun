@@ -75,17 +75,33 @@ public class UserController {
 
     @RequestMapping(value = "pwdreset")
     @ResponseBody
-    public OneData pwdReset(int id, String newPwd){
+    public OneData pwdReset(String uid, String newPwd){
         OneData data = new OneData();
 
             data.setCode(2000);
             data.setMsg("修改失败");
             data.setData(null);
 
-            if (service.pwdReset(id,newPwd)==true){
+            if (service.pwdReset(uid,newPwd)==true){
                 data.setCode(1000);
                 data.setMsg("修改成功");
             }
+        return data;
+    }
+
+    @RequestMapping(value = "staterest")
+    @ResponseBody
+    public OneData stateReset(String uid, Integer state){
+        OneData data = new OneData();
+
+        data.setCode(2000);
+        data.setMsg("修改失败");
+        data.setData(null);
+
+        if (service.stateReset(uid, state) == true){
+            data.setCode(1000);
+            data.setMsg("修改成功");
+        }
         return data;
     }
 
