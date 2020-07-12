@@ -202,7 +202,8 @@ public class MusicServiceImpl implements MusicService {
                 data.setData1(mapper.medium());
                 break;
             case "kind":
-                data.setData1(mapper.kind());
+                data.setData1(mapper.kind1());
+                data.setData2(mapper.kind2());
                 break;
         }
 
