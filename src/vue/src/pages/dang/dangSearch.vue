@@ -59,14 +59,17 @@
         </a-form>
         <a-form layout="inline">
             <a-form-item
-                    label="折扣查询:≥"
+                    label="折扣查询:≤"
                     :label-col="formItemLayout.labelCol"
                     :wrapper-col="formItemLayout.wrapperCol"
             >
                 <a-slider
                         v-decorator="['slider']"
-                        :marks="{0:'0%',20:'20%',40: '40%',60: '60%', 80: '80%'}"
+                        :marks="{0:'0折',2:'2折',4: '4折',6: '6折', 8: '8折'}"
                         style="width: 250px"
+                        :default-value="9.8"
+                        :max="10"
+                        :step="0.5"
                         @change="onChangeDiscount"
                 />
             </a-form-item>
@@ -109,7 +112,7 @@
             <a slot="name" slot-scope="text">{{ text }}</a>
             <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
             <span slot="tags" slot-scope="tags">
-                <a-tag :color=" tags === '普通用户'? '#00a1d6' : tags === '大会员' ? '#fb7299' : '#ff5c7c'">
+                <a-tag :color=" tags <= '-30&#37;' ? '#00a1d6' : tags <= '-70&#37;' ? '#fb7299' :'#ff5c7c'">
 <!--                    也就在这里和根据标签不同赋予了不同的颜色，别的地方没动-->
                     {{ tags }}
                 </a-tag>
@@ -144,6 +147,12 @@
             title: '价格',
             dataIndex: 'price',
             key: 'price',
+        },
+        {
+          title: '折扣',
+          dataIndex: 'discount',
+          key: 'discount',
+            scopedSlots: { customRender: 'tags' },
         },
         {
             title: '出版日期',
@@ -584,6 +593,9 @@
                 fenlei: 'all',
                 discount: 80,
                 pricebetween:null,
+
+
+
                 // 表格数据
                 data: [],  // 请求结果我会放进去
                 data0,
@@ -670,6 +682,7 @@
 
                                 progress: Book.tuijian,
                                 samlllei: Book.samlllei,
+                                discount: '-' + (100-Book.ps*10) + "%",
                                 price: Book.pn + "￥",
                                 date: Book.ptimes,
                             })
@@ -714,7 +727,8 @@
                                 // tags: comment.vipStatus === 0 ? "普通用户" : comment.vipStatus === 1 ? "大会员" : "神秘大会员",
                                 progress: Book.tuijian,
                                 samlllei: Book.samlllei,
-                                price: Book.pn,
+                                discount: '-' + (100-Book.ps*10) + "%",
+                                price: Book.pn + "￥",
                                 date: Book.ptimes,
                             })
                         }

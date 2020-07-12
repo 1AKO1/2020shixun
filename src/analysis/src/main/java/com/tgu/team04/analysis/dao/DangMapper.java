@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface DangMapper {
     @Select("<script>" +
-            "select id, name, author, ptimes, samlllei, pn ,tuijian" +
+            "select id, name, author, ptimes, samlllei, pn ,tuijian ,ps" +
             "   from zhihan_dang" +
             "<where>" +
             "   <if test='Book.name != null and Book.name.length > 0'>" +
@@ -23,6 +23,9 @@ public interface DangMapper {
             "   <if test='Book.samlllei != null '>" +
             "       AND samlllei = #{Book.samlllei}" +
             "   </if>" +
+            "   <if test='Book.ps >= 0 '>"+
+            "       AND ps &lt; #{Book.ps}"+
+            "   </if>"+
 //            "   <if test='Book.pn &gt; Book.min and Book.pn &lt; Book.max'>" +
 //            "       AND pn = #{Book.pn}" +
 //            "   </if>"+
