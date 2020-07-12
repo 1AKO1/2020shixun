@@ -50,6 +50,9 @@ public interface DangMapper {
             "   <if test=' Book.samlllei != null '>" +
             "       AND samlllei = #{Book.samlllei}" +
             "   </if>" +
+            "   <if test='Book.ps >= 0 '>"+
+            "       AND ps &lt; #{Book.ps}"+
+            "   </if>"+
 //            "   <if test='Book.pn &gt; Book.min and Book.pn &lt; Book.max'>" +
 //            "       AND pn = #{Book.pn}" +
 //            "   </if>" +
