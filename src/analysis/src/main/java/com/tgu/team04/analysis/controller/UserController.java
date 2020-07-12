@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
-@SessionAttributes("currentUser")
+//@SessionAttributes("currentUser")
 @Controller
 @RequestMapping("/logic/user")
 public class UserController {
@@ -20,16 +20,16 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @RequestMapping("/currentUser")
-    @ResponseBody
-    public User currentUser(Model model){
-        User currentUser=(User) model.getAttribute("currentUser");
-
-        if (currentUser != null)
-            return currentUser;
-
-        return null;
-    }
+//    @RequestMapping("/currentUser")
+//    @ResponseBody
+//    public User currentUser(Model model){
+//        User currentUser=(User) model.getAttribute("currentUser");
+//
+//        if (currentUser != null)
+//            return currentUser;
+//
+//        return null;
+//    }
 
     @RequestMapping("/login")
     @ResponseBody
