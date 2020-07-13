@@ -22,63 +22,51 @@
                 var myChart = this.$echarts.init(document.getElementById('score'));
 
                  var option = {
-                     backgroundColor: '#2c343c',
-
                      title: {
-                         text: '各分段比率',
-                         left: 'center',
-                         top: 20,
-                         textStyle: {
-                             color: '#ccc'
-                         }
+                         text: '评论各分段占比',
+                         subtext: '10分太多了！',
+                         left: 'center'
                      },
-
                      tooltip: {
                          trigger: 'item',
                          formatter: '{a} <br/>{b} : {c} ({d}%)'
                      },
-
-                     visualMap: {
-                         show: false,
-                         min: 80,
-                         max: 600,
-                         inRange: {
-                             colorLightness: [0, 1]
+                     legend: {
+                         left: 'center',
+                         top: 'bottom',
+                         data: ["2分", "4分", "6分", "8分", "10分"]
+                     },
+                     toolbox: {
+                         show: true,
+                         feature: {
+                             mark: {show: true},
+                             dataView: {show: true, readOnly: false},
+                             magicType: {
+                                 show: true,
+                                 type: ['pie', 'funnel']
+                             },
+                             restore: {show: true},
+                             saveAsImage: {show: true}
                          }
                      },
                      series: [
                          {
-                             name: '访问来源',
                              type: 'pie',
-                             radius: '55%',
-                             center: ['50%', '50%'],
-                             data: this._datalist.sort(function (a, b) { return a.value - b.value; }),
+                             radius: [20, 110],
                              roseType: 'radius',
                              label: {
-                                 color: 'rgba(255, 255, 255, 0.3)'
+                                 show: false
                              },
-                             labelLine: {
-                                 lineStyle: {
-                                     color: 'rgba(255, 255, 255, 0.3)'
-                                 },
-                                 smooth: 0.2,
-                                 length: 10,
-                                 length2: 20
+                             emphasis: {
+                                 label: {
+                                     show: true
+                                 }
                              },
-                             itemStyle: {
-                                 color: '#66ccff',
-                                 shadowBlur: 200,
-                                 shadowColor: 'rgba(0, 0, 0, 0.5)'
-                             },
-
-                             animationType: 'scale',
-                             animationEasing: 'elasticOut',
-                             animationDelay: function () {
-                                 return Math.random() * 200;
-                             }
+                             data: this._datalist
                          }
                      ]
                  };
+
 
 
                 // 使用刚指定的配置项和数据显示图表。

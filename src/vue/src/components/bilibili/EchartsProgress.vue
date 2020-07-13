@@ -21,63 +21,44 @@
                 var myChart = this.$echarts.init(document.getElementById('progress'));
 
                 var option = {
-                    backgroundColor: '#2c343c',
-
                     title: {
-                        text: '观看进度比率',
-                        left: 'center',
-                        top: 20,
-                        textStyle: {
-                            color: '#ccc'
-                        }
+                        text: '南丁格尔玫瑰图',
+                        subtext: '纯属虚构',
+                        left: 'center'
                     },
-
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'
                     },
-
-                    visualMap: {
-                        show: false,
-                        min: 80,
-                        max: 600,
-                        inRange: {
-                            colorLightness: [0, 1]
+                    legend: {
+                        left: 'center',
+                        top: 'bottom',
+                        data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: {show: true},
+                            dataView: {show: true, readOnly: false},
+                            magicType: {
+                                show: true,
+                                type: ['pie', 'funnel']
+                            },
+                            restore: {show: true},
+                            saveAsImage: {show: true}
                         }
                     },
                     series: [
                         {
-                            name: '访问来源',
+                            name: '面积模式',
                             type: 'pie',
-                            radius: '55%',
-                            center: ['50%', '50%'],
-                            data: this._datalist.sort(function (a, b) { return a.value - b.value; }),
-                            roseType: 'radius',
-                            label: {
-                                color: 'rgba(255, 255, 255, 0.3)'
-                            },
-                            labelLine: {
-                                lineStyle: {
-                                    color: 'rgba(255, 255, 255, 0.3)'
-                                },
-                                smooth: 0.2,
-                                length: 10,
-                                length2: 20
-                            },
-                            itemStyle: {
-                                color: '#66ccff',
-                                shadowBlur: 200,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            },
-
-                            animationType: 'scale',
-                            animationEasing: 'elasticOut',
-                            animationDelay: function () {
-                                return Math.random() * 200;
-                            }
+                            radius: [30, 110],
+                            roseType: 'area',
+                            data: this._datalist
                         }
                     ]
                 };
+
 
 
                 // 使用刚指定的配置项和数据显示图表。

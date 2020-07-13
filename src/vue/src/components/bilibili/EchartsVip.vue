@@ -21,63 +21,42 @@
                 var myChart = this.$echarts.init(document.getElementById('vip'));
 
                 var option = {
-                    backgroundColor: '#2c343c',
-
                     title: {
-                        text: '用户付费比率',
-                        left: 'center',
-                        top: 20,
-                        textStyle: {
-                            color: '#ccc'
-                        }
+                        text: '用户付费情况',
+                        left: 'center'
                     },
-
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'
                     },
-
-                    visualMap: {
-                        show: false,
-                        min: 80,
-                        max: 600,
-                        inRange: {
-                            colorLightness: [0, 1]
+                    legend: {
+                        left: 'center',
+                        top: 'bottom',
+                        data: ["普通用户", "大会员", "神秘大会员"]
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: {show: true},
+                            dataView: {show: true, readOnly: false},
+                            magicType: {
+                                show: true,
+                                type: ['pie', 'funnel']
+                            },
+                            restore: {show: true},
+                            saveAsImage: {show: true}
                         }
                     },
                     series: [
                         {
-                            name: '访问来源',
                             type: 'pie',
-                            radius: '55%',
-                            center: ['50%', '50%'],
-                            data: this._datalist.sort(function (a, b) { return a.value - b.value; }),
-                            roseType: 'radius',
-                            label: {
-                                color: 'rgba(255, 255, 255, 0.3)'
-                            },
-                            labelLine: {
-                                lineStyle: {
-                                    color: 'rgba(255, 255, 255, 0.3)'
-                                },
-                                smooth: 0.2,
-                                length: 10,
-                                length2: 20
-                            },
-                            itemStyle: {
-                                color: '#66ccff',
-                                shadowBlur: 200,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            },
-
-                            animationType: 'scale',
-                            animationEasing: 'elasticOut',
-                            animationDelay: function () {
-                                return Math.random() * 200;
-                            }
+                            radius: [30, 110],
+                            roseType: 'area',
+                            data: this._datalist
                         }
                     ]
                 };
+
 
 
                 // 使用刚指定的配置项和数据显示图表。
