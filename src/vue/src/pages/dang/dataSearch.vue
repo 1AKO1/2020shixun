@@ -592,7 +592,7 @@
                 presshouse: null,
                 fenlei: 'all',
                 discount: 80,
-                pricebetween:null,
+                pricebetween:[0,990],
 
 
 
