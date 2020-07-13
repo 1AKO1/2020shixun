@@ -11,10 +11,18 @@ class BookSpider(CrawlSpider):
 
     name = 'book1_spider'
     allowed_domains = ['book.douban.com']
-    start_urls = ['https://book.douban.com/tag/']
+    # start_urls = ['https://book.douban.com/tag/']
+    # 文学
+    # start_urls = ['https://book.douban.com/tag/%E6%96%87%E5%AD%A6']
+    # 经典
+    # start_urls = ['https://book.douban.com/tag/%E7%BB%8F%E5%85%B8']
+    # 儿童文学
+    # start_urls = ['https://book.douban.com/tag/%E5%84%BF%E7%AB%A5%E6%96%87%E5%AD%A6']
+    # 外国文学
+    start_urls = ['https://book.douban.com/tag/%E5%A4%96%E5%9B%BD%E6%96%87%E5%AD%A6']
     rules = {
         # div[1] 文学标签
-        Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[1]"), follow=True),
+        # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[1]"), follow=True),
         Rule(LinkExtractor(allow="\?start=\d+\&type=", restrict_xpaths="//div[@class='paginator']"), follow=True),
         Rule(LinkExtractor(allow="/subject/\d+/$", restrict_xpaths="//ul[@class='subject-list']"), callback='parse_book')
     }
@@ -153,7 +161,7 @@ def get_author(response):
     if not author:
         author = response.css('#info > span > a::text').get()
     # 部分书籍如一千零一夜，没有作者，使用get，若无则直接返回None
-    return author.replace('\n            ', '').strip() if author else '无'
+    return author.replace('\n            ', '').strip() if author else '未摘录/佚名'
 
 
 def get_pubdate(response):
