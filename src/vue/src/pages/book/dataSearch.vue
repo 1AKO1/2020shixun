@@ -696,24 +696,24 @@
                         // response对应服务器端返回的回应结果，
                         // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
                         // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
-                        let callbackDataList = response.data.data;
-                        for (var index in callbackDataList){
-                            let callbackData = callbackDataList[index]
+                        let resultDataList = response.data.data;
+                        for (var index in resultDataList){
+                            let resultData = resultDataList[index]
                             result_book = result_book.concat({
-                                key: callbackData.id,
-                                title: callbackData.title,
-                                author: callbackData.author,
-                                press: callbackData.press,
-                                type: callbackData.type,
-                                score: callbackData.score,
-                                votes: callbackData.votes,
+                                key: resultData.id,
+                                title: resultData.title,
+                                author: resultData.author,
+                                press: resultData.press,
+                                type: resultData.type,
+                                score: resultData.score,
+                                votes: resultData.votes,
                             })
                             result_hotComm = result_hotComm.concat({
-                                title: callbackData.title,
-                                hotCommContent: callbackData.hotCommContent,
-                                hotCommPeople: callbackData.hotCommPeople,
-                                hotCommScore: callbackData.hotCommScore,
-                                hotCommVotes: callbackData.hotCommVotes,
+                                title: resultData.title,
+                                hotCommContent: resultData.hotCommContent,
+                                hotCommPeople: resultData.hotCommPeople,
+                                hotCommScore: resultData.hotCommScore,
+                                hotCommVotes: resultData.hotCommVotes,
                             })
                         }
                         // 服务器端TableData类中的count属性
