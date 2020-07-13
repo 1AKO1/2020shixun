@@ -15,4 +15,6 @@ public interface AiraService {
     int searchCount(AiraComment comment);
 
     List<AiraSimpleData> simpleAnalysis(String type);
+
+    List<AiraSimpleData> advanceAnalysis();
 }

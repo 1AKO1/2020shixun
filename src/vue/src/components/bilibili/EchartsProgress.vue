@@ -22,8 +22,7 @@
 
                 var option = {
                     title: {
-                        text: '南丁格尔玫瑰图',
-                        subtext: '纯属虚构',
+                        text: '用户观看进度',
                         left: 'center'
                     },
                     tooltip: {
@@ -69,7 +68,7 @@
             let array = []
             axios.post("http://localhost:8080/bilibili/simpleAnalysis", qs.stringify({
                 type: 'progress'
-            }, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}))
+            }),{headers:{'Content-Type':'application/x-www-form-urlencoded'}})
                 .then(response => {
                     const data = response.data.data
                     for(let index in data){

@@ -39,6 +39,12 @@
             </div>
         </div>
 
+        <div class="easyBox">
+            <div style="width: 100%">
+                <EchartsSentiment />
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -51,6 +57,7 @@
 
     import EchartsCommentRise from "../../components/bilibili/EchartsCommentRise";
     import EchartsWordFrequency from "../../components/bilibili/EchartsWordFrequency";
+    import EchartsSentiment from "../../components/bilibili/EchartsSentiment";
     export default {
         name: "dateDisplay",
         components:{
@@ -59,7 +66,8 @@
             EchartsVip,
             EchartsCommentRise,
             EchartsWordFrequency,
-            ScorePredict
+            ScorePredict,
+            EchartsSentiment
         }
     }
 </script>

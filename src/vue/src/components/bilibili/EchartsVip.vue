@@ -34,25 +34,20 @@
                         top: 'bottom',
                         data: ["普通用户", "大会员", "神秘大会员"]
                     },
-                    toolbox: {
-                        show: true,
-                        feature: {
-                            mark: {show: true},
-                            dataView: {show: true, readOnly: false},
-                            magicType: {
-                                show: true,
-                                type: ['pie', 'funnel']
-                            },
-                            restore: {show: true},
-                            saveAsImage: {show: true}
-                        }
-                    },
                     series: [
                         {
+                            name: '访问来源',
                             type: 'pie',
-                            radius: [30, 110],
-                            roseType: 'area',
-                            data: this._datalist
+                            radius: '55%',
+                            center: ['50%', '50%'],
+                            data: this._datalist,
+                            emphasis: {
+                                itemStyle: {
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
                         }
                     ]
                 };
