@@ -10,7 +10,7 @@ class DoubanscrapySpider(CrawlSpider):
 
     name = 'doubanscrapy'
     allowed_domains = ['music.douban.com']
-    start_urls = ['https://music.douban.com/tag/']
+    start_urls = ['https://music.douban.com/tag/华语']
 
     rules = (
         Rule(LinkExtractor(allow=r"/tag/((\d+)|([\u4e00-\u9fa5]+)|(\w+))$")),
