@@ -123,9 +123,9 @@
             </a-collapse-panel>
         </a-collapse>
 
-        <a-tabs default-active-key="1" @change="callback">
+        <a-tabs default-active-key="1">
             <a-tab-pane key="1" tab="书籍信息">
-                <a-table :columns="columns_book" :data-source="tableData_book0" :loading="loading" v-on:change="nextPage"
+                <a-table :columns="columns_book" :data-source="tableData_book" :loading="loading" v-on:change="nextPage"
                          :pagination="pagination">
                     <a slot="name" slot-scope="text">{{ text }}</a>
                     <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
@@ -138,7 +138,7 @@
                 </a-table>
             </a-tab-pane>
             <a-tab-pane key="2" tab="热评" force-render>
-                <a-table :columns="columns_hotComm" :data-source="tableData_hotComm0" :loading="loading" v-on:change="nextPage"
+                <a-table :columns="columns_hotComm" :data-source="tableData_hotComm" :loading="loading" v-on:change="nextPage"
                          :pagination="pagination">
                     <a slot="name" slot-scope="text">{{ text }}</a>
                     <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
@@ -452,8 +452,9 @@
                 title: null,
                 author: null,
                 press: null,
-                numOfType:null,
-                type: [],
+                numOfType: 0,
+                // type0: null,
+                type: null,
                 isbn: null,
                 minVotes: 0,
                 minScore: 0.0,
@@ -531,7 +532,7 @@
                     // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
                     // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
                     let resultDataList = response.data.data;
-                    for (var index in resultDataList){
+                    for (let index in resultDataList){
                         let resultData = resultDataList[index]
                         result_book = result_book.concat({
                             //  唯一标识 不在表格中展示
@@ -572,12 +573,17 @@
         methods: {
 
             // 选择分类时，获取所选分类
-            onChangeType(typeList) {
-                this.numOfType = typeList.length
-                this.type = typeList;
+            onChangeType(type) {
+                this.numOfType = type.length
                 // console.log(this.numOfType)
-                // console.log(this.type);
+                this.type = '';
+                for(let index in type) {
+                    this.type = this.type + type[index] + ' ';
+                }
+                console.log(this.numOfType);
+                console.log(this.type);
                 // console.log(this.type[0]);
+
             },
 
             // 滑动评价人数时，修改最小评价人数
@@ -596,15 +602,15 @@
 
             // 点击 立即查询 后触发
             handleSubmit() {
-                // console.log(this.title);
-                // console.log(this.author);
-                // console.log(this.press);
-                // console.log(this.numOfType);
-                // console.log(this.type);
-                // console.log(this.isbn);
-                // console.log(this.minVotes);
-                // console.log(this.minScore);
-                // console.log(this.maxScore);
+                console.log(this.title);
+                console.log(this.author);
+                console.log(this.press);
+                console.log(this.numOfType);
+                console.log(this.type);
+                console.log(this.isbn);
+                console.log(this.minVotes);
+                console.log(this.minScore);
+                console.log(this.maxScore);
 
                 this.loading = true;
 
@@ -633,7 +639,7 @@
                         // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
                         // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
                         let resultDataList = response.data.data;
-                        for (var index in resultDataList){
+                        for (let index in resultDataList){
                             let resultData = resultDataList[index]
                             result_book = result_book.concat({
                                 //  唯一标识 不在表格中展示
@@ -705,7 +711,7 @@
                         // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
                         // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
                         let resultDataList = response.data.data;
-                        for (var index in resultDataList){
+                        for (let index in resultDataList){
                             let resultData = resultDataList[index]
                             result_book = result_book.concat({
                                 //  唯一标识 不在表格中展示
@@ -727,7 +733,7 @@
                                 title: resultData.title,
                                 hotCommContent: resultData.hotCommContent,
                                 hotCommPeople: resultData.hotCommPeople,
-                                hotCommScore: resultData.hotCommScore == '' ? '没眼看' : resultData.hotCommScore,
+                                hotCommScore: resultData.hotCommScore == '' ? '未评分' : resultData.hotCommScore,
                                 hotCommVotes: resultData.hotCommVotes,
                             })
                         }
