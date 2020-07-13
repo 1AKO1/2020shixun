@@ -530,24 +530,31 @@
                     // response对应服务器端返回的回应结果，
                     // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
                     // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
-                    let callbackDataList = response.data.data;
-                    for (var index in callbackDataList){
-                        let callbackData = callbackDataList[index]
+                    let resultDataList = response.data.data;
+                    for (var index in resultDataList){
+                        let resultData = resultDataList[index]
                         result_book = result_book.concat({
-                            key: callbackData.id,
-                            title: callbackData.title,
-                            author: callbackData.author,
-                            press: callbackData.press,
-                            type: callbackData.type,
-                            score: callbackData.score,
-                            votes: callbackData.votes,
+                            //  唯一标识 不在表格中展示
+
+                            key: resultData.id,
+                            // 书籍表格展示数据
+                            title: resultData.title,
+                            author: resultData.author == '' ? '佚名' : resultData.author,
+                            press: resultData.press == '' ? '无' : resultData.press,
+                            type: resultData.type,
+                            score: resultData.score,
+                            votes: resultData.votes,
                         })
                         result_hotComm = result_hotComm.concat({
-                            title: callbackData.title,
-                            hotCommContent: callbackData.hotCommContent,
-                            hotCommPeople: callbackData.hotCommPeople,
-                            hotCommScore: callbackData.hotCommScore,
-                            hotCommVotes: callbackData.hotCommVotes,
+                            // 同上
+                            key: resultData.id,
+
+                            // 评论表格展示数据
+                            title: resultData.title,
+                            hotCommContent: resultData.hotCommContent,
+                            hotCommPeople: resultData.hotCommPeople,
+                            hotCommScore: resultData.hotCommScore == '' ? '没眼看' : resultData.hotCommScore,
+                            hotCommVotes: resultData.hotCommVotes,
                         })
                     }
                     // 服务器端TableData类中的count属性
@@ -625,33 +632,34 @@
                         // response对应服务器端返回的回应结果，
                         // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
                         // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
-                        let callbackDataList = response.data.data;
-                        for (var index in callbackDataList){
-                            let callbackData = callbackDataList[index]
+                        let resultDataList = response.data.data;
+                        for (var index in resultDataList){
+                            let resultData = resultDataList[index]
                             result_book = result_book.concat({
                                 //  唯一标识 不在表格中展示
 
-                                key: callbackData.id,
+                                key: resultData.id,
                                 // 书籍表格展示数据
-                                title: callbackData.title,
-                                author: callbackData.author == '' ? '佚名' : callbackData.author,
-                                press: callbackData.press == '' ? '无' : callbackData.press,
-                                type: callbackData.type,
-                                score: callbackData.score,
-                                votes: callbackData.votes,
+                                title: resultData.title,
+                                author: resultData.author == '' ? '佚名' : resultData.author,
+                                press: resultData.press == '' ? '无' : resultData.press,
+                                type: resultData.type,
+                                score: resultData.score,
+                                votes: resultData.votes,
                             })
                             result_hotComm = result_hotComm.concat({
                                 // 同上
-                                key: callbackData.id,
+                                key: resultData.id,
 
                                 // 评论表格展示数据
-                                title: callbackData.title,
-                                hotCommContent: callbackData.hotCommContent,
-                                hotCommPeople: callbackData.hotCommPeople,
-                                hotCommScore: callbackData.hotCommScore == '' ? '没眼看' : callbackData.hotCommScore,
-                                hotCommVotes: callbackData.hotCommVotes,
+                                title: resultData.title,
+                                hotCommContent: resultData.hotCommContent,
+                                hotCommPeople: resultData.hotCommPeople,
+                                hotCommScore: resultData.hotCommScore == '' ? '没眼看' : resultData.hotCommScore,
+                                hotCommVotes: resultData.hotCommVotes,
                             })
                         }
+
                         // 服务器端TableData类中的count属性
                         this.pagination.total = response.data.count
                         // 把处理后的查询结果赋给全局变量中的tableData（与表格绑定的数据）
@@ -700,19 +708,26 @@
                         for (var index in resultDataList){
                             let resultData = resultDataList[index]
                             result_book = result_book.concat({
+                                //  唯一标识 不在表格中展示
+
                                 key: resultData.id,
+                                // 书籍表格展示数据
                                 title: resultData.title,
-                                author: resultData.author,
-                                press: resultData.press,
+                                author: resultData.author == '' ? '佚名' : resultData.author,
+                                press: resultData.press == '' ? '无' : resultData.press,
                                 type: resultData.type,
                                 score: resultData.score,
                                 votes: resultData.votes,
                             })
                             result_hotComm = result_hotComm.concat({
+                                // 同上
+                                key: resultData.id,
+
+                                // 评论表格展示数据
                                 title: resultData.title,
                                 hotCommContent: resultData.hotCommContent,
                                 hotCommPeople: resultData.hotCommPeople,
-                                hotCommScore: resultData.hotCommScore,
+                                hotCommScore: resultData.hotCommScore == '' ? '没眼看' : resultData.hotCommScore,
                                 hotCommVotes: resultData.hotCommVotes,
                             })
                         }
