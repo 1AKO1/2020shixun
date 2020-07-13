@@ -64,4 +64,18 @@ public interface DangMapper {
     @Select("select biglei as type, count(*) as count from zhihan_dang  group by biglei order by count desc limit 0,40")
     List<dangdangData> classes();
 
+    @Select("select DATE_FORMAT(ptimes,'%Y')  as type ,count(*) as count from zhihan_dang  \n"+
+            "group by DATE_FORMAT(ptimes,'%Y') order by DATE_FORMAT(ptimes,'%Y')")
+    List<dangdangData> prosstime();
+
+    @Select("select samlllei as type , avg(pn) as count from zhihan_dang \n"+
+            "group by samlllei order by count desc")
+    List<dangdangData> avgclass();
+
+    @Select("select tuijian as type ,commentNum as count from zhihan_dang order by tuijian limit 0,400" )
+    List<dangdangData> commentpr();
+
+    @Select("select timehot as type, count(*) as count from zhihan_dang group by  timehot")
+    List<dangdangData> yearBook();
+
 }
