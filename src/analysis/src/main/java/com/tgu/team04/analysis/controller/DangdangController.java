@@ -47,7 +47,7 @@ public class DangdangController {
         if (result != null && result.size() != 0){
             dangdangdata.setCode(1000);
             dangdangdata.setMsg("查询成功");
-            dangdangdata.setCount(service.searchCount(Book));
+            dangdangdata.setCount(service.searchCount(Book,min,max));
             dangdangdata.setData(result);
         }else {
             dangdangdata.setCode(2000);

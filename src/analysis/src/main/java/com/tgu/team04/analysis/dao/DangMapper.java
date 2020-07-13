@@ -35,7 +35,7 @@ public interface DangMapper {
             "   limit #{start}, #{limit}" +
             "</if>" +
             "</script>")
-    List<dangdangBook> selectByWhere(@Param("Book") dangdangBook Book, @Param("start") Integer start, @Param("limit") Integer limit,@Param("min") float min,@Param("max")float max);
+    List<dangdangBook> selectByWhere(@Param("Book") dangdangBook Book, @Param("min") float min,@Param("max")float max, @Param("start") Integer start, @Param("limit") Integer limit);
 
 
     @Select("<script>" +
@@ -54,12 +54,12 @@ public interface DangMapper {
             "   <if test='Book.ps >= 0 '>"+
             "       AND ps &lt; #{Book.ps}"+
             "   </if>"+
-//            "   <if test='Book.pn &gt; Book.min and Book.pn &lt; Book.max'>" +
-//            "       AND pn = #{Book.pn}" +
-//            "   </if>" +
+            "   <if test='Book.pn >= 0 '>" +
+            "   AND pn &gt; #{min} and pn &lt; #{max}"+
+            "   </if>"+
             "</where>" +
             "</script>")
-    int countSelectByWhere(@Param("Book") dangdangBook Book);
+    int countSelectByWhere(@Param("Book") dangdangBook Book , @Param("min") float min,@Param("max")float max);
 
     @Select("select biglei as type, count(*) as count from zhihan_dang  group by biglei order by count desc limit 0,40")
     List<dangdangData> classes();
