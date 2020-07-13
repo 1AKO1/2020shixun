@@ -123,9 +123,9 @@
             </a-collapse-panel>
         </a-collapse>
 
-        <a-tabs default-active-key="1" @change="callback">
+        <a-tabs default-active-key="1">
             <a-tab-pane key="1" tab="书籍信息">
-                <a-table :columns="columns_book" :data-source="tableData_book0" :loading="loading" v-on:change="nextPage"
+                <a-table :columns="columns_book" :data-source="tableData_book" :loading="loading" v-on:change="nextPage"
                          :pagination="pagination">
                     <a slot="name" slot-scope="text">{{ text }}</a>
                     <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
@@ -138,7 +138,7 @@
                 </a-table>
             </a-tab-pane>
             <a-tab-pane key="2" tab="热评" force-render>
-                <a-table :columns="columns_hotComm" :data-source="tableData_hotComm0" :loading="loading" v-on:change="nextPage"
+                <a-table :columns="columns_hotComm" :data-source="tableData_hotComm" :loading="loading" v-on:change="nextPage"
                          :pagination="pagination">
                     <a slot="name" slot-scope="text">{{ text }}</a>
                     <span slot="customTitle"><a-icon type="smile-o"/> Name</span>
@@ -158,6 +158,8 @@
 </template>
 
 <script>
+    import qs from "qs";
+    import axios from "axios"
 
     // 表格的字段，按格式来
     const columns_book = [
@@ -225,6 +227,7 @@
     // 表格测试数据，同样的，按表的字段格式来
     const tableData_book0 = [
         {
+            key: 1,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -233,6 +236,7 @@
             votes: 7777777,
         },
         {
+            key: 2,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -241,6 +245,7 @@
             votes: 7777777,
         },
         {
+            key: 3,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -249,6 +254,7 @@
             votes: 7777777,
         },
         {
+            key: 4,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -257,6 +263,7 @@
             votes: 7777777,
         },
         {
+            key: 5,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -265,6 +272,7 @@
             votes: 7777777,
         },
         {
+            key: 6,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -273,6 +281,7 @@
             votes: 7777777,
         },
         {
+            key: 7,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -281,6 +290,7 @@
             votes: 7777777,
         },
         {
+            key: 8,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -289,6 +299,7 @@
             votes: 7777777,
         },
         {
+            key: 9,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -297,6 +308,7 @@
             votes: 7777777,
         },
         {
+            key: 10,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -305,6 +317,7 @@
             votes: 7777777,
         },
         {
+            key: 11,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -313,6 +326,7 @@
             votes: 7777777,
         },
         {
+            key: 12,
             title: '神威天将军：从插秧到我扎我自己',
             author: '李嘉威',
             press: 'Timi出版社',
@@ -323,6 +337,7 @@
     ];
     const tableData_hotComm0 = [
         {
+            key: 1,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -330,6 +345,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 2,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -337,6 +353,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 3,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -344,6 +361,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 4,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -351,6 +369,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 5,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -358,6 +377,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 6,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -365,6 +385,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 7,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -372,6 +393,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 8,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -379,6 +401,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 9,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -386,6 +409,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 10,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -393,6 +417,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 11,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -400,6 +425,7 @@
             hotCommVotes: 77777,
         },
         {
+            key: 12,
             title: '神威天将军：从插秧到我扎我自己',
             hotCommContent: '李嘉威牛逼，李嘉威冲鸭冲鸭冲鸭冲鸭~',
             hotCommPeople: 'ljw',
@@ -426,8 +452,9 @@
                 title: null,
                 author: null,
                 press: null,
-                numOfType:null,
-                type: [],
+                numOfType: 0,
+                // type0: null,
+                type: null,
                 isbn: null,
                 minVotes: 0,
                 minScore: 0.0,
@@ -476,32 +503,104 @@
             }
         },
 
+        // 生命周期钩子
+        mounted() {
+            this.loading = true;
+
+            const searchData = qs.stringify( {
+                title: this.title,
+                author: this.author,
+                press: this.press,
+                numOfType: this.numOfType,
+                type: this.type,
+                isbn: this.isbn,
+                minVotes: this.minVotes,
+                minScore: this.minScore,
+                maxScore: this.maxScore,
+
+                page: this.page,
+                limit: this.limit
+            })
+
+            // 保存处理后的查询结果
+            let result_book = [];
+            let result_hotComm = [];
+            axios.post("http://localhost:8080/doubanBook/search", searchData, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                .then(response => {
+                    // 处理过程：
+                    // response对应服务器端返回的回应结果，
+                    // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
+                    // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
+                    let resultDataList = response.data.data;
+                    for (let index in resultDataList){
+                        let resultData = resultDataList[index]
+                        result_book = result_book.concat({
+                            //  唯一标识 不在表格中展示
+
+                            key: resultData.id,
+                            // 书籍表格展示数据
+                            title: resultData.title,
+                            author: resultData.author == '' ? '佚名' : resultData.author,
+                            press: resultData.press == '' ? '无' : resultData.press,
+                            type: resultData.type,
+                            score: resultData.score,
+                            votes: resultData.votes,
+                        })
+                        result_hotComm = result_hotComm.concat({
+                            // 同上
+                            key: resultData.id,
+
+                            // 评论表格展示数据
+                            title: resultData.title,
+                            hotCommContent: resultData.hotCommContent,
+                            hotCommPeople: resultData.hotCommPeople,
+                            hotCommScore: resultData.hotCommScore == '' ? '没眼看' : resultData.hotCommScore,
+                            hotCommVotes: resultData.hotCommVotes,
+                        })
+                    }
+                    // 服务器端TableData类中的count属性
+                    this.pagination.total = response.data.count
+                    // 把处理后的查询结果赋给全局变量中的tableData（与表格绑定的数据）
+                    this.tableData_book = result_book
+                    this.tableData_hotComm = result_hotComm
+                    this.loading = false
+                }).catch(error => {
+                console.log(error)
+                this.loading = false
+            })
+        },
+
         methods: {
 
             // 选择分类时，获取所选分类
-            onChangeType(typeList) {
-                this.numOfType = typeList.length
-                this.type = typeList;
-                console.log(this.numOfType)
+            onChangeType(type) {
+                this.numOfType = type.length
+                // console.log(this.numOfType)
+                this.type = '';
+                for(let index in type) {
+                    this.type = this.type + type[index] + ' ';
+                }
+                console.log(this.numOfType);
                 console.log(this.type);
-                console.log(this.type[0]);
+                // console.log(this.type[0]);
+
             },
 
             // 滑动评价人数时，修改最小评价人数
             onChangeVotes(value) {
                 this.minVotes = value;
-                console.log(this.minVotes);
+                // console.log(this.minVotes);
             },
 
             // 滑动评分时，修改评分区间数据
             onChangeScore(scoreRange) {
                 this.minScore = scoreRange[0];
                 this.maxScore = scoreRange[1];
-                console.log(this.minScore);
-                console.log(this.maxScore);
+                // console.log(this.minScore);
+                // console.log(this.maxScore);
             },
 
-            // 点急立即查询后触发
+            // 点击 立即查询 后触发
             handleSubmit() {
                 console.log(this.title);
                 console.log(this.author);
@@ -513,11 +612,146 @@
                 console.log(this.minScore);
                 console.log(this.maxScore);
 
-                // this.loading = true;
+                this.loading = true;
 
+                const searchData = qs.stringify( {
+                    title: this.title,
+                    author: this.author,
+                    press: this.press,
+                    numOfType: this.numOfType,
+                    type: this.type,
+                    isbn: this.isbn,
+                    minVotes: this.minVotes,
+                    minScore: this.minScore,
+                    maxScore: this.maxScore,
+
+                    page: this.page,
+                    limit: this.limit
+                })
+
+                // 保存处理后的查询结果
+                let result_book = [];
+                let result_hotComm = [];
+                axios.post("http://localhost:8080/doubanBook/search", searchData, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                    .then(response => {
+                        // 处理过程：
+                        // response对应服务器端返回的回应结果，
+                        // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
+                        // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
+                        let resultDataList = response.data.data;
+                        for (let index in resultDataList){
+                            let resultData = resultDataList[index]
+                            result_book = result_book.concat({
+                                //  唯一标识 不在表格中展示
+
+                                key: resultData.id,
+                                // 书籍表格展示数据
+                                title: resultData.title,
+                                author: resultData.author == '' ? '佚名' : resultData.author,
+                                press: resultData.press == '' ? '无' : resultData.press,
+                                type: resultData.type,
+                                score: resultData.score,
+                                votes: resultData.votes,
+                            })
+                            result_hotComm = result_hotComm.concat({
+                                // 同上
+                                key: resultData.id,
+
+                                // 评论表格展示数据
+                                title: resultData.title,
+                                hotCommContent: resultData.hotCommContent,
+                                hotCommPeople: resultData.hotCommPeople,
+                                hotCommScore: resultData.hotCommScore == '' ? '没眼看' : resultData.hotCommScore,
+                                hotCommVotes: resultData.hotCommVotes,
+                            })
+                        }
+
+                        // 服务器端TableData类中的count属性
+                        this.pagination.total = response.data.count
+                        // 把处理后的查询结果赋给全局变量中的tableData（与表格绑定的数据）
+                        this.tableData_book = result_book
+                        this.tableData_hotComm = result_hotComm
+                        this.loading = false
+                    }).catch(error => {
+                        console.log(error)
+                    this.loading = false
+                })
+            },
+
+            // 下一页操作
+            nextPage(pagination){
+                // 获取当前页码并进行更新
+                this.page = pagination.current;
+
+                // 与handleSubmit函数一样
+                this.loading = true;
+
+                const searchData = qs.stringify( {
+                    title: this.title,
+                    author: this.author,
+                    press: this.press,
+                    numOfType: this.numOfType,
+                    type: this.type,
+                    isbn: this.isbn,
+                    minVotes: this.minVotes,
+                    minScore: this.minScore,
+                    maxScore: this.maxScore,
+
+                    page: this.page,
+                    limit: this.limit
+                })
+
+                // 保存处理后的查询结果
+                let result_book = [];
+                let result_hotComm = [];
+                axios.post("http://localhost:8080/doubanBook/search", searchData, {headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+                    .then(response => {
+                        // 处理过程：
+                        // response对应服务器端返回的回应结果，
+                        // 第一个data是其一个属性，表示服务器端回应函数的返回值，在服务器端里对应TableData，
+                        // 第二个data则是TableData类的一个属性，臭弟弟李嘉威起名太随意了
+                        let resultDataList = response.data.data;
+                        for (let index in resultDataList){
+                            let resultData = resultDataList[index]
+                            result_book = result_book.concat({
+                                //  唯一标识 不在表格中展示
+
+                                key: resultData.id,
+                                // 书籍表格展示数据
+                                title: resultData.title,
+                                author: resultData.author == '' ? '佚名' : resultData.author,
+                                press: resultData.press == '' ? '无' : resultData.press,
+                                type: resultData.type,
+                                score: resultData.score,
+                                votes: resultData.votes,
+                            })
+                            result_hotComm = result_hotComm.concat({
+                                // 同上
+                                key: resultData.id,
+
+                                // 评论表格展示数据
+                                title: resultData.title,
+                                hotCommContent: resultData.hotCommContent,
+                                hotCommPeople: resultData.hotCommPeople,
+                                hotCommScore: resultData.hotCommScore == '' ? '未评分' : resultData.hotCommScore,
+                                hotCommVotes: resultData.hotCommVotes,
+                            })
+                        }
+                        // 服务器端TableData类中的count属性
+                        this.pagination.total = response.data.count
+                        // 把处理后的查询结果赋给全局变量中的tableData（与表格绑定的数据）
+                        this.tableData_book = result_book
+                        this.tableData_hotComm = result_hotComm
+                        this.loading = false
+                    }).catch(error => {
+                    console.log(error)
+                    this.loading = false
+                })
             }
-
-        },
+        }
     };
-
 </script>
+
+<style scoped>
+
+</style>

@@ -592,7 +592,7 @@
                 presshouse: null,
                 fenlei: 'all',
                 discount: 80,
-                pricebetween:null,
+                pricebetween:[0,990],
 
 
 
@@ -708,8 +708,8 @@
                     presshouse: this.presshouse,
                     smalllei: this.fenlei[1],
                     discount: this.discount,
-                    // min: this.pricebetween[0],
-                    // max: this.pricebetween[1],
+                    min: this.pricebetween[0],
+                    max: this.pricebetween[1],
                     page: this.page,
                     limit: this.limit
                 })

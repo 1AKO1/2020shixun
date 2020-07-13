@@ -78,4 +78,11 @@ public interface AiraMapper {
     @Select("SELECT word AS `type`, frequency AS `count` FROM word_frequency LIMIT 20;")
     List<AiraSimpleData> simpleAnalysisWordFrequency();
 
+    @Select("SELECT sentiment as type, COUNT(1) as count FROM aira_kaguya_sama GROUP BY sentiment;")
+    List<AiraSimpleData> simpleAnalysisSentiment();
+
+    @Select("SELECT ctime as count, positive_prob as type FROM test;")
+    List<AiraSimpleData> advanceAyalysis();
+
+
 }

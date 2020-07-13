@@ -9,7 +9,7 @@ public interface DangService {
 
     List<dangdangBook> searchByOptions(dangdangBook Book, int page, int limit);
 
-    int searchCount(dangdangBook Book);
+    int searchCount(dangdangBook Book ,float min ,float max);
 
     List<dangdangData> dangAnalysis(String type);
 }

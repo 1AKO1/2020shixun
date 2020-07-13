@@ -10,7 +10,11 @@ class BookSpider(CrawlSpider):
     allowed_domains = ['book.douban.com']
     # start_urls = ['https://book.douban.com/tag/']
     # 科普
-    start_urls = ['https://book.douban.com/tag/%E7%A7%91%E6%99%AE']
+    # start_urls = ['https://book.douban.com/tag/%E7%A7%91%E6%99%AE']
+    # 互联网
+    # start_urls = ['https://book.douban.com/tag/%E4%BA%92%E8%81%94%E7%BD%91']
+    #
+    start_urls = ['']
     rules = {
         # div[6] 科技标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[6]"), follow=True),
@@ -147,7 +151,7 @@ def get_author(response):
     if not author:
         author = response.css('#info > span > a::text').get()
     # 部分书籍如一千零一夜，没有作者，使用get，若无则直接返回None
-    return author.replace('\n            ', '').strip() if author else '无'
+    return author.replace('\n            ', '').strip() if author else '未摘录/佚名'
 
 
 def get_pubdate(response):

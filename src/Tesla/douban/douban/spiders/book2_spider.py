@@ -149,7 +149,7 @@ def get_author(response):
     if not author:
         author = response.css('#info > span > a::text').get()
     # 部分书籍如一千零一夜，没有作者，使用get，若无则直接返回None
-    return author.replace('\n            ', '').strip() if author else '无'
+    return author.replace('\n            ', '').strip() if author else '未摘录/佚名'
 
 
 def get_pubdate(response):
