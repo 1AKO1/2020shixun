@@ -14,8 +14,10 @@ import java.util.List;
 public interface BookMapper {
 
     @Select("<script>" +
-            "select id, uname, content, ctime, progress, vipStatus" +
-            "   from aira_kaguya_sama" +
+            "select ID, book_title as title, book_author as author, " +
+            "book_press as press, book_type as type, book_score as score, book_votes as votes, "+
+            "hotComm_content, hotComm_people, hotComm_score, hotComm_votes" +
+            "   from tesla_book" +
             // 【条件】
             "<where>" +
             // 书名
@@ -33,8 +35,8 @@ public interface BookMapper {
             // 类型
             "   <if test='searchData.numOfType > 0'>" +
             "       AND book_type IN" +
-            "       <foreach collection='list' item='searchData.type' index='index' open='(' close = ')' separator=', '>" +
-            "           #{searchData.type}" +
+            "       <foreach collection='searchData.type' item='type' index='index' open='(' close = ')' separator=', '>" +
+            "           #{type}" +
             "       </foreach>" +
             "   </if>" +
             // ISBN号
@@ -73,8 +75,8 @@ public interface BookMapper {
             // 类型
             "   <if test='searchData.numOfType > 0'>" +
             "       AND book_type IN" +
-            "       <foreach collection='list' item='searchData.type' index='index' open='(' close = ')' separator=', '>" +
-            "           #{searchData.type}" +
+            "       <foreach collection='searchData.type' item='type' index='index' open='(' close = ')' separator=', '>" +
+            "           #{type}" +
             "       </foreach>" +
             "   </if>" +
             // ISBN号

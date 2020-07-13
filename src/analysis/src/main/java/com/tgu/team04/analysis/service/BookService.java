@@ -10,7 +10,7 @@ public interface BookService {
 
 //    List<Book> search(int page, int limit);
 
-    List<Book_ResultData> searchByOptions(Book_SearchData searchData, int page, int limit);
+    List<Book_ResultData> searchByOptions(Book_SearchData searchData);
 
     int searchCount(Book_SearchData searchData);
 

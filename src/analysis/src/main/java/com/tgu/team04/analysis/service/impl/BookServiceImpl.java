@@ -17,7 +17,7 @@ public class BookServiceImpl implements BookService {
     private BookMapper mapper;
 
     @Override
-    public List<Book_ResultData> searchByOptions(Book_SearchData searchData, int page, int limit) {
+    public List<Book_ResultData> searchByOptions(Book_SearchData searchData) {
         // 对四个String类型的查询属性做模糊查询预处理
         if (searchData.getTitle() != null && !"".equals(searchData.getTitle().trim())) {
             searchData.setTitle("%" + searchData.getTitle() + "%");
@@ -32,8 +32,8 @@ public class BookServiceImpl implements BookService {
             searchData.setIsbn("%" + searchData.getIsbn() + "%");
         }
         // 处理查询条数 为分页准备
-        if (page > 0 && limit > 0){
-            return mapper.selectByWhere(searchData, (page - 1)*limit, limit);
+        if (searchData.getPage() > 0 && searchData.getLimit() > 0){
+            return mapper.selectByWhere(searchData, (searchData.getPage() - 1)*searchData.getLimit(), searchData.getLimit());
         }
         return mapper.selectByWhere(searchData, null, null);
     }
