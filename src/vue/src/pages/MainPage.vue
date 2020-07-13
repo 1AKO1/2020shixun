@@ -99,7 +99,7 @@
                             @click="() => (collapsed = !collapsed)"
                     />
                     <div style="position: absolute; top: 0; right: 20px">
-                        <UserInfo class="user-info" :uid="this.$route.params.uid"/>
+                        <UserInfo class="user-info" v-bind:uid="this.$route.params.uid"/>
                     </div>
                 </a-layout-header>
 

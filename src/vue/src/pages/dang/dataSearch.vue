@@ -651,8 +651,8 @@
                     presshouse: this.presshouse,
                     smalllei: this.fenlei[1],
                     discount: this.discount,
-                    // min: this.pricebetween[0],
-                    // max: this.pricebetween[1],
+                    min: this.pricebetween[0],
+                    max: this.pricebetween[1],
                     page: this.page,
                     limit: this.limit
                 })

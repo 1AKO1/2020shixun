@@ -149,8 +149,11 @@ class RotateUserAgentMiddleware(UserAgentMiddleware):
 
 
 class IPProxyDownloadMiddleware(object):
-    # "223.90.153.199" 我电脑的ip
-    # 120.24.216.121:16818
+    # "127.0.0.1:6023" 我电脑的ip
+    # 36.103.242.231:16817
     def process_request(self, request, spider):
-        proxy = "https://120.24.216.121:16818"
+        # proxy = "https://36.103.242.231:16817"
+        proxy = "https://27.72.29.159:8080"
+        # proxy = "https://113.161.68.30:80"
+
         request.meta['proxy'] = proxy
