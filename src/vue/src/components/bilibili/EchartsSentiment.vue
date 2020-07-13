@@ -21,6 +21,14 @@
                 var myChart = this.$echarts.init(document.getElementById('sentiment'));
 
                 var option = {
+                    title: {
+                        text: '用户评论情绪与时间关系',
+                        left: 'center',
+                        top: 20,
+                        textStyle: {
+                            color: '#000'
+                        }
+                    },
                     xAxis: {},
                     yAxis: {},
                     series: [{

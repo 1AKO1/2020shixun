@@ -11,11 +11,12 @@
                 <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px">
             </div>
             <div class="easyItem">
+                <EchartsGroupBySentiment />
+            </div>
+            <div class="easyItem">
                 <ScorePredict />
             </div>
-        </div>
 <!--        第二层-->
-        <div class="easyBox">
             <div class="easyItem">
                 <EchartsScore />
             </div>
@@ -54,6 +55,7 @@
     import EchartsScore from "../../components/bilibili/EchartsScore";
     import EchartsProgress from "../../components/bilibili/EchartsProgress";
     import EchartsVip from "../../components/bilibili/EchartsVip";
+    import EchartsGroupBySentiment from "../../components/bilibili/EchartsGroupBySentiment";
 
     import EchartsCommentRise from "../../components/bilibili/EchartsCommentRise";
     import EchartsWordFrequency from "../../components/bilibili/EchartsWordFrequency";
@@ -67,7 +69,8 @@
             EchartsCommentRise,
             EchartsWordFrequency,
             ScorePredict,
-            EchartsSentiment
+            EchartsSentiment,
+            EchartsGroupBySentiment
         }
     }
 </script>
