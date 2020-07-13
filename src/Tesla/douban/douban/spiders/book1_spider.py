@@ -161,7 +161,7 @@ def get_pubdate(response):
     if date:
         return date.strip() if len(date.split('-')) > 2 else date.strip() + '-15'
     else:
-        return '未知'
+        return None
 
 
 def get_tags(response):
@@ -184,10 +184,15 @@ def get_tags(response):
 
 
 def get_report(response):
-    report_list = response.css('#link-report > div:nth-child(1) > div > p::text').extract()
     report = ''
-    for s in report_list:
-        report += s
+    if response.css('#link-report > div:nth-child(1) > div'):
+        report_list = response.css('#link-report > div:nth-child(1) > div > p::text').extract()
+        for s in report_list:
+            report += s
+    else:
+        report_list = response.css('div.intro')[1].css('p::text').extract()
+        for s in report_list:
+            report += s
     return report
 
 
@@ -203,7 +208,8 @@ def get_score(response):
 
 def get_hotcommcontent(response):
     content_list = response.xpath(
-        '//div[@class="comment-list hot show"]/ul/li[1]/div/p/span/text()').get()
+        '//div[@'
+        'class="comment-list hot show"]/ul/li[1]/div/p/span/text()').get()
     content = ''
     for s in content_list:
         content += s

@@ -8,10 +8,16 @@ from douban.items import BookItem
 class BookSpider(CrawlSpider):
     name = 'book4_spider'
     allowed_domains = ['book.douban.com']
-    start_urls = ['https://book.douban.com/tag/']
+    # start_urls = ['https://book.douban.com/tag/']
+    # 教育
+    # start_urls = ['https://book.douban.com/tag/%E6%95%99%E8%82%B2']
+    # 生活
+    # start_urls = ['https://book.douban.com/tag/%E7%94%9F%E6%B4%BB']
+    #
+    start_urls = ['']
     rules = {
         # div[4] 生活标签
-        Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[4]"), follow=True),
+        # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[4]"), follow=True),
         Rule(LinkExtractor(allow="\?start=\d+\&type=", restrict_xpaths="//div[@class='paginator']"), follow=True),
         Rule(LinkExtractor(allow="/subject/\d+/$", restrict_xpaths="//ul[@class='subject-list']"), callback='parse_book')
     }
@@ -153,7 +159,7 @@ def get_pubdate(response):
     if date:
         return date.strip() if len(date.split('-')) > 2 else date.strip() + '-15'
     else:
-        return '未知'
+        return None
 
 
 def get_tags(response):
@@ -176,10 +182,15 @@ def get_tags(response):
 
 
 def get_report(response):
-    report_list = response.css('#link-report > div:nth-child(1) > div > p::text').extract()
     report = ''
-    for s in report_list:
-        report += s
+    if response.css('#link-report > div:nth-child(1) > div'):
+        report_list = response.css('#link-report > div:nth-child(1) > div > p::text').extract()
+        for s in report_list:
+            report += s
+    else:
+        report_list = response.css('div.intro')[1].css('p::text').extract()
+        for s in report_list:
+            report += s
     return report
 
 

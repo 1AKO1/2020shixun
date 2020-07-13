@@ -2,7 +2,9 @@ package com.tgu.team04.analysis.controller;
 
 import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.entity.dangdangBook;
+import com.tgu.team04.analysis.entity.dangdangData;
 import com.tgu.team04.analysis.service.DangService;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +17,17 @@ import java.util.List;
 @RequestMapping("/dangdang")
 public class DangdangController {
 
+    public static float min =0;
+    public static float max = 1000;
+
     @Autowired
     private DangService service;
+
 
     @RequestMapping("/search")
     @ResponseBody
     public TableData search(String bookName, String author, String presshouse,String smalllei,
-                            float discount,int page, int limit ){
+                            float discount,float min,float max,int page, int limit ){
         dangdangBook Book = new dangdangBook();
         Book.setName(bookName.length() == 0 ? null : bookName);
         Book.setAuthor(author.length() == 0 ? null : author);
@@ -29,7 +35,8 @@ public class DangdangController {
         Book.setSamlllei(smalllei);
         Book.setPs(discount);
 
-
+        this.min=min;
+        this.max=max;
 
         System.out.println(Book);
         System.out.println("page: " + page + ", limit: " + limit);
@@ -49,6 +56,24 @@ public class DangdangController {
             dangdangdata.setData(null);
         }
         return dangdangdata;
+    }
+
+    @RequestMapping("/dangAnalysis")
+    @ResponseBody
+    public TableData dangAnalysis(String type){
+        TableData data = new TableData();
+        List<dangdangData> result = service.dangAnalysis(type);
+
+        if (result != null){
+            data.setCode(1000);
+            data.setMsg("查询成功");
+            data.setData(result);
+        }else {
+            data.setCode(2000);
+            data.setMsg("查询失败");
+            data.setData(null);
+        }
+        return data;
     }
 
 }

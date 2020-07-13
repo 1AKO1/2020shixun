@@ -67,15 +67,16 @@ class DoubanPipeline:
                                      item['book_url'], item['book_picUrl'],
                                      item['hotComm_content'], item['hotComm_people'], item['hotComm_score'], item['hotComm_votes'])
                                     )
+                # self.connect.commit()
             else:
                 self.cursor.execute('''
-                    UPDATE tesla.book
-                        SET book_title = %s, book_author = %s, book_type = %s, book_press = %s, book_pubDate = %s, 
-                            book_tags = %s, book_price = %s, book_isbn = %s, book_report = %s, book_dbid = %s, book_versions = %s, 
-                            book_score = %s, book_votes = %s, book_shortComms = %s, book_reviews = %s, 
-                            book_fiveStar = %s, book_fourStar = %s, book_threeStar = %s, book_twoStar = %s, book_oneStar = %s, 
-                            book_readings = %s, book_reads = %s, book_toReads = %s, 
-                            book_url = %s, book_picUrl = %s, 
+                    UPDATE tesla_book
+                        SET book_title = %s, book_author = %s, book_type = %s, book_press = %s, book_pubDate = %s,
+                            book_tags = %s, book_price = %s, book_isbn = %s, book_report = %s, book_dbid = %s, book_versions = %s,
+                            book_score = %s, book_votes = %s, book_shortComms = %s, book_reviews = %s,
+                            book_fiveStar = %s, book_fourStar = %s, book_threeStar = %s, book_twoStar = %s, book_oneStar = %s,
+                            book_readings = %s, book_reads = %s, book_toReads = %s,
+                            book_url = %s, book_picUrl = %s,
                             hotComm_content = %s, hotComm_people = %s, hotComm_score = %s, hotComm_votes = %s
                     WHERE ID = %s
                     ''',
