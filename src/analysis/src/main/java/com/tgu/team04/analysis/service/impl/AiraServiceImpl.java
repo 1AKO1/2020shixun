@@ -72,9 +72,16 @@ public class AiraServiceImpl implements AiraService {
                 return mapper.simpleAnalysisCommentRise();
             case "wordFrequency":
                 return mapper.simpleAnalysisWordFrequency();
+            case "sentiment":
+                return mapper.simpleAnalysisSentiment();
         }
 
         return null;
+    }
+
+    @Override
+    public List<AiraSimpleData> advanceAnalysis() {
+        return mapper.advanceAyalysis();
     }
 
 

@@ -47,6 +47,15 @@ public class DangServiceImpl implements DangService {
         switch (type){
             case "classes":
                 return mapper.classes();
+            case "prosstime":
+                return mapper.prosstime();
+            case "AvgClass":
+                return mapper.avgclass();
+            case "commentpr":
+                return mapper.commentpr();
+            case "yearBook":
+                return mapper.yearBook();
+
         }
 
         return null;

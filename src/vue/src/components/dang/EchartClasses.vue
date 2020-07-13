@@ -1,6 +1,6 @@
 <template>
     <div class="Echarts">
-        <div id="classes" style="width:900px;height:400px;" ></div>
+        <div id="classes" style="width:550px;height:400px;" ></div>
     </div>
 </template>
 
@@ -28,7 +28,7 @@
                     legend: {
                         type: 'scroll',
                         orient: 'vertical',
-                        right: 50,
+                        right: 30,
                         top: 20,
                         bottom: 20,
                         data: this.classes,
@@ -37,7 +37,7 @@
                     },
                     series: [
                         {
-                            name: '分类名称',
+                            name: '分类名称:',
                             type: 'pie',
                             radius: '55%',
                             center: ['40%', '50%'],

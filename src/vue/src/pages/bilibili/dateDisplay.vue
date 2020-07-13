@@ -11,11 +11,12 @@
                 <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px">
             </div>
             <div class="easyItem">
+                <EchartsGroupBySentiment />
+            </div>
+            <div class="easyItem">
                 <ScorePredict />
             </div>
-        </div>
 <!--        第二层-->
-        <div class="easyBox">
             <div class="easyItem">
                 <EchartsScore />
             </div>
@@ -39,6 +40,12 @@
             </div>
         </div>
 
+        <div class="easyBox">
+            <div style="width: 100%">
+                <EchartsSentiment />
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -48,9 +55,11 @@
     import EchartsScore from "../../components/bilibili/EchartsScore";
     import EchartsProgress from "../../components/bilibili/EchartsProgress";
     import EchartsVip from "../../components/bilibili/EchartsVip";
+    import EchartsGroupBySentiment from "../../components/bilibili/EchartsGroupBySentiment";
 
     import EchartsCommentRise from "../../components/bilibili/EchartsCommentRise";
     import EchartsWordFrequency from "../../components/bilibili/EchartsWordFrequency";
+    import EchartsSentiment from "../../components/bilibili/EchartsSentiment";
     export default {
         name: "dateDisplay",
         components:{
@@ -59,7 +68,9 @@
             EchartsVip,
             EchartsCommentRise,
             EchartsWordFrequency,
-            ScorePredict
+            ScorePredict,
+            EchartsSentiment,
+            EchartsGroupBySentiment
         }
     }
 </script>

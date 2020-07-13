@@ -1,5 +1,6 @@
 package com.tgu.team04.analysis.controller;
 
+import com.hankcs.hanlp.model.crf.Table;
 import com.tgu.team04.analysis.entity.AiraComment;
 import com.tgu.team04.analysis.entity.AiraSimpleData;
 import com.tgu.team04.analysis.entity.OneData;
@@ -98,4 +99,22 @@ public class AiraController {
         return data;
     }
 
+    @RequestMapping("advanceAnalysis")
+    @ResponseBody
+    public TableData advanceAnalysis (){
+        TableData data = new TableData();
+        List<AiraSimpleData> result = service.advanceAnalysis();
+
+        if (result!=null){
+            data.setCode(1000);
+            data.setMsg("查询成功");
+            data.setData(result);
+        }else {
+            data.setCode(2000);
+            data.setMsg("查询失败");
+            data.setData(null);
+        }
+
+        return data;
+    }
 }
