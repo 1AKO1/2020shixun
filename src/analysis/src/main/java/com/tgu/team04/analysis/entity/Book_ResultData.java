@@ -5,14 +5,14 @@ public class Book_ResultData {
     private int id;
     private String title;
 
-    // 表格一：书籍信息
+    // 表格一数据：书籍信息
     private String author;
     private String press;
     private String type;
     private float score;
     private int votes;
 
-    // 表格二：热评信息
+    // 表格二数据：热评信息
     private String hotCommContent;
     private String hotCommPeople;
     private String hotCommScore;

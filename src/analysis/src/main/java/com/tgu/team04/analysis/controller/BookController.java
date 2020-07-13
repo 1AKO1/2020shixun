@@ -1,6 +1,7 @@
 package com.tgu.team04.analysis.controller;
 
-import com.tgu.team04.analysis.entity.Book;
+import com.tgu.team04.analysis.entity.Book_ResultData;
+import com.tgu.team04.analysis.entity.Book_SearchData;
 import com.tgu.team04.analysis.entity.TableData;
 import com.tgu.team04.analysis.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,36 @@ public class BookController {
 
     @RequestMapping("/search")
     @ResponseBody
-    public TableData searchBook(String title, String author, String type,
-                                String press, float score, int page, int limit) {
-        Book book = new Book();
-        book.setTitle(title.length() == 0 ? null : title);
-        book.setAuthor(author.length() == 0 ? null : author);
-        book.setPress(press);
-        book.setScore(score);
+    public TableData searchBook(String title, String author, String press,
+                                int numOfType, String[] type, String isbn,
+                                int minVotes, float minScore, float maxScore,
+                                int page, int limit) {
+        Book_SearchData searchData = new Book_SearchData();
+        searchData.setTitle(title);
+        searchData.setAuthor(author);
+        searchData.setPress(press);
+        searchData.setNumOfType(numOfType);
+        searchData.setType(type);
+        searchData.setIsbn(isbn);
+        searchData.setMinVotes(minVotes);
+        searchData.setMinScore(minScore);
+        searchData.setMaxScore(maxScore);
 
-        TableData tableList = new TableData();
-//        List<Book> result =
+        searchData.setPage(page);
+        searchData.setLimit(limit);
 
-        return tableList;
+        System.out.println(searchData);
+        System.out.println("Page: " + page + ", limit: " + limit);
+
+        TableData tableData = new TableData();
+        List<Book_ResultData> resultDataList = service.searchByOptions(searchData, page, limit);
+        if (resultDataList != null && resultDataList.size() != 0) {
+            tableData.setCode(1000);
+            tableData.setMsg("查询成功");
+            tableData.setCount(service.searchCount(searchData));
+        }
+
+        return tableData;
     }
 
 }
