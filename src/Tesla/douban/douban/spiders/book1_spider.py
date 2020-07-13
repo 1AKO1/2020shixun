@@ -19,7 +19,9 @@ class BookSpider(CrawlSpider):
     # 儿童文学
     # start_urls = ['https://book.douban.com/tag/%E5%84%BF%E7%AB%A5%E6%96%87%E5%AD%A6']
     # 外国文学
-    start_urls = ['https://book.douban.com/tag/%E5%A4%96%E5%9B%BD%E6%96%87%E5%AD%A6']
+    # start_urls = ['https://book.douban.com/tag/%E5%A4%96%E5%9B%BD%E6%96%87%E5%AD%A6']
+    #
+    start_urls = ['']
     rules = {
         # div[1] 文学标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[1]"), follow=True),
