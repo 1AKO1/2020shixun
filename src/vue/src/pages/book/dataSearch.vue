@@ -629,19 +629,26 @@
                         for (var index in callbackDataList){
                             let callbackData = callbackDataList[index]
                             result_book = result_book.concat({
+                                //  唯一标识 不在表格中展示
+
                                 key: callbackData.id,
+                                // 书籍表格展示数据
                                 title: callbackData.title,
-                                author: callbackData.author,
-                                press: callbackData.press,
+                                author: callbackData.author == '' ? '佚名' : callbackData.author,
+                                press: callbackData.press == '' ? '无' : callbackData.press,
                                 type: callbackData.type,
                                 score: callbackData.score,
                                 votes: callbackData.votes,
                             })
                             result_hotComm = result_hotComm.concat({
+                                // 同上
+                                key: callbackData.id,
+
+                                // 评论表格展示数据
                                 title: callbackData.title,
                                 hotCommContent: callbackData.hotCommContent,
                                 hotCommPeople: callbackData.hotCommPeople,
-                                hotCommScore: callbackData.hotCommScore,
+                                hotCommScore: callbackData.hotCommScore == '' ? '没眼看' : callbackData.hotCommScore,
                                 hotCommVotes: callbackData.hotCommVotes,
                             })
                         }
