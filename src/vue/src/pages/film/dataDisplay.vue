@@ -42,93 +42,168 @@
 <!--                <a-form-item  placeholder="" v-model="movieMaxScore"/><span class = "cu">{{movieMaxScore}}({{movieMinScore}})</span>-->
 <!--            </a-form-item>-->
 <!--        </a-form>-->
-
+        <a-row :gutter="[16,16]">
+            <a-col :span="6" style="width: 20%">
+                <a-card hoverable>
+                    <a-statistic
+                            title="电影总数"
+                            :value="23476"
+                            :value-style="{ color: '#000080' }"
+                            style="margin-right: 10px"
+                    >
+                        <template #prefix>
+                            <a-icon type="tag" />
+                        </template>
+                        <template #suffix>
+                            <span></span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6" style="width: 20%">
+                <a-card hoverable>
+                    <a-statistic
+                            title="总评论数"
+                            :value="3756"
+                            class="demo-class"
+                            :value-style="{ color: '#0000CD' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="tags" />
+                        </template>
+                        <template #suffix>
+                            <span>w+</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6" style="width: 20%">
+                <a-card hoverable>
+                    <a-statistic
+                            title="平均片长"
+                            :value="134"
+                            :precision="0"
+                            suffix="min"
+                            class="demo-class"
+                            :value-style="{ color: '#3f8600' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="rocket"  :rotate="180"  />
+                        </template>
+                        <template #suffix>
+                            <span>min</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6" style="width: 20%">
+                <a-card hoverable>
+                    <a-statistic
+                            title="最高评分"
+                            :value="9.7"
+                            :precision="1"
+                            suffix=""
+                            class="demo-class"
+                            :value-style="{ color: '#cf1322' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="arrow-up" />
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6" style="width: 20%">
+                <a-card hoverable>
+                    <a-statistic
+                            title="最低评分"
+                            :value="2.1"
+                            :precision="1"
+                            suffix=""
+                            class="demo-class"
+                            :value-style="{ color: '#cf1322' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="arrow-down" />
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+        </a-row>
         <table style="width: 100%">
             <tr style="width: 100%">
-                <td colspan="3">
-                    <div style="background-color: cadetblue; padding: 10px" >
-                        <a-row :gutter="10">
-                            <a-col :span="6" style="width: 20%;">
-                                <a-card title="电影总数:23476" :bordered="false" :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" :hoverable="true">
-                                </a-card>
-                            </a-col>
-                            <a-col :span="6" style="width: 20%">
-                                <a-card title="评论总数:3756w+" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
-                                </a-card>
-                            </a-col>
-                            <a-col :span="6" style="width: 20%">
-                                <a-card title="平均片长:134min" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
-                                </a-card>
-                            </a-col>
-                            <a-col :span="6" style="width: 20%">
-                                <a-card title="最高评分:9.7" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
-                                </a-card>
-                            </a-col>
-                            <a-col :span="6" style="width: 20%">
-                                <a-card title="最低评分:2.1" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
-                                </a-card>
-                            </a-col>
-                        </a-row>
-                    </div>
-                </td>
-            </tr>
-            <tr style="width: 100%">
-                <div style="background-color: cadetblue; padding: 10px" >
+                <div>
                     <a-row :gutter="10">
                         <a-col :span="6" style="width: 40%;">
-                            <a-card title="电影类型分布" :bordered="false" :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" :hoverable="true">
+                            <a-card title="电影类型分布" bordered :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%" >
                                         <EchartsScore />
                                     </div>
                                 </div>
-
                             </a-card>
+                            <template #prefix>
+                                <a-icon type="arrow-up" />
+                            </template>
                         </a-col>
                         <a-col :span="6" style="width: 60%">
-                            <a-card title="时间~上映数量" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
+                            <a-card title="时间~上映数量" bordered :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%">
                                         <EchartsVip />
                                     </div>
                                 </div>
+                                <template #prefix>
+                                    <a-icon type="arrow-up" />
+                                </template>
                             </a-card>
                         </a-col>
                     </a-row>
                 </div>
+                <br/>
             </tr>
             <tr style="width: 100%">
-                <div style="background-color: cadetblue; padding: 10px" >
+                <div >
                     <a-row :gutter="10">
                         <a-col :span="6" style="width: 65%;">
-                            <a-card title="地区上映数量" :bordered="false" :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" :hoverable="true">
+                            <a-card title="地区上映数量" bordered :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%">
                                         <EchartsWordFrequency />
                                     </div>
                                 </div>
+                                <template #prefix>
+                                    <a-icon type="arrow-up" />
+                                </template>
                             </a-card>
                         </a-col>
                         <a-col :span="6" style="width: 35%">
-                            <a-card title="评分~片长" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
+                            <a-card title="评分~片长" bordered :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%">
                                         <EchartsProgress />
                                     </div>
                                 </div>
+                                <template #prefix>
+                                    <a-icon type="arrow-up" />
+                                </template>
                             </a-card>
                         </a-col>
                     </a-row>
                 </div>
+                <br/>
             </tr>
             <tr>
-                <div style="background:cadetblue; padding:10px; width: 100%">
-                    <a-card title="评分VS评论人数" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}">
+<!--                background:cadetblue;-->
+                <div style="width: 100%">
+                    <a-card title="评分VS评论人数" bordered :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                         <div class="easyItem" >
                             <div style="width: 100%">
                                 <EchartsCommentRise />
                             </div>
                         </div>
+                        <template #prefix>
+                            <a-icon type="arrow-up" />
+                        </template>
                     </a-card>
                 </div>
             </tr>

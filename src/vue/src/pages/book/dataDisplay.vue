@@ -88,7 +88,7 @@
                             title="评分为7以下的书籍"
                             :value="10000"
                             class="demo-class"
-                            :value-style="{ color: '#CF1322' }"
+                            :value-style="{ color: '#cf1322' }"
                     >
                         <template #prefix>
                             <a-icon type="frown"/>
@@ -117,27 +117,28 @@
                 </a-card>
             </a-col>
         </a-row>
+
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 50%">
-                <a-card hoverable title="TOP图书分类" >
-                    <EchartClasses/>
+                <a-card hoverable title="作品数TOP25作者" >
+                    <EchartsAuthorBook align="center"/>
                 </a-card>
             </a-col>
             <a-col :span="12" style="width: 50%">
                 <a-card hoverable title="TOP图书出版信息">
-                    <EchartsProssTime/>
+<!--                    <EchartsAuthorBook/>-->
                 </a-card>
             </a-col>
         </a-row>
         <a-row :gutter="[16,16]">
             <a-col :span="8" style="width: 50%">
-                <a-card hoverable title="TOP分类平均价格">
-                    <EchartsAvgClass/>
+                <a-card hoverable body-style="center" title="TOP分类平均价格">
+<!--                    <EchartsAuthorBook/>-->
                 </a-card>
             </a-col>
             <a-col :span="8" style="width: 50%">
                 <a-card hoverable title="评论与推荐">
-                    <EchartCommentPr/>
+<!--                    <EchartsAuthorBook/>-->
                 </a-card>
             </a-col>
 
@@ -145,7 +146,7 @@
         <a-row>
             <a-col :span="8" style="width: 50%">
                 <a-card hoverable title="4年TOP图书统计">
-                    <EchartyearBook/>
+<!--                    <EchartsAuthorBook/>-->
                 </a-card>
             </a-col>
         </a-row>
@@ -154,14 +155,11 @@
 
 
 <script>
-    import EchartClasses from "../../components/dang/EchartClasses";
-    import EchartsProssTime from "../../components/dang/EchartsProssTime";
-    import EchartsAvgClass from "../../components/dang/EchartsAvgClass";
-    import EchartCommentPr from "../../components/dang/EchartCommentPr";
-    import EchartyearBook from "../../components/dang/EchartyearBook";
+    import EchartsAuthorBook from "../../components/book/EchartsAuthorBook";
+
     export default {
         name: "dataDisplay",
-        components: {EchartyearBook, EchartCommentPr, EchartsAvgClass, EchartsProssTime, EchartClasses}
+        components: {EchartsAuthorBook}
     }
 </script>
 

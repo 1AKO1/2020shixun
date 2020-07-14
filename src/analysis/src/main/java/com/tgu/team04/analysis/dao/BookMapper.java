@@ -1,5 +1,6 @@
 package com.tgu.team04.analysis.dao;
 
+import com.tgu.team04.analysis.entity.Book_Data;
 import com.tgu.team04.analysis.entity.Book_ResultData;
 import com.tgu.team04.analysis.entity.Book_SearchData;
 import org.apache.ibatis.annotations.Mapper;
@@ -91,5 +92,10 @@ public interface BookMapper {
             "</where>" +
             "</script>")
     int countSelectByWhere(@Param("searchData")Book_SearchData searchData);
+
+    @Select("select book_author as analysisData, count(1) as count " +
+            "from tesla_book where book_author <> '无'" +
+            "group by book_author order by count desc limit 0, 25")
+    List<Book_Data> analysisAuthor();
 
 }
