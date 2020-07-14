@@ -65,11 +65,24 @@ public class BookController {
         switch (type) {
             case "typeScore":
                 List<Book_DataScore> resultDataList_typeScore = service.analysisTypeScore();
-                System.out.println(resultDataList_typeScore);
+//                System.out.println(resultDataList_typeScore);
                 if (resultDataList_typeScore != null){
                     analysisData.setCode(1000);
                     analysisData.setMsg("分析成功");
                     analysisData.setData(resultDataList_typeScore);
+                }else {
+                    analysisData.setCode(2000);
+                    analysisData.setMsg("分析失败");
+                    analysisData.setData(null);
+                }
+                break;
+            case "hotAuthor":
+                List<Book_DataHot> resultDataList_hotAuthor = service.analysisHotAuthor();
+                System.out.println(resultDataList_hotAuthor);
+                if (resultDataList_hotAuthor != null){
+                    analysisData.setCode(1000);
+                    analysisData.setMsg("分析成功");
+                    analysisData.setData(resultDataList_hotAuthor);
                 }else {
                     analysisData.setCode(2000);
                     analysisData.setMsg("分析失败");

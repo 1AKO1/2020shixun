@@ -65,4 +65,9 @@ public class BookServiceImpl implements BookService {
     public List<Book_DataScore> analysisTypeScore() {
         return mapper.analysisTypeScore();
     }
+
+    @Override
+    public List<Book_DataHot> analysisHotAuthor() {
+        return mapper.analysisHotAuthor();
+    }
 }

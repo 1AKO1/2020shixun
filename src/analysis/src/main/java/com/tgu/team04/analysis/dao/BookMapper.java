@@ -1,9 +1,6 @@
 package com.tgu.team04.analysis.dao;
 
-import com.tgu.team04.analysis.entity.Book_Data;
-import com.tgu.team04.analysis.entity.Book_DataScore;
-import com.tgu.team04.analysis.entity.Book_ResultData;
-import com.tgu.team04.analysis.entity.Book_SearchData;
+import com.tgu.team04.analysis.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -110,5 +107,11 @@ public interface BookMapper {
             "\t\tAVG(book_twoStar) AS twoStar, AVG(book_oneStar) AS oneStar,\n" +
             "\t\tbook_type AS type FROM tesla_book GROUP BY book_type;")
     List<Book_DataScore> analysisTypeScore();
+
+    @Select("SELECT SUM(book_readings + book_reads + book_toReads) AS hot,\n" +
+            "\tAVG(book_votes) AS votes, AVG(book_score) AS score, book_author \n" +
+            "\tAS author FROM tesla_book GROUP BY book_author\n" +
+            "ORDER BY hot DESC LIMIT 0, 10\n;")
+    List<Book_DataHot> analysisHotAuthor();
 
 }

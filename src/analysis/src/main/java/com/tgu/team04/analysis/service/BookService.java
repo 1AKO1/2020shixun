@@ -15,4 +15,6 @@ public interface BookService {
     List<Book_Data> analysisBook(String type);
 
     List<Book_DataScore> analysisTypeScore();
+
+    List<Book_DataHot> analysisHotAuthor();
 }
