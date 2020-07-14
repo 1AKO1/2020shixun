@@ -1,6 +1,6 @@
 <template>
     <div class="Echarts">
-        <div id="vip" style="width:400px;height:400px;"></div>
+        <div id="vip" style="width:100%;height:400px;"></div>
     </div>
 </template>
 
@@ -21,10 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('vip'));
 
                 var option = {
-                    title: {
-                        text: '用户付费情况',
-                        left: 'center'
-                    },
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'

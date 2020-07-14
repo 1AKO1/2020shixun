@@ -5,8 +5,7 @@
 
             <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
                 <div class="logo">
-                    <img src="../static/logo.png" alt="logo" style="width: 32px; height: 32px; display: inline">
-
+                    高数
                 </div>
                 <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
 
@@ -113,9 +112,13 @@
 <!--            组件-->
             <div id="components-back-top-demo-custom">
                 <a-back-top>
-                    <div class="ant-back-top-inner">
-                        UP
+                    <div style="width: 175px; height: 175px; overflow: hidden ;">
+                        <img src="../static/top_rocket.png" id="top" alt="">
                     </div>
+
+<!--                    <div class="ant-back-top-inner">-->
+<!--                        UP-->
+<!--                    </div>-->
                 </a-back-top>
             </div>
         </a-layout>
@@ -174,7 +177,6 @@
 
     #components-layout-demo-custom-trigger .logo {
         height: 32px;
-        background: rgba(255, 255, 255, 0.2);
         margin: 16px;
     }
 
@@ -184,6 +186,7 @@
         font-size: 24px;
         height: 75px;
         overflow: hidden;
+        text-align: center;
     }
 
     /*back to the top*/
@@ -202,5 +205,23 @@
     }
     .user-info{
         right: 10px;
+    }
+    img#top{
+       transform: translate(-600px, -10px);
+    }
+    img#top:hover{
+        animation: top_rocket 0.5s steps(4) infinite;
+        /*animation: top_rocket 0.1s;*/
+        /*animation-iteration-count: infinite;*/
+    }
+
+    @keyframes top_rocket
+    {
+        from{
+            transform: translate(-600px, 0px);
+        }
+        to{
+            transform: translate(0px, -25px);
+        }
     }
 </style>

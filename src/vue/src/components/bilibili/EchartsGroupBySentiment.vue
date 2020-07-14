@@ -1,6 +1,6 @@
 <template>
     <div class="Echarts">
-        <div id="groupbySentiment" style="width:400px;height:400px;"></div>
+        <div id="groupbySentiment" style="width:100%;height:400px;"></div>
     </div>
 </template>
 
@@ -21,10 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('groupbySentiment'));
 
                 var option = {
-                    title: {
-                        text: '用户评论情绪情况',
-                        left: 'center'
-                    },
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'
