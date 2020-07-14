@@ -1,10 +1,7 @@
 package com.tgu.team04.analysis.service.impl;
 
 import com.tgu.team04.analysis.dao.BookMapper;
-import com.tgu.team04.analysis.entity.Book;
-import com.tgu.team04.analysis.entity.Book_Data;
-import com.tgu.team04.analysis.entity.Book_ResultData;
-import com.tgu.team04.analysis.entity.Book_SearchData;
+import com.tgu.team04.analysis.entity.*;
 import com.tgu.team04.analysis.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +50,6 @@ public class BookServiceImpl implements BookService {
                 return mapper.analysisAuthor();
             case "pubDate":
                 return mapper.analysisPubDate();
-
 //            case "AvgClass":
 //                return mapper.avgclass();
 //            case "commentpr":
@@ -62,7 +58,11 @@ public class BookServiceImpl implements BookService {
 //                return mapper.yearBook();
 
         }
-
         return null;
+    }
+
+    @Override
+    public List<Book_DataScore> analysisTypeScore() {
+        return mapper.analysisTypeScore();
     }
 }

@@ -1,6 +1,7 @@
 package com.tgu.team04.analysis.dao;
 
 import com.tgu.team04.analysis.entity.Book_Data;
+import com.tgu.team04.analysis.entity.Book_DataScore;
 import com.tgu.team04.analysis.entity.Book_ResultData;
 import com.tgu.team04.analysis.entity.Book_SearchData;
 import org.apache.ibatis.annotations.Mapper;
@@ -103,5 +104,11 @@ public interface BookMapper {
             "group by DATE_FORMAT(book_pubDate,'%Y-%m') \n" +
             "order by DATE_FORMAT(book_pubDate,'%Y-%m')")
     List<Book_Data> analysisPubDate();
+
+    @Select("SELECT AVG(book_score) AS score, AVG(book_fiveStar) AS fiveStar,\n" +
+            "\t\tAVG(book_fourStar) AS fourStar, AVG(book_threeStar) AS threeStar,\n" +
+            "\t\tAVG(book_twoStar) AS twoStar, AVG(book_oneStar) AS oneStar,\n" +
+            "\t\tbook_type AS type FROM tesla_book GROUP BY book_type;")
+    List<Book_DataScore> analysisTypeScore();
 
 }

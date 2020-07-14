@@ -1,9 +1,6 @@
 package com.tgu.team04.analysis.controller;
 
-import com.tgu.team04.analysis.entity.Book_Data;
-import com.tgu.team04.analysis.entity.Book_ResultData;
-import com.tgu.team04.analysis.entity.Book_SearchData;
-import com.tgu.team04.analysis.entity.TableData;
+import com.tgu.team04.analysis.entity.*;
 import com.tgu.team04.analysis.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,18 +61,34 @@ public class BookController {
     @ResponseBody
     public TableData analysisData(String type){
         TableData analysisData = new TableData();
-        List<Book_Data> resultDataList = service.analysisBook(type);
 
-        if (resultDataList != null){
-            analysisData.setCode(1000);
-            analysisData.setMsg("分析成功");
-            analysisData.setData(resultDataList);
-        }else {
-            analysisData.setCode(2000);
-            analysisData.setMsg("分析失败");
-            analysisData.setData(null);
+        switch (type) {
+            case "typeScore":
+                List<Book_DataScore> resultDataList_typeScore = service.analysisTypeScore();
+                System.out.println(resultDataList_typeScore);
+                if (resultDataList_typeScore != null){
+                    analysisData.setCode(1000);
+                    analysisData.setMsg("分析成功");
+                    analysisData.setData(resultDataList_typeScore);
+                }else {
+                    analysisData.setCode(2000);
+                    analysisData.setMsg("分析失败");
+                    analysisData.setData(null);
+                }
+                break;
+            default:
+                List<Book_Data> resultDataList = service.analysisBook(type);
+                if (resultDataList != null){
+                    analysisData.setCode(1000);
+                    analysisData.setMsg("分析成功");
+                    analysisData.setData(resultDataList);
+                }else {
+                    analysisData.setCode(2000);
+                    analysisData.setMsg("分析失败");
+                    analysisData.setData(null);
+                }
         }
+
         return analysisData;
     }
-
 }
