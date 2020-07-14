@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class Book_Data {
-    private Object type;
+    private Object analysisData;
     private Integer count;
 }

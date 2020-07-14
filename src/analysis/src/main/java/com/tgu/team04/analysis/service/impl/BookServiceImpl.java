@@ -2,6 +2,7 @@ package com.tgu.team04.analysis.service.impl;
 
 import com.tgu.team04.analysis.dao.BookMapper;
 import com.tgu.team04.analysis.entity.Book;
+import com.tgu.team04.analysis.entity.Book_Data;
 import com.tgu.team04.analysis.entity.Book_ResultData;
 import com.tgu.team04.analysis.entity.Book_SearchData;
 import com.tgu.team04.analysis.service.BookService;
@@ -41,5 +42,26 @@ public class BookServiceImpl implements BookService {
     @Override
     public int searchCount(Book_SearchData searchData) {
         return mapper.countSelectByWhere(searchData);
+    }
+
+    @Override
+    public List<Book_Data> analysisBook(String type) {
+        if (type == null) return null;
+
+        switch (type) {
+            case "author":
+                return mapper.analysisAuthor();
+//            case "prosstime":
+//                return mapper.prosstime();
+//            case "AvgClass":
+//                return mapper.avgclass();
+//            case "commentpr":
+//                return mapper.commentpr();
+//            case "yearBook":
+//                return mapper.yearBook();
+
+        }
+
+        return null;
     }
 }
