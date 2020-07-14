@@ -124,9 +124,11 @@
                     <EchartsAuthorBook align="center"/>
                 </a-card>
             </a-col>
+<!--        </a-row>-->
+<!--        <a-row :gutter="[16,16]">-->
             <a-col :span="12" style="width: 50%">
-                <a-card hoverable title="TOP图书出版信息">
-<!--                    <EchartsAuthorBook/>-->
+                <a-card hoverable title="出版数量随时间的变化">
+                    <EchartsPubDate align="center"/>
                 </a-card>
             </a-col>
         </a-row>
@@ -156,10 +158,11 @@
 
 <script>
     import EchartsAuthorBook from "../../components/book/EchartsAuthorBook";
+    import EchartsPubDate from "../../components/book/EchartsPubDate";
 
     export default {
         name: "dataDisplay",
-        components: {EchartsAuthorBook}
+        components: {EchartsAuthorBook, EchartsPubDate}
     }
 </script>
 
