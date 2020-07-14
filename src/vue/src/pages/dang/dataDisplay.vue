@@ -52,7 +52,7 @@
         </a-row>
         <a-row :gutter="[16,16]">
             <a-col :span="6">
-                <a-card>
+                <a-card hoverable>
                     <a-statistic
                             title="一级分类书目"
                             :value="41"
@@ -69,7 +69,7 @@
                 </a-card>
             </a-col>
             <a-col :span="6">
-                <a-card>
+                <a-card hoverable>
                     <a-statistic
                             title="二级分类书目"
                             :value="466"
@@ -86,7 +86,7 @@
                 </a-card>
             </a-col>
             <a-col :span="6">
-                <a-card>
+                <a-card hoverable>
                     <a-statistic
                             title="最低售价"
                             :value="3.2"
@@ -102,7 +102,7 @@
                 </a-card>
             </a-col>
             <a-col :span="6">
-                <a-card>
+                <a-card hoverable>
                     <a-statistic
                             title="最高售价"
                             :value="990.4"
