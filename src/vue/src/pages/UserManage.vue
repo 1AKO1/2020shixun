@@ -84,7 +84,7 @@
 
                 <a @click="showChangePwd(record.uid)">修改密码</a>
                 <a-modal v-model="visiblepwd" title="修改密码" @ok="changePwdOk" v-on:cancel="clearAll" >
-                    <a-input placeholder="请输入要修改的密码" v-model="newPwd"/>
+                    <a-input placeholder="请输入要修改的密码" type="password" v-model="newPwd"/>
                 </a-modal>
 
                 <a-divider type="vertical" />
