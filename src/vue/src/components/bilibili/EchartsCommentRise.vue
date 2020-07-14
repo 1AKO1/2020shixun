@@ -22,14 +22,6 @@
                 var myChart = this.$echarts.init(document.getElementById('commentRise'));
 
                 var option = {
-                    title: {
-                        text: '每日评论数',
-                        left: 'center',
-                        top: 20,
-                        textStyle: {
-                            color: '#000'
-                        }
-                    },
                     xAxis: {
                         type: 'category',
                         data: this.datelist

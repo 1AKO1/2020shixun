@@ -21,10 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('vip'));
 
                 var option = {
-                    title: {
-                        text: '用户付费情况',
-                        left: 'center'
-                    },
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'

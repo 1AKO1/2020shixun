@@ -21,10 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('groupbySentiment'));
 
                 var option = {
-                    title: {
-                        text: '用户评论情绪情况',
-                        left: 'center'
-                    },
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'

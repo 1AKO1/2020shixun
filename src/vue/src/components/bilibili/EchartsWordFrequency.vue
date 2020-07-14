@@ -22,14 +22,6 @@
                 var myChart = this.$echarts.init(document.getElementById('wordFrequency'));
 
                 var option = {
-                    title: {
-                        text: '动漫评论高频词TOP20',
-                        left: 'center',
-                        top: 20,
-                        textStyle: {
-                            color: '#000'
-                        }
-                    },
                     xAxis: {
                         type: 'category',
                         data: this.datelist
