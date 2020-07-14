@@ -5,7 +5,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="爬取总数"
-                            :value="42061"
+                            :value="11000"
                             :value-style="{ color: '#cf1322' }"
                             style="margin-right: 50px"
                     >
@@ -19,9 +19,9 @@
                 <a-card hoverable>
                     <a-statistic
                             title="歌手总数"
-                            :value="98.37"
-                            :precision="2"
-                            suffix="%"
+                            :value="5777"
+                            :precision="0"
+                            suffix="人"
                             class="demo-class"
                             :value-style="{ color: '#3f8600' }"
                     >
@@ -35,7 +35,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="发行商"
-                            :value="102859"
+                            :value="3561"
                             class="demo-class"
                             :value-style="{ color: '#FFA500' }"
                     >
@@ -43,7 +43,7 @@
                             <a-icon type="minus" />
                         </template>
                         <template #suffix>
-                            <span>/条</span>
+                            <span>/个</span>
                         </template>
 
                     </a-statistic>
@@ -55,7 +55,7 @@
                 <a-card>
                     <a-statistic
                             title="音乐种类"
-                            :value="41"
+                            :value="18"
                             :value-style="{ color: '#000080' }"
                             style="margin-right: 50px"
                     >
@@ -72,7 +72,7 @@
                 <a-card>
                     <a-statistic
                             title="音乐媒介"
-                            :value="466"
+                            :value="92"
                             class="demo-class"
                             :value-style="{ color: '#0000CD' }"
                     >
