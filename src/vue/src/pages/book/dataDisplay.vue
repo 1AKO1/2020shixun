@@ -119,43 +119,54 @@
             </a-col>
         </a-row>
 
-<!--        第三排-->
+<!--        第三排 作品数TOP25作者 各分类书籍平均评分-->
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 50%">
-                <a-card hoverable body-style="center" title="作品数TOP25作者" >
+                <a-card hoverable body-style="center" title="作品数TOP25作者">
                     <EchartsAuthorBook align="center"/>
+                    <br/>
+                    <p style="color: darkgray"> “ 鲁迅先生威武 ” </p>
                 </a-card>
             </a-col>
             <a-col :span="12" style="width: 50%">
                 <a-card hoverable body-style="center" title="各分类书籍平均评分及星级占比" >
                     <EchartsTypeScore align="center"/>
+                    <br/>
+                    <p style="color: darkgray"> “ 文化类的平均评分很高，文学类则平均五星评价占比最高，生活类相对最不受欢迎~ ” </p>
                 </a-card>
             </a-col>
         </a-row>
 
-<!--        第四排-->
+<!--        第四排 热度TOP10作者-->
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 100%">
                 <a-card hoverable body-style="center" title="热度TOP10作者">
                     <EchartsHotAuthor align="center"/>
+                    <br/>
+                    <p style="color: darkgray"> “ TOP10里，热度最高的东野圭吾先生综合评分相对最低，而热度相对最低的钱钟书前辈却有着相对最高的平均评分~ 还等什么？紧跟潮流请选他们~ ” </p>
                 </a-card>
             </a-col>
         </a-row>
 
-<!--        第五排-->
+<!--        第五排 出版数量随时间的变化-->
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 100%">
                 <a-card hoverable body-style="center" title="出版数量随时间的变化">
                     <EchartsPubDate align="center"/>
+                    <br/>
+                    <p style="color: darkgray"> “ 不难看出书籍出版量逐年增长，且仔细分析可以发现几乎每年的1月都是出版的高峰期，远超其他月份，
+                        而2020年的4、5月却有一大波书籍出版且超过1月出版数量，是因为疫情后的复工复产吗？ ” </p>
                 </a-card>
             </a-col>
         </a-row>
 
-<!--        第六排-->
+<!--        第六排 出版社平均书评数与短评数-->
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 100%">
                 <a-card hoverable body-style="center" title="出版社平均书评数与短评数">
                     <EchartsReviewPress align="center"/>
+                    <br/>
+                    <p style="color: darkgray"> “ 北京十月文艺出版社、上海译文出版社、南海出版公司、武汉大学出版社都是读者们的宠儿~ ” </p>
                 </a-card>
             </a-col>
         </a-row>
