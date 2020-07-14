@@ -98,4 +98,10 @@ public interface BookMapper {
             "group by book_author order by count desc limit 0, 25")
     List<Book_Data> analysisAuthor();
 
+    @Select("select DATE_FORMAT(book_pubDate,'%Y-%m') as analysisData ,count(1) as count \n" +
+            "from tesla_book WHERE book_pubDate\n" +
+            "group by DATE_FORMAT(book_pubDate,'%Y-%m') \n" +
+            "order by DATE_FORMAT(book_pubDate,'%Y-%m')")
+    List<Book_Data> analysisPubDate();
+
 }

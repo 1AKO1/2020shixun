@@ -89,7 +89,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="最低售价"
-                            :value="3.2"
+                            :value="3.6"
                             :precision="2"
                             suffix="￥"
                             class="demo-class"
@@ -143,10 +143,16 @@
             </a-col>
 
         </a-row>
-        <a-row>
-            <a-col :span="8" style="width: 50%">
+        <a-row :gutter="[16,16]">
+            <a-col :span="12" style="width: 50%">
                 <a-card hoverable title="4年TOP图书统计">
                     <EchartyearBook/>
+                </a-card>
+            </a-col>
+
+            <a-col :span="12" style="width: 50%">
+                <a-card hoverable title="价格区间占比">
+                    <Echartprice/>
                 </a-card>
             </a-col>
         </a-row>
@@ -160,9 +166,10 @@
     import EchartsAvgClass from "../../components/dang/EchartsAvgClass";
     import EchartCommentPr from "../../components/dang/EchartCommentPr";
     import EchartyearBook from "../../components/dang/EchartyearBook";
+    import Echartprice from "../../components/dang/Echartprice";
     export default {
         name: "dataDisplay",
-        components: {EchartyearBook, EchartCommentPr, EchartsAvgClass, EchartsProssTime, EchartClasses}
+        components: {Echartprice, EchartyearBook, EchartCommentPr, EchartsAvgClass, EchartsProssTime, EchartClasses}
     }
 </script>
 

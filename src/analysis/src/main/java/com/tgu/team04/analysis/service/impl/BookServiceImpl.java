@@ -51,8 +51,9 @@ public class BookServiceImpl implements BookService {
         switch (type) {
             case "author":
                 return mapper.analysisAuthor();
-//            case "prosstime":
-//                return mapper.prosstime();
+            case "pubDate":
+                return mapper.analysisPubDate();
+
 //            case "AvgClass":
 //                return mapper.avgclass();
 //            case "commentpr":

@@ -90,32 +90,26 @@
                         组长
                     </a-descriptions-item>
                     <a-descriptions-item label="学号">
-                        YES
+                        1811650412
                     </a-descriptions-item>
                     <a-descriptions-item label="项目心得" :span="3">
-                        <a-badge status="processing" text="我爱写代码，以后的代码全交给我来写" />
+                        <a-badge status="processing" text="爬虫太好玩了，前端太好玩了，后端太好玩了，做项目太好玩啦~" />
                     </a-descriptions-item>
                     <a-descriptions-item label="爬虫爬取数量">
-                        $80.00
+                        16k
                     </a-descriptions-item>
                     <a-descriptions-item label="数据表字段数">
-                        $20.00
+                        30
                     </a-descriptions-item>
                     <a-descriptions-item label="爬取信息网站">
-                        $60.00
+                        豆瓣读书
                     </a-descriptions-item>
                     <a-descriptions-item label="任务">
-                        Data disk type: MongoDB
+                        爬虫: 爬取豆瓣读书相关数据
                         <br />
-                        Database version: 3.4
+                        后端：豆瓣读书数据查询与及分析的接口及数据提取
                         <br />
-                        Package: dds.mongo.mid
-                        <br />
-                        Storage space: 10 GB
-                        <br />
-                        Replication factor: 3
-                        <br />
-                        Region: East China 1<br />
+                        前端：豆瓣读书数据查询与分析的页面及数据传输与接收
                     </a-descriptions-item>
                 </a-descriptions>
 
@@ -136,7 +130,7 @@
                             在这网站这方面还存在极大地不足，仍需要充实自己" />
                     </a-descriptions-item>
                     <a-descriptions-item label="爬虫爬取数量">
-                        12000
+                        11000
                     </a-descriptions-item>
                     <a-descriptions-item label="数据表字段数">
                         17
