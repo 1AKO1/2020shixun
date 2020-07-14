@@ -33,14 +33,14 @@
                         bottom: 20,
                         data: this.analysisData_authors,
 
-                        selected: this.dictlist
+                        selected: this.limit
                     },
                     series: [
                         {
                             name: '作者名称:',
                             type: 'pie',
                             radius: '55%',
-                            center: ['40%', '50%'],
+                            center: ['35%', '50%'],
                             data: this.analysisData_dataList,
                             emphasis: {
                                 itemStyle: {
@@ -63,22 +63,21 @@
             let result_dataList = [];
             let result_authors = [];
             let limit = {};
-
-            axios.post("http://localhost:8080/dangdang/analysis", qs.stringify({
-                type: 'classes'
+            axios.post("http://localhost:8080/doubanBook/analysis", qs.stringify({
+                type: 'author'
             }, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}))
                 .then(response =>{
                     const resultDataList = response.data.data;
-                    console.log(response);
+                    console.log(resultDataList);
                     let i = 0;
                     for (let index in resultDataList){
                         let resultData = resultDataList[index];
                         result_dataList = result_dataList.concat({
-                            name:resultData.author,
+                            name:resultData.analysisData,
                             value:resultData.count
                         })
-                        result_authors = result_authors.concat(resultData.author)
-                        limit[resultData.author] = i < 10;
+                        result_authors = result_authors.concat(resultData.analysisData)
+                        limit[resultData.analysisData] = i < 6;
                         i++;
                     }
                     this.analysisData_dataList = result_dataList;
