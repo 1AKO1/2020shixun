@@ -21,7 +21,7 @@ public interface DangMapper {
             "   <if test='Book.author != null and Book.author.length > 0'>" +
             "       AND author like #{Book.author}" +
             "   </if>" +
-            "   <if test='Book.samlllei != null '>" +
+            "   <if test='Book.samlllei != null  and Book.samlllei != \"all\" '>" +
             "       AND samlllei = #{Book.samlllei}" +
             "   </if>" +
             "   <if test='Book.ps >= 0 '>"+
@@ -48,7 +48,7 @@ public interface DangMapper {
             "   <if test='Book.author != null and Book.author.length > 0'>" +
             "       AND author like #{Book.author}" +
             "   </if>" +
-            "   <if test=' Book.samlllei != null '>" +
+            "   <if test=' Book.samlllei != null and Book.samlllei != \"all\"'>" +
             "       AND samlllei = #{Book.samlllei}" +
             "   </if>" +
             "   <if test='Book.ps >= 0 '>"+
