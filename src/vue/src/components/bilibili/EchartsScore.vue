@@ -22,11 +22,6 @@
                 var myChart = this.$echarts.init(document.getElementById('score'));
 
                  var option = {
-                     title: {
-                         text: '评论各分段占比',
-                         subtext: '10分太多了！',
-                         left: 'center'
-                     },
                      tooltip: {
                          trigger: 'item',
                          formatter: '{a} <br/>{b} : {c} ({d}%)'

@@ -28,10 +28,10 @@
                             title="字段数量"
                             :value="18"
                             class="demo-class"
-                            :value-style="{ color: '#cf1322' }"
+                            :value-style="{ color: '#66ccff' }"
                     >
                         <template #prefix>
-                            <a-icon type="arrow-down" />
+                            <a-icon type="tags" />
                         </template>
                     </a-statistic>
                 </a-card>
