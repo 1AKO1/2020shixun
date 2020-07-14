@@ -131,10 +131,10 @@
         </a-row>
         <table style="width: 100%">
             <tr style="width: 100%">
-                <div style="background-color: cadetblue; padding: 10px" >
+                <div>
                     <a-row :gutter="10">
                         <a-col :span="6" style="width: 40%;">
-                            <a-card title="电影类型分布" :bordered="false" :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
+                            <a-card title="电影类型分布" bordered :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%" >
                                         <EchartsScore />
@@ -146,7 +146,7 @@
                             </template>
                         </a-col>
                         <a-col :span="6" style="width: 60%">
-                            <a-card title="时间~上映数量" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
+                            <a-card title="时间~上映数量" bordered :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%">
                                         <EchartsVip />
@@ -159,12 +159,13 @@
                         </a-col>
                     </a-row>
                 </div>
+                <br/>
             </tr>
             <tr style="width: 100%">
-                <div style="background-color: cadetblue; padding: 10px" >
+                <div >
                     <a-row :gutter="10">
                         <a-col :span="6" style="width: 65%;">
-                            <a-card title="地区上映数量" :bordered="false" :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
+                            <a-card title="地区上映数量" bordered :head-style="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%">
                                         <EchartsWordFrequency />
@@ -176,7 +177,7 @@
                             </a-card>
                         </a-col>
                         <a-col :span="6" style="width: 35%">
-                            <a-card title="评分~片长" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
+                            <a-card title="评分~片长" bordered :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                                 <div class="easyBox">
                                     <div style="width: 100%">
                                         <EchartsProgress />
@@ -189,10 +190,12 @@
                         </a-col>
                     </a-row>
                 </div>
+                <br/>
             </tr>
             <tr>
-                <div style="background:cadetblue; padding:10px; width: 100%">
-                    <a-card title="评分VS评论人数" :bordered="false" :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
+<!--                background:cadetblue;-->
+                <div style="width: 100%">
+                    <a-card title="评分VS评论人数" bordered :headStyle="{color:'#008b8b'}" :bodyStyle="{padding:'0'}" hoverable>
                         <div class="easyItem" >
                             <div style="width: 100%">
                                 <EchartsCommentRise />
