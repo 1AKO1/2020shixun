@@ -190,35 +190,68 @@
                 <a-divider dashed />
 
                 <a-descriptions title="" bordered>
-                    <a-descriptions-item label="姓名">
-                        李嘉威
-                    </a-descriptions-item>
-                    <a-descriptions-item label="职务">
-                        组员
-                    </a-descriptions-item>
-                    <a-descriptions-item label="学号">
-                        1811650610
-                    </a-descriptions-item>
-                    <a-descriptions-item label="项目心得" :span="3">
-                        <a-badge status="processing" text="通过本次实训，让我明白了前后端之间的联系方式，这对以后的学习一定很有帮助。" />
-                    </a-descriptions-item>
-                    <a-descriptions-item label="爬虫爬取数量">
-                        48235
-                    </a-descriptions-item>
-                    <a-descriptions-item label="数据表字段数">
-                        18
-                    </a-descriptions-item>
-                    <a-descriptions-item label="爬取信息网站">
-                        BiliBili
-                    </a-descriptions-item>
-                    <a-descriptions-item label="任务">
-                        爬虫：爬取番剧评论数据
-                        <br />
-                        后端：bilibili数据查询与分析
-                        <br />
-                        前端：项目框架搭建、注册、用户管理、bilibili数据查询与分析
-                    </a-descriptions-item>
-                </a-descriptions>
+                <a-descriptions-item label="姓名">
+                    李嘉威
+                </a-descriptions-item>
+                <a-descriptions-item label="职务">
+                    组员
+                </a-descriptions-item>
+                <a-descriptions-item label="学号">
+                    1811650610
+                </a-descriptions-item>
+                <a-descriptions-item label="项目心得" :span="3">
+                    <a-badge status="processing" text="通过本次实训，让我明白了前后端之间的联系方式，这对以后的学习一定很有帮助。" />
+                </a-descriptions-item>
+                <a-descriptions-item label="爬虫爬取数量">
+                    48235
+                </a-descriptions-item>
+                <a-descriptions-item label="数据表字段数">
+                    18
+                </a-descriptions-item>
+                <a-descriptions-item label="爬取信息网站">
+                    BiliBili
+                </a-descriptions-item>
+                <a-descriptions-item label="任务">
+                    爬虫：爬取番剧评论数据
+                    <br />
+                    后端：bilibili数据查询与分析
+                    <br />
+                    前端：项目框架搭建、注册、用户管理、bilibili数据查询与分析
+                </a-descriptions-item>
+            </a-descriptions>
+
+                <a-divider dashed />
+
+            <a-descriptions title="" bordered>
+                <a-descriptions-item label="姓名">
+                    薛彦涵
+                </a-descriptions-item>
+                <a-descriptions-item label="职务">
+                    组员
+                </a-descriptions-item>
+                <a-descriptions-item label="学号">
+                    1811650426
+                </a-descriptions-item>
+                <a-descriptions-item label="项目心得" :span="3">
+                    <a-badge status="processing" text="这是一次很好的针对网页开发的一次实战，获益良多" />
+                </a-descriptions-item>
+                <a-descriptions-item label="爬虫爬取数量">
+                    42061
+                </a-descriptions-item>
+                <a-descriptions-item label="数据表字段数">
+                    15
+                </a-descriptions-item>
+                <a-descriptions-item label="爬取信息网站">
+                    DangDang
+                </a-descriptions-item>
+                <a-descriptions-item label="任务">
+                    爬虫：爬取当当网图书基本信息
+                    <br />
+                    后端：当当网图书信息数据查询与分析
+                    <br />
+                    前端：项目框架辅助搭建、登录、dangdang网数据查询与分析
+                </a-descriptions-item>
+            </a-descriptions>
 
                 <a-divider dashed />
             </a-collapse-panel>
