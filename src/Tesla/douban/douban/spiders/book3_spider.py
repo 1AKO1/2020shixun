@@ -13,9 +13,16 @@ class BookSpider(CrawlSpider):
     # start_urls = ['https://book.douban.com/tag/%E5%8E%86%E5%8F%B2']
     # 人文
     # start_urls = ['https://book.douban.com/tag/%E4%BA%BA%E6%96%87']
+    # 心理学
+    # start_urls = ['https://book.douban.com/tag/%E5%BF%83%E7%90%86%E5%AD%A6']
+    # 社会学
+    # start_urls = ['https://book.douban.com/tag/%E7%A4%BE%E4%BC%9A%E5%AD%A6']
+    # 传记
+    # start_urls = ['https://book.douban.com/tag/%E4%BC%A0%E8%AE%B0']
     #
     start_urls = ['']
     rules = {
+
         # div[3] 文化标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[3]"), follow=True),
         Rule(LinkExtractor(allow="\?start=\d+\&type=", restrict_xpaths="//div[@class='paginator']"), follow=True),

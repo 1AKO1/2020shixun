@@ -12,7 +12,13 @@ class BookSpider(CrawlSpider):
     # 耽美
     # start_urls = ['https://book.douban.com/tag/%E8%80%BD%E7%BE%8E']
     # 言情
-    start_urls = ['https://book.douban.com/tag/%E8%A8%80%E6%83%85']
+    # start_urls = ['https://book.douban.com/tag/%E8%A8%80%E6%83%85']
+    # 推理
+    # start_urls = ['https://book.douban.com/tag/%E6%8E%A8%E7%90%86']
+    # 奇幻
+    # start_urls = ['https://book.douban.com/tag/%E5%A5%87%E5%B9%BB']
+    #
+    start_urls = ['']
     rules = {
         # div[2] 流行标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[2]"), follow=True),
