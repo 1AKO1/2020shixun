@@ -112,7 +112,10 @@
 <!--            组件-->
             <div id="components-back-top-demo-custom">
                 <a-back-top>
-                    <img src="../static/top.png" alt="">
+                    <div style="width: 175px; height: 175px; overflow: hidden ;">
+                        <img src="../static/top_rocket.png" id="top" alt="">
+                    </div>
+
 <!--                    <div class="ant-back-top-inner">-->
 <!--                        UP-->
 <!--                    </div>-->
@@ -202,5 +205,23 @@
     }
     .user-info{
         right: 10px;
+    }
+    img#top{
+       transform: translate(-600px, -10px);
+    }
+    img#top:hover{
+        animation: top_rocket 0.5s steps(4) infinite;
+        /*animation: top_rocket 0.1s;*/
+        /*animation-iteration-count: infinite;*/
+    }
+
+    @keyframes top_rocket
+    {
+        from{
+            transform: translate(-600px, 0px);
+        }
+        to{
+            transform: translate(0px, -25px);
+        }
     }
 </style>
