@@ -1,5 +1,5 @@
-<template>
-    <div>
+<template >
+    <div >
         <a-row :gutter="16">
             <a-col :span="8">
                 <a-card hoverable>
@@ -35,9 +35,9 @@
                 <a-card hoverable>
                     <a-statistic
                             title="平均评论数"
-                            :value="400000"
+                            :value="102859"
                             class="demo-class"
-                            :value-style="{ color: '#3f8600' }"
+                            :value-style="{ color: '#FFA500' }"
                     >
                         <template #prefix>
                             <a-icon type="minus" />
@@ -46,6 +46,74 @@
                             <span>/条</span>
                         </template>
 
+                    </a-statistic>
+                </a-card>
+            </a-col>
+        </a-row>
+        <a-row :gutter="[16,16]">
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="一级分类书目"
+                            :value="41"
+                            :value-style="{ color: '#000080' }"
+                            style="margin-right: 50px"
+                    >
+                        <template #prefix>
+                            <a-icon type="tag" />
+                        </template>
+                        <template #suffix>
+                            <span>/种</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="二级分类书目"
+                            :value="466"
+                            class="demo-class"
+                            :value-style="{ color: '#0000CD' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="tags" />
+                        </template>
+                        <template #suffix>
+                            <span>/种</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="最低售价"
+                            :value="3.2"
+                            :precision="2"
+                            suffix="￥"
+                            class="demo-class"
+                            :value-style="{ color: '#3f8600' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="rocket"  :rotate="180"  />
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="最高售价"
+                            :value="990.4"
+                            :precision="2"
+                            suffix="￥"
+                            class="demo-class"
+                            :value-style="{ color: '#cf1322' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="rocket" />
+                        </template>
                     </a-statistic>
                 </a-card>
             </a-col>
