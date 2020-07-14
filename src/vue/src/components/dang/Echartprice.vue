@@ -20,7 +20,7 @@
                     // },
                     tooltip: {
                         trigger: 'item',
-                        formatter: '{a} <br/>{b} : {c}%'
+                        formatter: '{a} <br/>{b} : {c}件'
                     },
                     toolbox: {
                         orient: 'vertical',
