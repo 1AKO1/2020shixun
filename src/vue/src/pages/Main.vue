@@ -120,6 +120,38 @@
                     </a-descriptions-item>
                 </a-descriptions>
 
+                <a-descriptions title="" bordered>
+                    <a-descriptions-item label="姓名">
+                        刘博
+                    </a-descriptions-item>
+                    <a-descriptions-item label="职务">
+                        组员
+                    </a-descriptions-item>
+                    <a-descriptions-item label="学号">
+                        1811650612
+                    </a-descriptions-item>
+                    <a-descriptions-item label="项目心得" :span="3">
+                        <a-badge status="processing" text="通过项目了解到了许多网络爬虫、前后端涉及的知识，同时也更加认识到了自己
+                            在这网站这方面还存在极大地不足，仍需要充实自己" />
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬虫爬取数量">
+                        12000
+                    </a-descriptions-item>
+                    <a-descriptions-item label="数据表字段数">
+                        17
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬取信息网站">
+                        豆瓣音乐
+                    </a-descriptions-item>
+                    <a-descriptions-item label="任务">
+                        爬虫：爬取豆瓣音乐相关数据
+                        <br />
+                        后端：豆瓣音乐、用户管理接口
+                        <br />
+                        前端：豆瓣音乐前端页面<br />
+                    </a-descriptions-item>
+                </a-descriptions>
+
                 <a-divider dashed />
             </a-collapse-panel>
 
