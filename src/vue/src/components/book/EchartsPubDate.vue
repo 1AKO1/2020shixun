@@ -25,17 +25,20 @@
 
                     dataZoom: [
                         {
-                            type: 'inside',
-                            show: true,
-                            start: 48,
-                            end: 100,
-                            left: "center"
-                        },
-                        {
                             realtime: true,
                             start: 48,
                             end: 100,
+                            zoomOnMouseWheel: true,
                             xAxisIndex: 0
+                        },
+                        {
+                            type: 'inside',
+                            show: true,
+                            start: 0,
+                            end: 100,
+                            left: "center",
+                            // zoomOnMouseWheel:false,
+                            yAxisIndex: 0
                         }
                     ],
                     tooltip: {
@@ -80,6 +83,7 @@
             }, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}))
                 .then(response => {
                     const resultDataList = response.data.data
+                    console.log(444);
                     console.log(resultDataList)
                     for(let index in resultDataList) {
                         let resultData = resultDataList[index];
@@ -88,10 +92,9 @@
                     }
                     this.analysisData_dateList = result_dateList;
                     this.analysisData_countList = result_dateCount;
-                    console.log(111111111111111);
                     console.log(this.analysisData_dateList);
-                    console.log(111111111111111);
                     console.log(this.analysisData_countList);
+                    console.log(444);
                     this.myEcharts();
                 }).catch(error => {
                 console.log(error)

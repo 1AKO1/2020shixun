@@ -154,6 +154,6 @@ class IPProxyDownloadMiddleware(object):
     def process_request(self, request, spider):
         # proxy = "https://36.103.242.231:16817"
         # proxy = "https://27.72.29.159:8080"
-        proxy = "https://123.139.56.238:9999"
+        proxy = "https://123.163.121.228:9999"
 
         request.meta['proxy'] = proxy

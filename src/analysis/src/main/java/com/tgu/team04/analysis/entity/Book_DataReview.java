@@ -7,7 +7,7 @@ public class Book_DataReview {
 
     private String press;
 
-    private Integer reviews;
-    private Integer shortComms;
+    private Float reviews;
+    private Float shortComms;
 
 }

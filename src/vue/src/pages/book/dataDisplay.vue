@@ -154,8 +154,8 @@
 <!--        第六排-->
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 100%">
-                <a-card hoverable body-style="center" title="TOP分类平均价格">
-                    <!--                    <EchartsAuthorBook align="center"/>-->
+                <a-card hoverable body-style="center" title="出版社平均书评数与短评数">
+                    <EchartsReviewPress align="center"/>
                 </a-card>
             </a-col>
         </a-row>
@@ -168,10 +168,11 @@
     import EchartsPubDate from "../../components/book/EchartsPubDate";
     import EchartsTypeScore from "../../components/book/EchartsTypeScore";
     import EchartsHotAuthor from "../../components/book/EchartsHotAuthor";
+    import EchartsReviewPress from "../../components/book/EchartsReviewPress";
 
     export default {
         name: "dataDisplay",
-        components: {EchartsHotAuthor, EchartsTypeScore, EchartsAuthorBook, EchartsPubDate}
+        components: {EchartsHotAuthor, EchartsTypeScore, EchartsAuthorBook, EchartsPubDate, EchartsReviewPress}
     }
 </script>
 

@@ -137,7 +137,7 @@
             }, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}))
                 .then(response => {
                     const resultDataList = response.data.data;
-                    console.log(444);
+                    console.log(333);
                     console.log(resultDataList)
 
                     for(let index in resultDataList){
@@ -171,7 +171,7 @@
                     this.analysis_authorList = result_author;
                     console.log(this.analysis_authorList);
                     console.log(this.analysis_dataList);
-                    console.log(444);
+                    console.log(333);
                     this.myEcharts();
                 }).catch(error => {
                 console.log(error)

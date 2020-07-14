@@ -16,7 +16,11 @@ class BookSpider(CrawlSpider):
     # 商业
     # start_urls = ['https://book.douban.com/tag/%E5%95%86%E4%B8%9A']
     # 金融
-    start_urls = ['https://book.douban.com/tag/%E9%87%91%E8%9E%8D']
+    # start_urls = ['https://book.douban.com/tag/%E9%87%91%E8%9E%8D']
+    # 创业
+    # start_urls = ['https://book.douban.com/tag/%E5%88%9B%E4%B8%9A']
+    #
+    start_urls = ['']
     rules = {
         # div[5] 经管标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[5]"), follow=True),
