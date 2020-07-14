@@ -17,4 +17,6 @@ public interface BookService {
     List<Book_DataScore> analysisTypeScore();
 
     List<Book_DataHot> analysisHotAuthor();
+
+    List<Book_DataReview> analysisReviewPress();
 }

@@ -89,6 +89,19 @@ public class BookController {
                     analysisData.setData(null);
                 }
                 break;
+            case "reviewPress":
+                List<Book_DataReview> resultDataList_reviewPress = service.analysisReviewPress();
+                System.out.println(resultDataList_reviewPress);
+                if (resultDataList_reviewPress != null){
+                    analysisData.setCode(1000);
+                    analysisData.setMsg("分析成功");
+                    analysisData.setData(resultDataList_reviewPress);
+                }else {
+                    analysisData.setCode(2000);
+                    analysisData.setMsg("分析失败");
+                    analysisData.setData(null);
+                }
+                break;
             default:
                 List<Book_Data> resultDataList = service.analysisBook(type);
                 if (resultDataList != null){

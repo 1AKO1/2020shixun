@@ -114,4 +114,10 @@ public interface BookMapper {
             "ORDER BY hot DESC LIMIT 0, 10\n;")
     List<Book_DataHot> analysisHotAuthor();
 
+    @Select("SELECT book_press AS press, AVG(book_reviews) AS reviews, \n" +
+            "\tAVG(book_shortComms) AS shortComms FROM tesla_book \n" +
+            "\tWHERE book_press NOT LIKE '%      %'  \n" +
+            "\tGROUP BY press HAVING COUNT(*) > 5\n" +
+            "\tORDER BY reviews DESC")
+    List<Book_DataReview> analysisReviewPress();
 }
