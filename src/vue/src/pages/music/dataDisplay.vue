@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <a-row>
-            <EchartsSinger />
-        </a-row>
-        <a-row>
+    <div >
+        <a-row style="background-color: #f0f2f5">
+                <EchartsSinger />
+        </a-row >
+        <a-row style="background-color: #f0f2f5">
             <Echartspublisher />
         </a-row>
-        <a-row>
+        <a-row style="background-color: #f0f2f5">
             <EchartsMedium />
         </a-row>
-        <a-row>
+        <a-row style="background-color: #f0f2f5">
             <a-col :span="12">
                 <EchartsKind />
             </a-col>
