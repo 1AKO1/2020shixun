@@ -9,41 +9,41 @@
 
         <a-collapse v-model="activeKey">
             <a-collapse-panel key="1" header="项目信息介绍">
-                <a-row :gutter="16" style="margin-bottom: 10px">
-                    <a-col :span="8">
-                        <a-card title="项目名" bordered hoverable>
-                            <p style="font-size: 32px">高数-您的高级数据信息服务平台</p>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                        </a-card>
-                    </a-col>
-                    <a-col :span="8">
-                        <a-card title="项目成员" bordered hoverable>
-                            <p>组长：廖嘉伟</p>
-                            <p>组员：段成源</p>
-                            <p>组员：刘博</p>
-                            <p>组员：薛彦涵</p>
-                            <p>组员：李嘉威</p>
-                            <br />
-                            <br />
-                            <br />
-                        </a-card>
-                    </a-col>
-                    <a-col :span="8">
-                        <a-card title="项目概述" bordered hoverable>
-                            <p>在当下这个信息爆炸的时代，互联网作为人们工作、生活、学习都无法脱离的平台，每天都会产生海量数据，音乐、电影、书籍、评论种种信息虽然琐碎，担当大量获取分析后将会得出许多有用的结论。</p>
-                            <p>本项目采用了前后端分离的开发方式，前段采用Vue框架进行开发，后端使用SpringBoot框架开发，通过scrapy爬虫针对豆瓣电影、音乐、图书和当当图书、B站动漫评论进行数据收集并分析，结果保存于远程mariaDB数据库中。提供简洁明了的数据查询服务，便于查询所需条件的数据，也提供关于数据内容的分析服务，并将其以图表的方式简洁直观的展示出来，方便用户观看。用户可根据分析所获结果，快捷的寻找满意的电影、音乐、书籍等资源。</p>
-                        </a-card>
-                    </a-col>
-
-                </a-row>
-
+                <table style="width: 100%">
+                    <tr style="width: 100%">
+                        <td style="width: 50%">
+                            <div style="width: 100%">
+                                <a-row :gutter="16" style="margin-bottom: 10px">
+                                    <a-col :span="8" style="width: 100%">
+                                        <a-card title="项目名" bordered hoverable>
+                                            <p style="font-size: 20px">高数-您的高级数据信息服务平台</p>
+                                        </a-card>
+                                    </a-col>
+                                </a-row>
+                                <a-row :gutter="16" style="margin-bottom: 10px">
+                                    <a-col :span="8" style="width: 100%">
+                                        <a-card title="项目成员" bordered hoverable>
+                                            <p style="font-size: 15px ">组长：廖嘉伟</p>
+                                            <p style="font-size: 15px">组员：段成源 刘博 薛彦涵 李嘉威</p>
+                                        </a-card>
+                                    </a-col>
+                                </a-row>
+                            </div>
+                        </td>
+                        <td style="width: 50%">
+                            <div style="width: 100%; height: 100%">
+                                <a-row :gutter="16" style="margin-bottom: 10px; height: 100%">
+                                    <a-col :span="8" style="width: 100%; height: 100%">
+                                        <a-card title="项目概述" style="height: 100%" bordered hoverable>
+                                            <p>在当下这个信息爆炸的时代，互联网作为人们工作、生活、学习都无法脱离的平台，每天都会产生海量数据，音乐、电影、书籍、评论种种信息虽然琐碎，担当大量获取分析后将会得出许多有用的结论。</p>
+                                            <p>本项目采用了前后端分离的开发方式，前段采用Vue框架进行开发，后端使用SpringBoot框架开发，通过scrapy爬虫针对豆瓣电影、音乐、图书和当当图书、B站动漫评论进行数据收集并分析，结果保存于远程mariaDB数据库中。提供简洁明了的数据查询服务，便于查询所需条件的数据，也提供关于数据内容的分析服务，并将其以图表的方式简洁直观的展示出来，方便用户观看。用户可根据分析所获结果，快捷的寻找满意的电影、音乐、书籍等资源。</p>
+                                        </a-card>
+                                    </a-col>
+                                </a-row>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
                 <a-row :gutter="16"  style="margin-bottom: 10px">
                     <a-col :span="8">
                         <a-card title="前端" bordered hoverable>
