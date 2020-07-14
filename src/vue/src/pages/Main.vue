@@ -1,16 +1,147 @@
 <template>
     <div>
-        <Echarts />
+        <a-page-header
+                style="border-bottom: 1px solid rgb(235, 237, 240)"
+                title="项目主页"
+                sub-title="关于项目的所有信息都在这里"
+        />
+        <br />
+
+        <a-collapse v-model="activeKey">
+            <a-collapse-panel key="1" header="项目信息介绍">
+                <a-row :gutter="16" style="margin-bottom: 10px">
+                    <a-col :span="8">
+                        <a-card title="项目名" bordered hoverable>
+                            <p style="font-size: 32px">高数-您的高级数据信息服务平台</p>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </a-card>
+                    </a-col>
+                    <a-col :span="8">
+                        <a-card title="项目成员" bordered hoverable>
+                            <p>组长：廖嘉伟</p>
+                            <p>组员：段成源</p>
+                            <p>组员：刘博</p>
+                            <p>组员：薛彦涵</p>
+                            <p>组员：李嘉威</p>
+                            <br />
+                            <br />
+                            <br />
+                        </a-card>
+                    </a-col>
+                    <a-col :span="8">
+                        <a-card title="项目概述" bordered hoverable>
+                            <p>在当下这个信息爆炸的时代，互联网作为人们工作、生活、学习都无法脱离的平台，每天都会产生海量数据，音乐、电影、书籍、评论种种信息虽然琐碎，担当大量获取分析后将会得出许多有用的结论。</p>
+                            <p>本项目采用了前后端分离的开发方式，前段采用Vue框架进行开发，后端使用SpringBoot框架开发，通过scrapy爬虫针对豆瓣电影、音乐、图书和当当图书、B站动漫评论进行数据收集并分析，结果保存于远程mariaDB数据库中。提供简洁明了的数据查询服务，便于查询所需条件的数据，也提供关于数据内容的分析服务，并将其以图表的方式简洁直观的展示出来，方便用户观看。用户可根据分析所获结果，快捷的寻找满意的电影、音乐、书籍等资源。</p>
+                        </a-card>
+                    </a-col>
+
+                </a-row>
+
+                <a-row :gutter="16"  style="margin-bottom: 10px">
+                    <a-col :span="8">
+                        <a-card title="前端" bordered hoverable>
+                            <div style="width:269px; margin: 0 auto">
+                                <img src="../static/logo.png" alt="" style="width: 120px;">
+                                <span style="margin-left: 20px; font-size: 50px; line-height: 50px">Vue.js</span>
+                            </div>
+                        </a-card>
+                    </a-col>
+                    <a-col :span="8">
+                        <a-card title="后端" bordered hoverable>
+                            <img src="../static/springboot.svg" alt="">
+                        </a-card>
+                    </a-col>
+                    <a-col :span="8">
+                        <a-card title="数据库" bordered hoverable>
+                            <img src="../static/mariadb.svg" alt="">
+                        </a-card>
+                    </a-col>
+
+                </a-row>
+
+                <a-row :gutter="16">
+                    <a-col :span="24">
+                        <a-card title="数据网站" bordered hoverable>
+                            <img src="../static/bilibili.png" alt="" style="width: 400px; margin-left: 10px">
+                            <img src="../static/dangdang.png" alt="" style="width: 400px; margin-left: 10px">
+                            <br />
+                            <img src="../static/moive.png" alt="" style="width: 400px; margin-left: 10px">
+                            <img src="../static/music.png" alt="" style="width: 400px; margin-left: 10px">
+                            <img src="../static/book.png" alt="" style="width: 400px; margin-left: 10px">
+                        </a-card>
+                    </a-col>
+                </a-row>
+
+
+            </a-collapse-panel>
+
+            <a-collapse-panel key="2" header="组员信息汇总">
+                <a-descriptions title="" bordered>
+                    <a-descriptions-item label="姓名">
+                        廖嘉伟
+                    </a-descriptions-item>
+                    <a-descriptions-item label="职务">
+                        组长
+                    </a-descriptions-item>
+                    <a-descriptions-item label="学号">
+                        YES
+                    </a-descriptions-item>
+                    <a-descriptions-item label="项目心得" :span="3">
+                        <a-badge status="processing" text="我爱写代码，以后的代码全交给我来写" />
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬虫爬取数量">
+                        $80.00
+                    </a-descriptions-item>
+                    <a-descriptions-item label="数据表字段数">
+                        $20.00
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬取信息网站">
+                        $60.00
+                    </a-descriptions-item>
+                    <a-descriptions-item label="任务">
+                        Data disk type: MongoDB
+                        <br />
+                        Database version: 3.4
+                        <br />
+                        Package: dds.mongo.mid
+                        <br />
+                        Storage space: 10 GB
+                        <br />
+                        Replication factor: 3
+                        <br />
+                        Region: East China 1<br />
+                    </a-descriptions-item>
+                </a-descriptions>
+
+                <a-divider dashed />
+            </a-collapse-panel>
+
+            <a-collapse-panel key="3" header="项目主页摆设">
+                <p>{{ text }}</p>
+            </a-collapse-panel>
+        </a-collapse>
     </div>
 </template>
 
 <script>
-    import Echarts from "../components/Echarts"
     export default {
         name: "Main",
         components:{
-            Echarts
-        }
+
+        },
+        data() {
+            return {
+                text: `A dog is a type of domesticated animal.Known for its loyalty and faithfulness,it can be found as a welcome guest in many households across the world.`,
+                activeKey: ['1'],
+            };
+        },
     }
 </script>
 
