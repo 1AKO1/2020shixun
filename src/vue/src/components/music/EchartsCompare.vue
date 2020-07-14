@@ -27,10 +27,6 @@
                             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
                         }
                     },
-                    title: {
-                        right: 0,
-                        text: '5分上下比较'
-                    },
                     legend: {
                         data: [ '5分及以下', '5分以上']
                     },

@@ -26,10 +26,6 @@
                             return [pt[0], '10%'];
                         }
                     },
-                    title: {
-                        left: 'center',
-                        text: '歌手人气榜',
-                    },
                     toolbox: {
                         feature: {
                             dataZoom: {

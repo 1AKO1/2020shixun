@@ -29,10 +29,6 @@
                         left: 10,
                         data: this.mediumaquamarine
                     },
-                    title: {
-                        left: 'center',
-                        text: '最受欢迎的发行媒介',
-                    },
                     series: [
                         {
                             name: '访问来源',
