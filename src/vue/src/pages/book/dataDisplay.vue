@@ -119,8 +119,8 @@
         </a-row>
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 50%">
-                <a-card hoverable title="TOP图书分类" >
-                    <EchartClasses/>
+                <a-card hoverable title="作者占比" >
+                    <EchartsAuthorBook/>
                 </a-card>
             </a-col>
             <a-col :span="12" style="width: 50%">
@@ -154,14 +154,14 @@
 
 
 <script>
-    import EchartClasses from "../../components/dang/EchartClasses";
+    import EchartsAuthorBook from "../../components/book/EchartsAuthorBook";
     import EchartsProssTime from "../../components/dang/EchartsProssTime";
     import EchartsAvgClass from "../../components/dang/EchartsAvgClass";
     import EchartCommentPr from "../../components/dang/EchartCommentPr";
     import EchartyearBook from "../../components/dang/EchartyearBook";
     export default {
         name: "dataDisplay",
-        components: {EchartyearBook, EchartCommentPr, EchartsAvgClass, EchartsProssTime, EchartClasses}
+        components: {EchartsAuthorBook, EchartyearBook, EchartCommentPr, EchartsAvgClass, EchartsProssTime}
     }
 </script>
 
