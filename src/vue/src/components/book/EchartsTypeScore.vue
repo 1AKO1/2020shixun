@@ -1,6 +1,6 @@
 <template>
     <div class="Echarts">
-        <div id="typeScore" style="width:100%;height:400px;"></div>
+        <div id="typeScore" style="width:100%; height:400px;"></div>
     </div>
 </template>
 
@@ -69,6 +69,7 @@
             }, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}))
                 .then(response => {
                     const resultDataList = response.data.data;
+                    console.log(222);
                     console.log(resultDataList)
                     for(let index in resultDataList){
                         let resultData = resultDataList[index];
@@ -85,10 +86,9 @@
                     }
                     this.analysis_type = result_type;
                     this.analysis_dataList = result_dataList;
-                    console.log(111);
                     console.log(this.analysis_type);
                     console.log(this.analysis_dataList);
-                    console.log(111);
+                    console.log(222);
                     this.myEcharts();
                 }).catch(error => {
                 console.log(error)

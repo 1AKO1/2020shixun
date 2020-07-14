@@ -127,7 +127,7 @@
                 </a-card>
             </a-col>
             <a-col :span="12" style="width: 50%">
-                <a-card hoverable body-style="center" title="各分类书籍平均分数及星级占比" >
+                <a-card hoverable body-style="center" title="各分类书籍平均评分及星级占比" >
                     <EchartsTypeScore align="center"/>
                 </a-card>
             </a-col>
@@ -136,29 +136,26 @@
 <!--        第四排-->
         <a-row :gutter="[16,16]">
             <a-col :span="12" style="width: 100%">
-                <a-card hoverable title="出版数量随时间的变化">
+                <a-card hoverable body-style="center" title="热度TOP10作者">
+                    <EchartsHotAuthor align="center"/>
+                </a-card>
+            </a-col>
+        </a-row>
+
+<!--        第五排-->
+        <a-row :gutter="[16,16]">
+            <a-col :span="12" style="width: 100%">
+                <a-card hoverable body-style="center" title="出版数量随时间的变化">
                     <EchartsPubDate align="center"/>
                 </a-card>
             </a-col>
         </a-row>
 
+<!--        第六排-->
         <a-row :gutter="[16,16]">
-            <a-col :span="8" style="width: 50%">
+            <a-col :span="12" style="width: 100%">
                 <a-card hoverable body-style="center" title="TOP分类平均价格">
-<!--                    <EchartsAuthorBook/>-->
-                </a-card>
-            </a-col>
-            <a-col :span="8" style="width: 50%">
-                <a-card hoverable title="评论与推荐">
-<!--                    <EchartsAuthorBook/>-->
-                </a-card>
-            </a-col>
-
-        </a-row>
-        <a-row>
-            <a-col :span="8" style="width: 50%">
-                <a-card hoverable title="4年TOP图书统计">
-<!--                    <EchartsAuthorBook/>-->
+                    <!--                    <EchartsAuthorBook align="center"/>-->
                 </a-card>
             </a-col>
         </a-row>
@@ -170,10 +167,11 @@
     import EchartsAuthorBook from "../../components/book/EchartsAuthorBook";
     import EchartsPubDate from "../../components/book/EchartsPubDate";
     import EchartsTypeScore from "../../components/book/EchartsTypeScore";
+    import EchartsHotAuthor from "../../components/book/EchartsHotAuthor";
 
     export default {
         name: "dataDisplay",
-        components: {EchartsTypeScore, EchartsAuthorBook, EchartsPubDate}
+        components: {EchartsHotAuthor, EchartsTypeScore, EchartsAuthorBook, EchartsPubDate}
     }
 </script>
 

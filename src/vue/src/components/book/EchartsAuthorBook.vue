@@ -1,6 +1,6 @@
 <template>
     <div class="Echarts">
-        <div id="authorBook" style="width:550px;height:400px;" ></div>
+        <div id="authorBook" style="width:100%; height:400px;" ></div>
     </div>
 </template>
 
@@ -68,6 +68,7 @@
             }, {headers:{'Content-Type':'application/x-www-form-urlencoded'}}))
                 .then(response =>{
                     const resultDataList = response.data.data;
+                    console.log(111);
                     console.log(resultDataList);
                     let i = 0;
                     for (let index in resultDataList){
@@ -83,6 +84,7 @@
                     this.analysisData_dataList = result_dataList;
                     this.analysisData_authors = result_authors;
                     this.limit = limit;
+                    console.log(111);
                     this.myCharts();
                 }).catch(error=>{
                 console.log(error)
