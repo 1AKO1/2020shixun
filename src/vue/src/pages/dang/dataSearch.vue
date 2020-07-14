@@ -590,7 +590,7 @@
                 bookname: null,
                 author: null,
                 presshouse: null,
-                fenlei: 'all',
+                fenlei: ['all','all'],
                 discount: 80,
                 pricebetween:[0,990],
 
