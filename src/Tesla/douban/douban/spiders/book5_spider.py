@@ -13,8 +13,10 @@ class BookSpider(CrawlSpider):
     # start_urls = ['https://book.douban.com/tag/%E7%BB%8F%E6%B5%8E%E5%AD%A6']
     # 管理
     # start_urls = ['https://book.douban.com/tag/%E7%AE%A1%E7%90%86']
-    #
-    start_urls = ['']
+    # 商业
+    # start_urls = ['https://book.douban.com/tag/%E5%95%86%E4%B8%9A']
+    # 金融
+    start_urls = ['https://book.douban.com/tag/%E9%87%91%E8%9E%8D']
     rules = {
         # div[5] 经管标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[5]"), follow=True),

@@ -14,7 +14,11 @@ class BookSpider(CrawlSpider):
     # 生活
     # start_urls = ['https://book.douban.com/tag/%E7%94%9F%E6%B4%BB']
     # 成长
-    start_urls = ['https://book.douban.com/tag/%E6%88%90%E9%95%BF']
+    # start_urls = ['https://book.douban.com/tag/%E6%88%90%E9%95%BF']
+    # 职场
+    # start_urls = ['https://book.douban.com/tag/%E8%81%8C%E5%9C%BA']
+    #
+    start_urls = ['']
     rules = {
         # div[4] 生活标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[4]"), follow=True),

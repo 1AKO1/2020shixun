@@ -53,6 +53,7 @@ public class BookServiceImpl implements BookService {
                 return mapper.analysisAuthor();
             case "pubDate":
                 return mapper.analysisPubDate();
+
 //            case "AvgClass":
 //                return mapper.avgclass();
 //            case "commentpr":

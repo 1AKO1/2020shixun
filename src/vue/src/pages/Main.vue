@@ -90,13 +90,13 @@
                         组长
                     </a-descriptions-item>
                     <a-descriptions-item label="学号">
-                        YES
+                        1811650412
                     </a-descriptions-item>
                     <a-descriptions-item label="项目心得" :span="3">
-                        <a-badge status="processing" text="我爱写代码，以后的代码全交给我来写" />
+                        <a-badge status="processing" text="爬虫太好玩了，前端太好玩了，后端太好玩了，做项目太好玩啦~" />
                     </a-descriptions-item>
                     <a-descriptions-item label="爬虫爬取数量">
-                        $80.00
+
                     </a-descriptions-item>
                     <a-descriptions-item label="数据表字段数">
                         $20.00
