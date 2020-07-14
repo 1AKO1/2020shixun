@@ -81,7 +81,7 @@
                 .then(response => {
                     const resultDataList = response.data.data
                     console.log(resultDataList)
-                    for(let index in resultDataList){
+                    for(let index in resultDataList) {
                         let resultData = resultDataList[index];
                         result_dateList = result_dateList.concat(resultData.analysisData);
                         result_dateCount = result_dateCount.concat(resultData.count);
