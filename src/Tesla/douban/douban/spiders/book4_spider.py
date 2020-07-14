@@ -13,8 +13,8 @@ class BookSpider(CrawlSpider):
     # start_urls = ['https://book.douban.com/tag/%E6%95%99%E8%82%B2']
     # 生活
     # start_urls = ['https://book.douban.com/tag/%E7%94%9F%E6%B4%BB']
-    #
-    start_urls = ['']
+    # 成长
+    start_urls = ['https://book.douban.com/tag/%E6%88%90%E9%95%BF']
     rules = {
         # div[4] 生活标签
         # Rule(LinkExtractor(allow='/tag/', restrict_xpaths="//div[@class='article']/div[2]/div[4]"), follow=True),
