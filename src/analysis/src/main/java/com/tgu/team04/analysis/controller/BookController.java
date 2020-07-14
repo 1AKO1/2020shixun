@@ -1,5 +1,6 @@
 package com.tgu.team04.analysis.controller;
 
+import com.tgu.team04.analysis.entity.Book_Data;
 import com.tgu.team04.analysis.entity.Book_ResultData;
 import com.tgu.team04.analysis.entity.Book_SearchData;
 import com.tgu.team04.analysis.entity.TableData;
@@ -22,7 +23,7 @@ public class BookController {
 
     @RequestMapping("/search")
     @ResponseBody
-    public TableData searchBook(String title, String author, String press,
+    public TableData search(String title, String author, String press,
                                 int numOfType, String type, String isbn,
                                 int minVotes, float minScore, float maxScore,
                                 int page, int limit) {
@@ -57,6 +58,24 @@ public class BookController {
             tableData.setData(null);
         }
         return tableData;
+    }
+
+    @RequestMapping("/analysis")
+    @ResponseBody
+    public TableData analysisData(String type){
+        TableData analysisData = new TableData();
+        List<Book_Data> resultDataList = service.analysisBook(type);
+
+        if (resultDataList != null){
+            analysisData.setCode(1000);
+            analysisData.setMsg("分析成功");
+            analysisData.setData(resultDataList);
+        }else {
+            analysisData.setCode(2000);
+            analysisData.setMsg("分析失败");
+            analysisData.setData(null);
+        }
+        return analysisData;
     }
 
 }
