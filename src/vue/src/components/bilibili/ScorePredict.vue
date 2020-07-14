@@ -1,5 +1,5 @@
 <template>
-    <a-card hoverable style="width: 400px; height: 400px">
+    <a-card hoverable style="width: 100%; height: 400px">
         <h1>预测分数为：</h1>
         <a-rate :default-value="score" v-model="score" disabled style="margin: 89px 0"/>
         <a-card-meta title="分数预测" description="请输入你的评论，我们来帮你预测你可能评论的分数~">

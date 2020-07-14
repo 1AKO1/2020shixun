@@ -8,7 +8,7 @@
 <!--        第一层-->
         <div class="easyBox">
             <div class="easyItem">
-                <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px">
+                <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px; margin: 0 50px">
             </div>
             <div class="easyItem">
                 <EchartsGroupBySentiment />
@@ -85,6 +85,8 @@
     }
     .easyItem{
         border: 1px solid #001529;
-        margin: 5px;
+        margin: 10px 5px;
+        width: 500px;
     }
+
 </style>
