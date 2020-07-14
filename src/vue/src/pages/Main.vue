@@ -247,9 +247,9 @@
                 <a-descriptions-item label="任务">
                     爬虫：爬取当当网图书基本信息
                     <br />
-                    后端：当当网图书信息数据查询与分析
+                    后端：当当网图书信息数据查询与分析、登录
                     <br />
-                    前端：项目框架辅助搭建、登录、dangdang网数据查询与分析
+                    前端：项目框架辅助搭建、登录、dangdang网数据查询与分析，模块化分析界面
                 </a-descriptions-item>
             </a-descriptions>
 
