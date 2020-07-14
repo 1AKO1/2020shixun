@@ -152,6 +152,38 @@
                     </a-descriptions-item>
                 </a-descriptions>
 
+                <a-descriptions title="" bordered>
+                    <a-descriptions-item label="姓名">
+                        段成源
+                    </a-descriptions-item>
+                    <a-descriptions-item label="职务">
+                        组员
+                    </a-descriptions-item>
+                    <a-descriptions-item label="学号">
+                        1811650530
+                    </a-descriptions-item>
+                    <a-descriptions-item label="项目心得" :span="3">
+                        <a-badge status="processing" text="通过本次项目，学习到爬虫机制，后端数据接口和vue框架等的使用，收获颇丰" />
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬虫爬取数量">
+                        23476
+                    </a-descriptions-item>
+                    <a-descriptions-item label="数据表字段数">
+                        19
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬取信息网站">
+                        豆瓣电影
+                    </a-descriptions-item>
+                    <a-descriptions-item label="任务">
+                        爬虫：爬取豆瓣电影相关数据
+                        <br />
+                        后端：豆瓣电影数据接口
+                        <br />
+                        前端：豆瓣电影数据展示页面<br />
+                        前端：豆瓣电影数据查询页面<br />
+                    </a-descriptions-item>
+                </a-descriptions>
+
                 <a-divider dashed />
             </a-collapse-panel>
 
