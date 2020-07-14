@@ -136,7 +136,7 @@
                             在这网站这方面还存在极大地不足，仍需要充实自己" />
                     </a-descriptions-item>
                     <a-descriptions-item label="爬虫爬取数量">
-                        12000
+                        11000
                     </a-descriptions-item>
                     <a-descriptions-item label="数据表字段数">
                         17

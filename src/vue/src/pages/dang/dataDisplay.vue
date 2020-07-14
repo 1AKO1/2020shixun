@@ -89,7 +89,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="最低售价"
-                            :value="3.2"
+                            :value="3.6"
                             :precision="2"
                             suffix="￥"
                             class="demo-class"
