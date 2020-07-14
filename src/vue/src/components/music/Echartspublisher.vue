@@ -21,10 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('publisher'));
 
                 var option = {
-                    title: {
-                        text: '发行商市场占有率',
-                        left: 'center'
-                    },
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'

@@ -21,9 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('kind'));
 
                 var option = {
-                    title: {
-                        text: '音乐类型人气&评分'
-                    },
                     legend: {
                         data: ['总评分', '总投票']
                     },
