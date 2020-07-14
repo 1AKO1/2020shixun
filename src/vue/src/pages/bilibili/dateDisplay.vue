@@ -56,7 +56,7 @@
         <a-row :gutter="16" style="margin-bottom: 10px">
             <a-col :span="8">
                 <a-card title="评论词云" bordered hoverable>
-                    <img src="../../static/kaguya.jpg" alt="" style="width: 400px; height: 400px; margin: 0 50px">
+                    <img src="../../static/kaguya.jpg" alt="" style="width: 100%; max-width: 400px; margin: 0 50px">
                 </a-card>
             </a-col>
             <a-col :span="8">
