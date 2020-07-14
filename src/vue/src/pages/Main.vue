@@ -96,7 +96,7 @@
                         <a-badge status="processing" text="爬虫太好玩了，前端太好玩了，后端太好玩了，做项目太好玩啦~" />
                     </a-descriptions-item>
                     <a-descriptions-item label="爬虫爬取数量">
-                        16k
+                        16062
                     </a-descriptions-item>
                     <a-descriptions-item label="数据表字段数">
                         30
@@ -107,9 +107,9 @@
                     <a-descriptions-item label="任务">
                         爬虫: 爬取豆瓣读书相关数据
                         <br />
-                        后端：豆瓣读书数据查询与及分析的接口及数据提取
+                        后端：豆瓣读书数据查询与及分析的服务器端设计与实现
                         <br />
-                        前端：豆瓣读书数据查询与分析的页面及数据传输与接收
+                        前端：豆瓣读书数据查询与分析的页面的设计 与后端的数据对接
                     </a-descriptions-item>
                 </a-descriptions>
 

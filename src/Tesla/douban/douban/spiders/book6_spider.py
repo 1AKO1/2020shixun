@@ -15,8 +15,10 @@ class BookSpider(CrawlSpider):
     # start_urls = ['https://book.douban.com/tag/%E4%BA%92%E8%81%94%E7%BD%91']
     # 编程
     # start_urls = ['https://book.douban.com/tag/%E7%BC%96%E7%A8%8B']
+    # 科技
+    # start_urls = ['https://book.douban.com/tag/%E7%A7%91%E6%8A%80']
     #
-    start_urls = ['https://book.douban.com/tag/%E7%A7%91%E6%8A%80']
+    start_urls = ['']
 
     rules = {
         # div[6] 科技标签

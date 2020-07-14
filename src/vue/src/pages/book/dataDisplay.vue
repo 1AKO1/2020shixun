@@ -6,7 +6,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="书籍总数"
-                            :value="12000"
+                            :value="16062"
                             :value-style="{ color: '#cf1322' }"
                             style="margin-right: 50px"
                     >
@@ -20,7 +20,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="作者总数"
-                            :value="3000"
+                            :value="11189"
                             class="demo-class"
                             :value-style="{ color: '#fb7299' }"
                     >
@@ -34,7 +34,7 @@
                 <a-card hoverable>
                     <a-statistic
                             title="标签总数"
-                            :value="1000"
+                            :value="556"
                             class="demo-class"
                             :value-style="{ color: '#FFA500' }"
                     >
@@ -87,7 +87,7 @@
                 <a-card>
                     <a-statistic
                             title="评分为7以下的书籍"
-                            :value="10000"
+                            :value="1980"
                             class="demo-class"
                             :value-style="{ color: '#cf1322' }"
                     >
@@ -104,7 +104,7 @@
                 <a-card>
                     <a-statistic
                             title="评分为9以上的书籍"
-                            :value="4000"
+                            :value="2111"
                             class="demo-class"
                             :value-style="{ color: '#3F8600' }"
                     >
