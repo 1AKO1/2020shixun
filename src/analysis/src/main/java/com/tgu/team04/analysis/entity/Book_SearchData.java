@@ -17,8 +17,8 @@ public class Book_SearchData {
     private Float minScore;     // 最小豆瓣评分
     private Float MaxScore;     // 最大豆瓣评分
 
-    private int page;           // 页码
-    private int limit;          // 每页数量
+    private Integer page;           // 页码
+    private Integer limit;          // 每页数量
 
     // 通过前端发送type0字符串构建type字符串数组，方便后续查询
     public void setType(String type0) {

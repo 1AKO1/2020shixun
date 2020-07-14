@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Book {
 
-    private int id;     // 数据库ID
+    private Integer id;     // 数据库ID
 
     // 基础信息
     private String title;   // 书名
@@ -18,21 +18,21 @@ public class Book {
     private String isbn;    // ISBN号
     private String report;  // 内容简介
     private String dbid;    // 豆瓣ID
-    private int versions;   // 书的总版本数
+    private Integer versions;   // 书的总版本数
 
     // 评价信息
-    private float score;    // 豆瓣评分
-    private int votes;      // 评价人次
-    private int shortComms; // 短评数量
-    private int reviews;    // 书评数量
-    private float fiveStar; // 五星占比
-    private float fourStar; // 四星占比
-    private float threeStar;// 三星占比
-    private float twoStar;  // 二星占比
-    private float oneStar;  // 一星占比
-    private int readings;   // 在读人数
-    private int reads;      // 已读人数
-    private int toReads;    // 想读人数
+    private Float score;    // 豆瓣评分
+    private Integer votes;      // 评价人次
+    private Integer shortComms; // 短评数量
+    private Integer reviews;    // 书评数量
+    private Float fiveStar; // 五星占比
+    private Float fourStar; // 四星占比
+    private Float threeStar;// 三星占比
+    private Float twoStar;  // 二星占比
+    private Float oneStar;  // 一星占比
+    private Integer readings;   // 在读人数
+    private Integer reads;      // 已读人数
+    private Integer toReads;    // 想读人数
 
     private String url;     // 图书URL
     private String picUrl;  // 图书封面图片URL
@@ -40,6 +40,6 @@ public class Book {
     private String hotCommContent;  // 热门短评内容
     private String hotCommPeople;   // 短评用户
     private String hotCommScore;    // 短评评分
-    private int hotCommVotes;       // 短评点赞数
+    private Integer hotCommVotes;       // 短评点赞数
 
 }

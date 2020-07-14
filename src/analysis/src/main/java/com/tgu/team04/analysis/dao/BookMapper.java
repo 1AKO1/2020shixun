@@ -29,7 +29,7 @@ public interface BookMapper {
             "   </if>" +
             // 出版社
             "   <if test='searchData.press != null and searchData.press.length > 0'>" +
-            "       AND book_author like #{searchData.press}" +
+            "       AND book_press like #{searchData.press}" +
             "   </if>" +
             // 类型
             "   <if test='searchData.numOfType > 0'>" +
@@ -39,8 +39,8 @@ public interface BookMapper {
             "       </foreach>" +
             "   </if>" +
             // ISBN号
-            "   <if test='searchData.isbn != null and searchData.press.length > 0'>" +
-            "       AND book_isbn like #{searchData.press}" +
+            "   <if test='searchData.isbn != null and searchData.isbn.length > 0'>" +
+            "       AND book_isbn like #{searchData.isbn}" +
             "   </if>" +
             // 评价人数
             "       AND book_votes >= #{searchData.minVotes}" +

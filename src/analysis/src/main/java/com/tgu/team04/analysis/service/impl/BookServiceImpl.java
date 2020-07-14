@@ -29,6 +29,9 @@ public class BookServiceImpl implements BookService {
         if (searchData.getIsbn() != null && !"".equals(searchData.getIsbn().trim())) {
             searchData.setIsbn("%" + searchData.getIsbn() + "%");
         }
+        System.out.println("============");
+        System.out.println(searchData);
+        System.out.println("============");
         // 处理查询条数 为分页准备
         if (searchData.getPage() > 0 && searchData.getLimit() > 0){
             return mapper.selectByWhere(searchData, (searchData.getPage() - 1)*searchData.getLimit(), searchData.getLimit());
