@@ -1,89 +1,167 @@
-<template>
-    <a-table :columns="columns" :data-source="data">
-        <a slot="name" slot-scope="text">{{ text }}</a>
-        <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
-        <span slot="tags" slot-scope="tags">
-      <a-tag
-              v-for="tag in tags"
-              :key="tag"
-              :color="tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'"
-      >
-        {{ tag.toUpperCase() }}
-      </a-tag>
-    </span>
-        <span slot="action" slot-scope="text, record">
-      <a>Invite 一 {{ record.name }}</a>
-      <a-divider type="vertical" />
-      <a>Delete</a>
-      <a-divider type="vertical" />
-      <a class="ant-dropdown-link"> More actions <a-icon type="down" /> </a>
-    </span>
-    </a-table>
+<template >
+    <div >
+<!--        第一排-->
+        <a-row :gutter="16">
+            <a-col :span="8">
+                <a-card hoverable>
+                    <a-statistic
+                            title="书籍总数"
+                            :value="12000"
+                            :value-style="{ color: '#cf1322' }"
+                            style="margin-right: 50px"
+                    >
+                        <template #prefix>
+                            <a-icon type="book" />
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="8">
+                <a-card hoverable>
+                    <a-statistic
+                            title="作者总数"
+                            :value="3000"
+                            class="demo-class"
+                            :value-style="{ color: '#fb7299' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="edit" />
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="8">
+                <a-card hoverable>
+                    <a-statistic
+                            title="标签总数"
+                            :value="1000"
+                            class="demo-class"
+                            :value-style="{ color: '#FFA500' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="tags" />
+                        </template>
+
+                    </a-statistic>
+                </a-card>
+            </a-col>
+        </a-row>
+<!--        第二排-->
+        <a-row :gutter="[16,16]">
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="最早的出版"
+                            value="1900-01-01"
+                            :value-style="{ color: '#00a1d6' }"
+                            style="margin-right: 50px"
+                    >
+                        <template #prefix>
+                            <a-icon type="monitor" />
+                        </template>
+                        <template #suffix>
+                            <span>"鲁迅自编文集（共十九册）" - 鲁迅</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="最近的出版"
+                            value="2020-09"
+                            class="demo-class"
+                            :value-style="{ color: '#0066CC' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="calendar" />
+                        </template>
+                        <template #suffix>
+                            <span>"梦游人（全三册）" - [奥] 赫尔曼·布洛赫</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="评分为7以下的书籍"
+                            :value="10000"
+                            class="demo-class"
+                            :value-style="{ color: '#CF1322' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="frown"/>
+                        </template>
+                        <template #suffix>
+                            <span>"父亲的力量" - 郭涛 评分：2.4（4241）</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+            <a-col :span="6">
+                <a-card>
+                    <a-statistic
+                            title="评分为9以上的书籍"
+                            :value="4000"
+                            class="demo-class"
+                            :value-style="{ color: '#3F8600' }"
+                    >
+                        <template #prefix>
+                            <a-icon type="like" />
+                        </template>
+                        <template #suffix>
+                            <span>"红楼梦" - [清] 曹雪芹 评分：9.6（292790）</span>
+                        </template>
+                    </a-statistic>
+                </a-card>
+            </a-col>
+        </a-row>
+        <a-row :gutter="[16,16]">
+            <a-col :span="12" style="width: 50%">
+                <a-card hoverable title="TOP图书分类" >
+                    <EchartClasses/>
+                </a-card>
+            </a-col>
+            <a-col :span="12" style="width: 50%">
+                <a-card hoverable title="TOP图书出版信息">
+                    <EchartsProssTime/>
+                </a-card>
+            </a-col>
+        </a-row>
+        <a-row :gutter="[16,16]">
+            <a-col :span="8" style="width: 50%">
+                <a-card hoverable title="TOP分类平均价格">
+                    <EchartsAvgClass/>
+                </a-card>
+            </a-col>
+            <a-col :span="8" style="width: 50%">
+                <a-card hoverable title="评论与推荐">
+                    <EchartCommentPr/>
+                </a-card>
+            </a-col>
+
+        </a-row>
+        <a-row>
+            <a-col :span="8" style="width: 50%">
+                <a-card hoverable title="4年TOP图书统计">
+                    <EchartyearBook/>
+                </a-card>
+            </a-col>
+        </a-row>
+    </div>
 </template>
 
+
 <script>
-    const columns = [
-        {
-            dataIndex: 'name',
-            key: 'name',
-            slots: { title: 'customTitle' },
-            scopedSlots: { customRender: 'name' },
-        },
-        {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-        },
-        {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
-        },
-        {
-            title: 'Tags',
-            key: 'tags',
-            dataIndex: 'tags',
-            scopedSlots: { customRender: 'tags' },
-        },
-        {
-            title: 'Action',
-            key: 'action',
-            scopedSlots: { customRender: 'action' },
-        },
-    ];
-
-    const data = [
-        {
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
-        },
-        {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
-        },
-        {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-        },
-    ];
-
+    import EchartClasses from "../../components/dang/EchartClasses";
+    import EchartsProssTime from "../../components/dang/EchartsProssTime";
+    import EchartsAvgClass from "../../components/dang/EchartsAvgClass";
+    import EchartCommentPr from "../../components/dang/EchartCommentPr";
+    import EchartyearBook from "../../components/dang/EchartyearBook";
     export default {
-        name: "index",
-        data() {
-            return {
-                data,
-                columns,
-            };
-        },
+        name: "dataDisplay",
+        components: {EchartyearBook, EchartCommentPr, EchartsAvgClass, EchartsProssTime, EchartClasses}
     }
 </script>
 
