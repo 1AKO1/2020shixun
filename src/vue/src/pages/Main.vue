@@ -69,12 +69,11 @@
                 <a-row :gutter="16">
                     <a-col :span="24">
                         <a-card title="数据网站" bordered hoverable>
-                            <img src="../static/bilibili.png" alt="" style="width: 400px; margin-left: 10px">
-                            <img src="../static/dangdang.png" alt="" style="width: 400px; margin-left: 10px">
-                            <br />
-                            <img src="../static/moive.png" alt="" style="width: 400px; margin-left: 10px">
-                            <img src="../static/music.png" alt="" style="width: 400px; margin-left: 10px">
-                            <img src="../static/book.png" alt="" style="width: 400px; margin-left: 10px">
+                            <img src="../static/bilibili.png" alt="" style="width: 270px; margin-left: 10px">
+                            <img src="../static/dangdang.png" alt="" style="width: 270px; margin-left: 10px">
+                            <img src="../static/moive.png" alt="" style="width: 270px; margin-left: 10px">
+                            <img src="../static/music.png" alt="" style="width: 270px; margin-left: 10px">
+                            <img src="../static/book.png" alt="" style="width: 270px; margin-left: 10px">
                         </a-card>
                     </a-col>
                 </a-row>
@@ -120,6 +119,8 @@
                     </a-descriptions-item>
                 </a-descriptions>
 
+                <a-divider dashed />
+
                 <a-descriptions title="" bordered>
                     <a-descriptions-item label="姓名">
                         刘博
@@ -151,6 +152,8 @@
                         前端：豆瓣音乐前端页面<br />
                     </a-descriptions-item>
                 </a-descriptions>
+
+                <a-divider dashed />
 
                 <a-descriptions title="" bordered>
                     <a-descriptions-item label="姓名">
@@ -185,11 +188,44 @@
                 </a-descriptions>
 
                 <a-divider dashed />
+
+                <a-descriptions title="" bordered>
+                    <a-descriptions-item label="姓名">
+                        李嘉威
+                    </a-descriptions-item>
+                    <a-descriptions-item label="职务">
+                        组员
+                    </a-descriptions-item>
+                    <a-descriptions-item label="学号">
+                        1811650610
+                    </a-descriptions-item>
+                    <a-descriptions-item label="项目心得" :span="3">
+                        <a-badge status="processing" text="通过本次实训，让我明白了前后端之间的联系方式，这对以后的学习一定很有帮助。" />
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬虫爬取数量">
+                        48235
+                    </a-descriptions-item>
+                    <a-descriptions-item label="数据表字段数">
+                        18
+                    </a-descriptions-item>
+                    <a-descriptions-item label="爬取信息网站">
+                        BiliBili
+                    </a-descriptions-item>
+                    <a-descriptions-item label="任务">
+                        爬虫：爬取番剧评论数据
+                        <br />
+                        后端：bilibili评论接口
+                        <br />
+                        前端：豆瓣电影数据展示页面
+                        <br />
+                        前端：豆瓣电影数据查询页面
+                        <br />
+                    </a-descriptions-item>
+                </a-descriptions>
+
+                <a-divider dashed />
             </a-collapse-panel>
 
-            <a-collapse-panel key="3" header="项目主页摆设">
-                <p>{{ text }}</p>
-            </a-collapse-panel>
         </a-collapse>
     </div>
 </template>
