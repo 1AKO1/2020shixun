@@ -214,12 +214,9 @@
                     <a-descriptions-item label="任务">
                         爬虫：爬取番剧评论数据
                         <br />
-                        后端：bilibili评论接口
+                        后端：bilibili数据查询与分析
                         <br />
-                        前端：豆瓣电影数据展示页面
-                        <br />
-                        前端：豆瓣电影数据查询页面
-                        <br />
+                        前端：项目框架搭建、注册、用户管理、bilibili数据查询与分析
                     </a-descriptions-item>
                 </a-descriptions>
 
