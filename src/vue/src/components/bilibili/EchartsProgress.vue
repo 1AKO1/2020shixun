@@ -21,10 +21,6 @@
                 var myChart = this.$echarts.init(document.getElementById('progress'));
 
                 var option = {
-                    title: {
-                        text: '用户观看进度',
-                        left: 'center'
-                    },
                     tooltip: {
                         trigger: 'item',
                         formatter: '{a} <br/>{b} : {c} ({d}%)'
