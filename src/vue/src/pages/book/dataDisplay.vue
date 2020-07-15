@@ -125,14 +125,14 @@
                 <a-card hoverable body-style="center" title="作品数TOP25作者">
                     <EchartsAuthorBook align="center"/>
                     <br/>
-                    <p style="color: darkgray"> “ 鲁迅先生威武 ” </p>
+                    <p style="color: darkgray"> “ 真正的勇士，敢于出最多的书，唤醒最多的人 ” </p>
                 </a-card>
             </a-col>
             <a-col :span="12" style="width: 50%">
                 <a-card hoverable body-style="center" title="各分类书籍平均评分及星级占比" >
                     <EchartsTypeScore align="center"/>
                     <br/>
-                    <p style="color: darkgray"> “ 文化类的平均评分很高，文学类则平均五星评价占比最高，生活类相对最不受欢迎~ ” </p>
+                    <p style="color: darkgray"> “ 文化类的平均评分很高，文学类则平均五星评价占比最高，二者都有很高的受欢迎率，而科技类相对最不受待见~ ” </p>
                 </a-card>
             </a-col>
         </a-row>
