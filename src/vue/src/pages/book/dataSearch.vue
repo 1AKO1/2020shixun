@@ -478,6 +478,7 @@
                 limit: 10,  // 每页多少条
                 pagination: {    // 分页的设置参数
                     total: 0,   // 把count 传给 total！
+                    current: 1
                 }
             }
         },
@@ -602,17 +603,19 @@
 
             // 点击 立即查询 后触发
             handleSubmit() {
-                console.log(this.title);
-                console.log(this.author);
-                console.log(this.press);
-                console.log(this.numOfType);
-                console.log(this.type);
-                console.log(this.isbn);
-                console.log(this.minVotes);
-                console.log(this.minScore);
-                console.log(this.maxScore);
+                // console.log(this.title);
+                // console.log(this.author);
+                // console.log(this.press);
+                // console.log(this.numOfType);
+                // console.log(this.type);
+                // console.log(this.isbn);
+                // console.log(this.minVotes);
+                // console.log(this.minScore);
+                // console.log(this.maxScore);
 
                 this.loading = true;
+                this.page = 1;
+                this.pagination.current = 1;
 
                 const searchData = qs.stringify( {
                     title: this.title,
@@ -682,6 +685,7 @@
             nextPage(pagination){
                 // 获取当前页码并进行更新
                 this.page = pagination.current;
+                this.pagination.current = pagination.current;
 
                 // 与handleSubmit函数一样
                 this.loading = true;

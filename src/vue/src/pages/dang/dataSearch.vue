@@ -605,6 +605,7 @@
                 limit: 10,  // 每页多少条
                 pagination: {    // 分页的设置参数
                     total: 0,   // 把count 传给 total！
+                    current: 1
                 }
             }
         },
@@ -641,6 +642,8 @@
             },
             handleSubmit() { // 点击立即查询后触发
                 this.loading = true; // 和loading有关的可以先忽略
+                this.page = 1;
+                this.pagination.current = 1;
                 console.log(this.fenlei);
                 console.log(this.fenlei[1]);
                 // 数据格式处理，必须做，不用问为什么
@@ -699,7 +702,7 @@
             },
             nextPage(pagination) {
                 this.page = pagination.current; // 获取当前页码并进行更新
-
+                this.pagination.current = pagination.current;
                 // 和上面的函数一样（没一点不一样）
                 this.loading = true;
                 const data = qs.stringify({

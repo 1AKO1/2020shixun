@@ -182,6 +182,7 @@
                 limit: 10,
                 pagination:{
                     total: 0,
+                    current: 1
                 }
             }
         },
@@ -210,7 +211,8 @@
             },
             handleSubmit(){
                 this.loading = true;
-
+                this.page = 1;
+                this.pagination.current = 1;
                 const data = qs.stringify({
                     name: this.name,
                     singer: this.singer,
