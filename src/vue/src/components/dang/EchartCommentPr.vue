@@ -32,6 +32,10 @@
                     //         color: '#000'
                     //     }
                     // },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: ' 评分:{b} <br/> 评论:{c}'
+                    },
                     xAxis: {
                         type: 'category',
                         data: this.datelist

@@ -26,7 +26,8 @@
                         trigger: 'axis',
                         axisPointer: {
                             type: 'shadow'
-                        }
+                        },
+                        formatter: '{b} <br/> {c}元'
                     },
                     xAxis: {
                         type: 'category',
