@@ -27,7 +27,8 @@
                         trigger: 'axis',
                         axisPointer: {
                             type: 'shadow'
-                        }
+                        },
+                        formatter: '出版年份：{b}年<br/>上榜 ：{c}本'
                     },
                     xAxis: {
                         type: 'category',
