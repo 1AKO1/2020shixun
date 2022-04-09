@@ -27,7 +27,7 @@
     "vue-template-compiler": "^2.6.11",
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "qs": "^6.9.4"
   },
   "eslintConfig": {
