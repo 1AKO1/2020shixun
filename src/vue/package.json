@@ -28,7 +28,7 @@
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
     "moment": "^2.27.0",
-    "qs": "^6.9.4"
+    "qs": "^6.9.7"
   },
   "eslintConfig": {
     "root": true,
